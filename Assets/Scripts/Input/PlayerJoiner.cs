@@ -32,7 +32,7 @@ public class PlayerJoiner : MonoBehaviour
         }
         else if (Gamepad.all.Count >= 1 && Gamepad.current.buttonSouth.isPressed)
         {
-            _manager.JoinPlayer(_id, -1, "Gamepad", Keyboard.current);
+            _manager.JoinPlayer(_id, -1, "Gamepad", Gamepad.current);
             _id++;
         }
     }

@@ -28,6 +28,7 @@ public class InputManager : MonoBehaviour
 
     private void Input_onActionTriggered(InputAction.CallbackContext obj)
     {
+        Debug.Log("Action");
         if (obj.action.name == controls.InGame.Move.name)
         {
             Debug.Log(obj.ReadValue<Vector2>());
