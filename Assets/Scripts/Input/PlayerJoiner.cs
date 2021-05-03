@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class PlayerJoiner : MonoBehaviour
 {
     [SerializeField] private PlayerInputManager _manager;
+    private List<int> devideId = new List<int>();
 
     private int _id;
     private bool _firstKeyboard = false;
@@ -30,8 +32,9 @@ public class PlayerJoiner : MonoBehaviour
             _id++;
             _secondKeyboard = true;
         }
-        else if (Gamepad.all.Count >= 1 && Gamepad.current.buttonSouth.isPressed)
+        else if (Gamepad.all.Count >= 1 && Gamepad.current.buttonSouth.isPressed && devideId.All(n => !n.Equals(Gamepad.current.deviceId)))
         {
+            devideId.Add(Gamepad.current.deviceId);
             _manager.JoinPlayer(_id, -1, "Gamepad", Gamepad.current);
             _id++;
         }

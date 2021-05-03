@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Knife
   - Body
+  - Balloon
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3698094019892413941}
-  - component: {fileID: 3698094019892413940}
   - component: {fileID: 8106551576364446799}
+  - component: {fileID: 9112935938139597239}
   m_Layer: 0
   m_Name: PlayerConfiguration
   m_TagString: Untagged
@@ -32,7 +32,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3698094019892413940
+--- !u!114 &8106551576364446799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3698094019892413943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d482274eccfa0004eb9175c71f84df64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSetupMenuPrefab: {fileID: 7666439747113261534, guid: dac63360889448544b29d9915aa07491, type: 3}
+  input: {fileID: 9112935938139597239}
+--- !u!114 &9112935938139597239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,31 +70,9 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 822c120e-aa06-476b-8b24-3f46fb2e2cc6
-    m_ActionName: PlayerMovement/Movement[/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4eb5ce68-1e6e-4023-af30-4f54a99c111b
-    m_ActionName: PlayerMovement/Select[/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth]
+  m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: InGame
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8106551576364446799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3698094019892413943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d482274eccfa0004eb9175c71f84df64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSetupMenuPrefab: {fileID: 7666439747113261534, guid: dac63360889448544b29d9915aa07491, type: 3}
-  input: {fileID: 3698094019892413940}

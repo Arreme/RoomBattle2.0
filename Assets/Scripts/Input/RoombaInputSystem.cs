@@ -19,10 +19,10 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
             ""id"": ""f6eba1cd-cc4f-4685-ad9e-69d4c2589407"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""Control"",
                     ""type"": ""PassThrough"",
                     ""id"": ""4470f0d4-c10d-430a-8e19-068f62f64416"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -51,7 +51,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -62,7 +62,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard1"",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -73,7 +73,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard1"",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -84,7 +84,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard1"",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -95,7 +95,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard1"",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -104,9 +104,9 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""id"": ""ceaa1513-bbaa-4fc5-b60b-89b3c7532ae9"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone"",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -117,7 +117,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -128,7 +128,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -139,7 +139,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -150,7 +150,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -227,7 +227,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard2"",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -238,7 +238,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard2"",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -249,7 +249,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard2"",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -260,7 +260,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard2"",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -271,7 +271,7 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard2"",
-                    ""action"": ""Move"",
+                    ""action"": ""Control"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -286,6 +286,14 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""56c6899b-e9df-4cce-9df0-4015c0840f03"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Control"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""23796a18-dc4d-4110-ac77-997353fe9f10"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -323,6 +331,171 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""KeyBoard"",
+                    ""id"": ""23fffff7-96f1-4a63-836c-6eb43653b30c"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Control"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""f4c35841-a031-4798-bf92-83992767dd06"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard1"",
+                    ""action"": ""Control"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""8499c2b4-2b96-4a4c-bd0a-4665be98cf40"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard1"",
+                    ""action"": ""Control"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""9b71dad0-6377-4444-89a3-c45c788da6d8"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard1"",
+                    ""action"": ""Control"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""9447a8e5-28bf-4d53-9da3-d2abd98917c5"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard1"",
+                    ""action"": ""Control"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""10ae5f8a-6db2-48bb-b92a-b399060894be"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Control"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""9e46565a-b853-466f-bd21-ab67b14c4bbc"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Control"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""389e1cba-754c-45cc-90a0-4039946078e6"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Control"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""a87153a5-fac8-4fa2-aa35-d2d28f433b7d"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Control"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""95559871-60bc-4148-b09b-1ae8f7a81aa0"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Control"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""KeyBoard2"",
+                    ""id"": ""4fc6cbe2-a32e-4e48-a140-271288a1ef77"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard2"",
+                    ""action"": ""Control"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""d65b146e-72d3-40a8-b2b6-45490ba97409"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard2"",
+                    ""action"": ""Control"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""34fcf226-c768-4ec7-825e-7ce6cd005177"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard2"",
+                    ""action"": ""Control"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""072a6bc3-2f14-42ee-9537-4543a825de3c"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard2"",
+                    ""action"": ""Control"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""9ee53c10-c79b-4f4a-8bb3-30b9cf932749"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard2"",
+                    ""action"": ""Control"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -365,12 +538,13 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
 }");
         // InGame
         m_InGame = asset.FindActionMap("InGame", throwIfNotFound: true);
-        m_InGame_Move = m_InGame.FindAction("Move", throwIfNotFound: true);
+        m_InGame_Control = m_InGame.FindAction("Control", throwIfNotFound: true);
         m_InGame_Boost = m_InGame.FindAction("Boost", throwIfNotFound: true);
         m_InGame_Action = m_InGame.FindAction("Action", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
+        m_UI_Control = m_UI.FindAction("Control", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -420,14 +594,14 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
     // InGame
     private readonly InputActionMap m_InGame;
     private IInGameActions m_InGameActionsCallbackInterface;
-    private readonly InputAction m_InGame_Move;
+    private readonly InputAction m_InGame_Control;
     private readonly InputAction m_InGame_Boost;
     private readonly InputAction m_InGame_Action;
     public struct InGameActions
     {
         private @RoombaInputSystem m_Wrapper;
         public InGameActions(@RoombaInputSystem wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_InGame_Move;
+        public InputAction @Control => m_Wrapper.m_InGame_Control;
         public InputAction @Boost => m_Wrapper.m_InGame_Boost;
         public InputAction @Action => m_Wrapper.m_InGame_Action;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
@@ -439,9 +613,9 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_InGameActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnMove;
+                @Control.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnControl;
+                @Control.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnControl;
+                @Control.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnControl;
                 @Boost.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnBoost;
                 @Boost.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnBoost;
                 @Boost.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnBoost;
@@ -452,9 +626,9 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
             m_Wrapper.m_InGameActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
+                @Control.started += instance.OnControl;
+                @Control.performed += instance.OnControl;
+                @Control.canceled += instance.OnControl;
                 @Boost.started += instance.OnBoost;
                 @Boost.performed += instance.OnBoost;
                 @Boost.canceled += instance.OnBoost;
@@ -470,11 +644,13 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Submit;
+    private readonly InputAction m_UI_Control;
     public struct UIActions
     {
         private @RoombaInputSystem m_Wrapper;
         public UIActions(@RoombaInputSystem wrapper) { m_Wrapper = wrapper; }
         public InputAction @Submit => m_Wrapper.m_UI_Submit;
+        public InputAction @Control => m_Wrapper.m_UI_Control;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -487,6 +663,9 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                 @Submit.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSubmit;
                 @Submit.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSubmit;
                 @Submit.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSubmit;
+                @Control.started -= m_Wrapper.m_UIActionsCallbackInterface.OnControl;
+                @Control.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnControl;
+                @Control.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnControl;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -494,6 +673,9 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                 @Submit.started += instance.OnSubmit;
                 @Submit.performed += instance.OnSubmit;
                 @Submit.canceled += instance.OnSubmit;
+                @Control.started += instance.OnControl;
+                @Control.performed += instance.OnControl;
+                @Control.canceled += instance.OnControl;
             }
         }
     }
@@ -527,12 +709,13 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
     }
     public interface IInGameActions
     {
-        void OnMove(InputAction.CallbackContext context);
+        void OnControl(InputAction.CallbackContext context);
         void OnBoost(InputAction.CallbackContext context);
         void OnAction(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
         void OnSubmit(InputAction.CallbackContext context);
+        void OnControl(InputAction.CallbackContext context);
     }
 }
