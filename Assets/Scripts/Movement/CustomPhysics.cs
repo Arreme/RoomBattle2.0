@@ -20,7 +20,7 @@ public class CustomPhysics : MonoBehaviour
         _rb = gameObject.GetComponent<Rigidbody>();
         _rb.position = transform.position;
         _rb.rotation = transform.rotation;
-        //_rb.centerOfMass = Vector2.zero;
+        _rb.centerOfMass = Vector3.zero;
     }
 
     public void FixedUpdate()
@@ -37,14 +37,16 @@ public class CustomPhysics : MonoBehaviour
     {
         if (Vector2.zero != _angularForce)
         {
-            _rb.angularVelocity = new Vector3(0, _angularForce.magnitude* Mathf.Sin(-Mathf.Deg2Rad * Vector2.SignedAngle(_angularForce.normalized, _input)) / _rb.mass, 0);
+            Vector2 forward = new Vector2(transform.forward.x,transform.forward.z);
+            Vector3 bisec = bisector(_angularForce.normalized, forward);
+            _rb.angularVelocity = new Vector3(0, _angularForce.magnitude* Mathf.Sin(-Mathf.Deg2Rad * Vector2.SignedAngle(new Vector2(bisec.x,bisec.z), _angularForce.normalized)) / _rb.mass, 0);
             _angularForce = Vector3.zero;
         }
     }
 
-    public void addTorque(Vector3 force)
+    public void addTorque(Vector2 force)
     {
-        _angularForce = new Vector2(force.x,force.z);
+        _angularForce = force;
     }
 
     public void addInput(Vector2 input)

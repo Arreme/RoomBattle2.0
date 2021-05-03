@@ -26,7 +26,7 @@ public class NewRoombaController : MonoBehaviour
     }
 
     
-    void Update()
+    void FixedUpdate()
     {
         _currentState.Stay(this);
         if (balloons == 0)

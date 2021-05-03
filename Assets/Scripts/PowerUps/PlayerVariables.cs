@@ -9,6 +9,7 @@ public class PlayerVariables : MonoBehaviour
     [Header("Boost State")]
     public float _boostTime = 0.1f;
     public float _boostMaxSpeed = 300f;
+    public float _boostForce = 600f;
 
     [Header("Physics State")]
     public float _outMaxSpeed = 11f;

@@ -22,8 +22,7 @@ public class StunnedState : RoombaState
 
     public void Stay(NewRoombaController controller)
     {
-        Vector2 forward = new Vector2(controller.transform.forward.x, controller.transform.forward.z);
-        controller._phy.addTorque(CustomPhysics.bisector(controller._movement, forward) * _rotation);
+        controller._phy.addTorque(controller._movement * _rotation);
         _seconds -= Time.deltaTime;
         if (_seconds <= 0)
         {

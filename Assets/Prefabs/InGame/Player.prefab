@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: -4280948622824827023}
   - component: {fileID: 4402105208636116597}
   - component: {fileID: -956343395107288629}
+  - component: {fileID: 4891760737443335737}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -384,7 +385,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
-  m_CollisionDetection: 1
+  m_CollisionDetection: 3
 --- !u!114 &-6325544016497439545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,15 +454,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _normalSpeed: 11
-  _rotateSpeed: 30
-  _boostTime: 0.1
+  _rotateSpeed: 50
+  _boostTime: 0.05
   _boostMaxSpeed: 300
+  _boostForce: 600
   _outMaxSpeed: 11
   _baseMaxSpeed: 11
   rate: 0.8
   lerp: 0
   lDrag: 1.14
   angDrag: 5
+--- !u!114 &4891760737443335737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975971300749553939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd133a40718e7c438e6cd5f1a3fd4ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7969481027505577779
 GameObject:
   m_ObjectHideFlags: 0

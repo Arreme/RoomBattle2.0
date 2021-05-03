@@ -8,10 +8,12 @@ public class BoostState : RoombaState
     private Vector2 _direction;
 
     private PlayerVariables _pVar;
+    private PowerUpManager _pMan;
 
     public BoostState(PlayerVariables _pVar)
     {
         this._pVar = _pVar;
+        _pMan = _pVar.GetComponent<PowerUpManager>();
     }
 
     public void EnterState(NewRoombaController controller)
@@ -20,18 +22,19 @@ public class BoostState : RoombaState
         _pVar.MaxSpeed = _pVar._boostMaxSpeed;
         controller._phy.ResetVelocity();
         _currentTime = _pVar._boostTime;
-        _direction = controller._movement;
+        _direction = new Vector2(controller.transform.forward.x, controller.transform.forward.z);
     }
 
     public void Stay(NewRoombaController controller)
     {
-        Vector2 forward = new Vector2(controller.transform.forward.x,controller.transform.forward.z);
-        controller._phy.addTorque(CustomPhysics.bisector(controller._movement, forward) * 30);
-        controller._phy.addForce(_direction, 300);
+        controller._phy.addForce(_direction, _pVar._boostForce);
         _currentTime -= Time.deltaTime;
         if (_currentTime <= 0)
         {
             controller._currentState = controller._normalState;
+        } else if (controller._action)
+        {
+            _pMan.runPowerUp();
         }
     }
 }
