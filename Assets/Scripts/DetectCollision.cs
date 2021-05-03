@@ -7,6 +7,9 @@ public class DetectCollision : MonoBehaviour
     private NewRoombaController _controller;
     private float _invTime;
     private float _currTime;
+
+    public delegate void HitAction(GameObject obj);
+    public static event HitAction OnHit;
     private void Awake()
     {
         _controller = GetComponent<NewRoombaController>();
@@ -18,8 +21,9 @@ public class DetectCollision : MonoBehaviour
     {
         _currTime -= Time.deltaTime;
         _currTime = _currTime <= 0 ? 0 : _currTime;
-        Debug.Log(_currTime);
     }
+
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -34,6 +38,7 @@ public class DetectCollision : MonoBehaviour
             {
                 Destroy(myCollider.gameObject);
                 _controller.GetHit();
+                OnHit(gameObject);
                 _currTime = _invTime;
             }
         } else if (myCollider.CompareTag("Body") && hisCollider.CompareTag("Knife"))

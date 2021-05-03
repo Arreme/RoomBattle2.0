@@ -89,7 +89,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5975971299831827353}
-  m_Material: {fileID: 13400000, guid: c4ad638f4e83bc1479a6497ac0dfdb63, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -184,7 +184,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5975971300254160247}
-  m_Material: {fileID: 13400000, guid: c4ad638f4e83bc1479a6497ac0dfdb63, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 5597032743291893671}
   - component: {fileID: -4280948622824827023}
   - component: {fileID: 4402105208636116597}
+  - component: {fileID: -956343395107288629}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -424,7 +425,9 @@ MonoBehaviour:
   _movement: {x: 0, y: 0}
   _action: 0
   _boost: 0
+  balloons: 3
   _phy: {fileID: 0}
+  _pVar: {fileID: 0}
 --- !u!114 &4402105208636116597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +440,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24e2d551bbadc94c86317df1061e5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-956343395107288629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975971300749553939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05eb93407780ee645b1a170d02d07fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _normalSpeed: 11
+  _rotateSpeed: 30
+  _boostTime: 0.1
+  _boostMaxSpeed: 300
+  _outMaxSpeed: 11
+  _baseMaxSpeed: 11
+  rate: 0.8
+  lerp: 0
 --- !u!1 &7969481027505577779
 GameObject:
   m_ObjectHideFlags: 0

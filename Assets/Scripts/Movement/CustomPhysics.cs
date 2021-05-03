@@ -10,33 +10,24 @@ public class CustomPhysics : MonoBehaviour
 
     private Vector2 _force = Vector2.zero;
     private Vector2 _input;
-    private float _outMaxSpeed = 11f;
-    private float _baseMaxSpeed = 11f;
-    private float rate;
     private Vector2 _angularForce = Vector2.zero;
 
-    public float MaxSpeed
-    {
-        get { return _baseMaxSpeed; }
-        set
-        {
-            rate = 0;
-            _outMaxSpeed = value < 0 ? 0 : value;
-        }
-    }
+    PlayerVariables _pVar;
 
     private void Start()
     {
+        _pVar = gameObject.GetComponent<PlayerVariables>();
         _rb = gameObject.GetComponent<Rigidbody>();
         _rb.position = transform.position;
         _rb.rotation = transform.rotation;
-        rate = 1;
         //_rb.centerOfMass = Vector2.zero;
     }
 
     public void FixedUpdate()
     {
-        rate += rate >= 1 ? 0 : 0.8f * Time.deltaTime;
+        _rb.drag = _pVar.lDrag;
+        _rb.angularDrag = _pVar.angDrag;
+        _pVar.lerp += _pVar.lerp >= 1 ? 0 : _pVar.rate * Time.deltaTime;
         LinearMovement();
         AngularMovement();
     }
@@ -69,8 +60,8 @@ public class CustomPhysics : MonoBehaviour
         Vector3 a = new Vector3(_force.x,0,_force.y) / _rb.mass;
         _force = Vector2.zero;
         _rb.velocity += finalVelocity(a);
-        _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, _outMaxSpeed);
-        _outMaxSpeed = Mathf.Lerp(_outMaxSpeed,_baseMaxSpeed,rate);
+        _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, _pVar._outMaxSpeed);
+        _pVar._outMaxSpeed = Mathf.Lerp(_pVar._outMaxSpeed,_pVar._baseMaxSpeed,_pVar.lerp);
     }
 
     public void addForce(Vector2 direction,float newtons)

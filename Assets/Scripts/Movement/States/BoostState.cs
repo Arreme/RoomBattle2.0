@@ -4,28 +4,23 @@ using UnityEngine;
 
 public class BoostState : RoombaState
 {
-    private float _boostTime = 0.1f;
-    private float _boostMaxSpeed = 300f;
     private float _currentTime = 0f;
     private Vector2 _direction;
 
-    public BoostState()
-    {
+    private PlayerVariables _pVar;
 
+    public BoostState(PlayerVariables _pVar)
+    {
+        this._pVar = _pVar;
     }
 
     public void EnterState(NewRoombaController controller)
     {
         controller._boost = false;
-        controller._phy.MaxSpeed = _boostMaxSpeed;
+        _pVar.MaxSpeed = _pVar._boostMaxSpeed;
         controller._phy.ResetVelocity();
-        _currentTime = _boostTime;
+        _currentTime = _pVar._boostTime;
         _direction = controller._movement;
-    }
-
-    public Vector2 Exit()
-    {
-        throw new System.NotImplementedException();
     }
 
     public void Stay(NewRoombaController controller)

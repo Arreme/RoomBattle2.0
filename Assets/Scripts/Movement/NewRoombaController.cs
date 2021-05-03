@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NewRoombaController : MonoBehaviour
@@ -10,7 +8,7 @@ public class NewRoombaController : MonoBehaviour
     public int balloons = 3;
 
     public CustomPhysics _phy;
-
+    public PlayerVariables _pVar;
     //States
     public RoombaState _currentState;
 
@@ -19,9 +17,10 @@ public class NewRoombaController : MonoBehaviour
 
     void Start()
     {
+        _pVar = GetComponent<PlayerVariables>();
         _phy = GetComponent<CustomPhysics>();
-        _normalState = new NormalState();
-        _boostState = new BoostState();
+        _normalState = new NormalState(_pVar);
+        _boostState = new BoostState(_pVar);
 
         _currentState = _normalState;
     }
@@ -39,7 +38,14 @@ public class NewRoombaController : MonoBehaviour
     public void GetHit()
     {
         balloons -= 1;
-        //TriggerInvincibility
+        GetStunned(1, Random.value*10);
+        _pVar.MaxSpeed = 1000;
+        _phy.addForce(new Vector2(transform.forward.x,transform.forward.z), 5000);
+    }
+
+    internal void GetStunned(float v, float value)
+    {
+        _currentState = new StunnedState(v,value);
     }
 
     #region(InputManagement)
