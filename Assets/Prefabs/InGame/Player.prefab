@@ -460,6 +460,8 @@ MonoBehaviour:
   _baseMaxSpeed: 11
   rate: 0.8
   lerp: 0
+  lDrag: 1.14
+  angDrag: 5
 --- !u!1 &7969481027505577779
 GameObject:
   m_ObjectHideFlags: 0
