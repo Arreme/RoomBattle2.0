@@ -6,8 +6,7 @@ public class PowerDetector : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collide");
-        if (other.gameObject.tag.Equals("Player"))
+        if (other.gameObject.CompareTag("Body"))
         {
             if (other.gameObject.GetComponentInParent<PowerUpManager>()._currentPower is NoPowerUp)
             {
@@ -20,6 +19,6 @@ public class PowerDetector : MonoBehaviour
 
     public void destroyPowerUp()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

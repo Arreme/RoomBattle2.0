@@ -26,11 +26,11 @@ public class BattleManager : MonoBehaviour
             if (Vector3.Distance(_target.transform.position, obj.transform.position) < distance)
             {
                 Vector3 direction = Vector3.Normalize(_target.transform.position - obj.transform.position);
-                _target.GetComponent<NewRoombaController>().GetStunned(1,10*Random.value);
+                _target.GetComponent<NewRoombaController>().GetStunned(0.5f,Random.value -1);
+                _target.GetComponent<PlayerVariables>().MaxSpeed = 100;
                 CustomPhysics _phy = _target.GetComponent<CustomPhysics>();
-                gameObject.GetComponent<PlayerVariables>().MaxSpeed = 1000;
-                _phy.addForce(new Vector2(direction.x, direction.z), 5000);
-                
+                _phy.ResetVelocity();
+                _phy.addForce(new Vector2(direction.x, direction.z), 700);
             }
         }
     }

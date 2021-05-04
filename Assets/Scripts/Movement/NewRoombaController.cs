@@ -38,21 +38,21 @@ public class NewRoombaController : MonoBehaviour
     public void GetHit()
     {
         balloons -= 1;
-        GetStunned(1, Random.value*10);
-        _pVar.MaxSpeed = 1000;
-        _phy.addForce(new Vector2(transform.forward.x,transform.forward.z), 5000);
+        GetStunned(0.5f, Random.value-1);
+        _pVar.MaxSpeed = 100;
+        _phy.addForce(new Vector2(transform.forward.x,transform.forward.z), 700);
     }
 
     internal void GetStunned(float v, float value)
     {
         _currentState = new StunnedState(v,value);
+        _currentState.EnterState(this);
     }
 
     #region(InputManagement)
     public void updateMovement(Vector2 movement)
     {
-        _movement = movement;
-        _phy.addInput(movement);
+        _movement = movement;   
     }
 
     public void updateBoost(bool boost)
@@ -65,7 +65,10 @@ public class NewRoombaController : MonoBehaviour
 
     public void updateAction(bool action)
     {
-        _action = action;
+        if (action && !_action)
+        {
+            _action = action;
+        }
     }
     #endregion
 }

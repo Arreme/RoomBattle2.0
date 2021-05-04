@@ -35,6 +35,7 @@ public class BoostState : RoombaState
         } else if (controller._action)
         {
             _pMan.runPowerUp();
+            controller._action = false;
         }
     }
 }

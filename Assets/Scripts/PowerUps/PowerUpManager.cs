@@ -11,7 +11,7 @@ public class PowerUpManager : MonoBehaviour
     public void runPowerUp()
     {
         _currentPower.runPowerUp(gameObject);
-        _currentPower.restorePowerUp(gameObject);
+        StartCoroutine(_currentPower.restorePowerUp(gameObject));
         _currentPower = new NoPowerUp();
     }
 

@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class RunPowerUp : PowerUp
 {
+    PlayerVariables _pVar;
     public IEnumerator restorePowerUp(GameObject player)
     {
-        throw new System.NotImplementedException();
+        yield return new WaitForSecondsRealtime(5f);
+        _pVar._baseMaxSpeed = _pVar._baseMaxSpeed / 1.5f;
+        _pVar._normalSpeed = _pVar._normalSpeed / 2f;
     }
 
     public void runPowerUp(GameObject player)
     {
-        throw new System.NotImplementedException();
+        _pVar = player.GetComponent<PlayerVariables>();
+        _pVar._baseMaxSpeed = _pVar._baseMaxSpeed * 1.5f;
+        _pVar._normalSpeed = _pVar._normalSpeed * 2f;
     }
 
 

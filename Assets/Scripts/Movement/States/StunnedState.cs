@@ -7,22 +7,23 @@ public class StunnedState : RoombaState
 
     private float _seconds;
     private float _rotation;
-    private Vector2 _movement;
 
     public StunnedState(float seconds, float rotation)
     {
         _seconds = seconds;
         _rotation = rotation;
+
     }
 
     public void EnterState(NewRoombaController controller)
     {
-        _movement = controller._movement;
+        Vector2 _movement = new Vector2(controller.transform.forward.x,controller.transform.forward.z);
+        _movement = Vector2.Perpendicular(_movement);
+        controller._phy.addTorque(_movement * _rotation * 200);
     }
 
     public void Stay(NewRoombaController controller)
     {
-        controller._phy.addTorque(controller._movement * _rotation);
         _seconds -= Time.deltaTime;
         if (_seconds <= 0)
         {

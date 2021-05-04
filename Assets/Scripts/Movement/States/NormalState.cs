@@ -23,6 +23,7 @@ public class NormalState : RoombaState
             controller._boostState.EnterState(controller);
         } else if (controller._action) {
             _pMan.runPowerUp();
+            controller._action = false;
         }
     }
 }

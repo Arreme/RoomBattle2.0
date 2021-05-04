@@ -9,7 +9,6 @@ public class CustomPhysics : MonoBehaviour
     private Rigidbody _rb;
 
     private Vector2 _force = Vector2.zero;
-    private Vector2 _input;
     private Vector2 _angularForce = Vector2.zero;
 
     PlayerVariables _pVar;
@@ -47,11 +46,6 @@ public class CustomPhysics : MonoBehaviour
     public void addTorque(Vector2 force)
     {
         _angularForce = force;
-    }
-
-    public void addInput(Vector2 input)
-    {
-        _input = input;
     }
     #endregion
 
