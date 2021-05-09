@@ -28,6 +28,7 @@ public class StunnedState : RoombaState
         if (_seconds <= 0)
         {
             controller._currentState = controller._normalState;
+            controller._currentState.EnterState(controller);
         }
     }
 }

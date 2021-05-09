@@ -33,6 +33,17 @@ public class NewRoombaController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (!_pVar.insideRing) {
+            _pVar.currentTimeForDead -= Time.deltaTime;
+            if (_pVar.currentTimeForDead <= 0)
+            {
+                Destroy(gameObject);
+            }
+        } else
+        {
+            _pVar.currentTimeForDead = _pVar.timeForDead;
+        }
     }
 
     public void GetHit()
@@ -57,18 +68,12 @@ public class NewRoombaController : MonoBehaviour
 
     public void updateBoost(bool boost)
     {
-        if (boost && !_boost)
-        {
-            _boost = boost;
-        }
+        _boost = boost;
     }
 
     public void updateAction(bool action)
     {
-        if (action && !_action)
-        {
-            _action = action;
-        }
+        _action = action;
     }
     #endregion
 }

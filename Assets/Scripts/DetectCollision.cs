@@ -44,4 +44,18 @@ public class DetectCollision : MonoBehaviour
             Debug.Log("I go away");
         }
     }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        PlayerVariables _pVar = gameObject.GetComponent<PlayerVariables>();
+        _pVar.insideRing = true;
+        _pVar.timeForDead = 3;
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        PlayerVariables _pVar = gameObject.GetComponent<PlayerVariables>();
+        _pVar.insideRing = false;
+    }
 }

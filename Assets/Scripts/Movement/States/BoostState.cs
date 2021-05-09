@@ -32,6 +32,7 @@ public class BoostState : RoombaState
         if (_currentTime <= 0)
         {
             controller._currentState = controller._normalState;
+            controller._currentState.EnterState(controller);
         } else if (controller._action)
         {
             _pMan.runPowerUp();

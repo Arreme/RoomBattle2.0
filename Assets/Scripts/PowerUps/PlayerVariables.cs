@@ -2,9 +2,14 @@ using UnityEngine;
 
 public class PlayerVariables : MonoBehaviour
 {
+    public float timeForDead = 3f;
+    public float currentTimeForDead = 3f;
+    public bool insideRing = true;
+
     [Header("Normal State")]
     public float _normalSpeed = 11f;
     public float _rotateSpeed = 30f;
+    public float _boostCD = 0.4f;
 
     [Header("Boost State")]
     public float _boostTime = 0.1f;
