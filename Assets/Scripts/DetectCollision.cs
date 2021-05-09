@@ -30,6 +30,11 @@ public class DetectCollision : MonoBehaviour
         if (hisCollider.CompareTag("Wall"))
         {
             Debug.Log("Hit a wall");
+            Interactable wallInteraction = collision.gameObject.GetComponent<Interactable>();
+            if (wallInteraction != null)
+            {
+                wallInteraction.getInteraction().runInteraction(gameObject);
+            }
         } else if (myCollider.CompareTag("Balloon") && hisCollider.CompareTag("Knife"))
         {
             if (_currTime <= 0)
