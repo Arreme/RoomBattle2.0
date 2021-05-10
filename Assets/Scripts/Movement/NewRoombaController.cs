@@ -21,7 +21,6 @@ public class NewRoombaController : MonoBehaviour
         _phy = GetComponent<CustomPhysics>();
         _normalState = new NormalState(_pVar);
         _boostState = new BoostState(_pVar);
-
         _currentState = _normalState;
     }
 
@@ -52,6 +51,7 @@ public class NewRoombaController : MonoBehaviour
         GetStunned(0.5f, Random.value-1);
         _pVar.MaxSpeed = 100;
         _phy.addForce(new Vector2(transform.forward.x,transform.forward.z), 700);
+        StressReceiver.InduceStress(30f);
     }
 
     internal void GetStunned(float v, float value)
