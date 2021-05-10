@@ -11,10 +11,10 @@ public class LampInteraction : Interactable
         
         if (gameObject.GetComponentInParent<Rigidbody>().velocity.magnitude >= 7)
         {
-            _throw += 0.2f;
+            _throw += 0.5f;
         } else
         {
-            _throw += 0.1f;
+            _throw += 0.3f;
         }
         _animator.SetFloat("Throw", _throw);
         Debug.Log(_throw);

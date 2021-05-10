@@ -29,7 +29,6 @@ public class DetectCollision : MonoBehaviour
         Collider hisCollider = collision.contacts[0].otherCollider;
         if (hisCollider.CompareTag("Wall"))
         {
-            Debug.Log("Hit a wall");
             InteractionManager wallInteraction = collision.gameObject.GetComponent<InteractionManager>();
             if (wallInteraction != null)
             {
@@ -55,7 +54,6 @@ public class DetectCollision : MonoBehaviour
         PlayerVariables _pVar = gameObject.GetComponent<PlayerVariables>();
         _pVar.insideRing = true;
         _pVar.timeForDead = 3;
-
     }
 
     private void OnTriggerExit(Collider other)
