@@ -30,7 +30,7 @@ public class DetectCollision : MonoBehaviour
         if (hisCollider.CompareTag("Wall"))
         {
             Debug.Log("Hit a wall");
-            Interactable wallInteraction = collision.gameObject.GetComponent<Interactable>();
+            InteractionManager wallInteraction = collision.gameObject.GetComponent<InteractionManager>();
             if (wallInteraction != null)
             {
                 wallInteraction.getInteraction().runInteraction(gameObject);
