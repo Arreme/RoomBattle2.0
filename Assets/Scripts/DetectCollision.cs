@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -64,7 +63,7 @@ public class DetectCollision : MonoBehaviour
         {
             Debug.Log("OIL");
             Destroy(collision.gameObject);
-            GetComponent<NewRoombaController>().GetStunned(2f, (UnityEngine.Random.value - 0.5f) * 10f);
+            GetComponent<NewRoombaController>().GetStunned(2f, (Random.value - 0.5f) * 10f);
         }
         
     }
