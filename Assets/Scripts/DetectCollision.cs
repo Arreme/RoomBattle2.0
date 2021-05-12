@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class DetectCollision : MonoBehaviour
@@ -57,6 +59,12 @@ public class DetectCollision : MonoBehaviour
         {
             _pVar.insideRing = true;
             _pVar.timeForDead = 3;
+        }
+        else if(collision.name.Equals("Oil"))
+        {
+            Debug.Log("OIL");
+            Destroy(collision.gameObject);
+            GetComponent<NewRoombaController>().GetStunned(2f, (UnityEngine.Random.value - 0.5f) * 10f);
         }
         
     }
