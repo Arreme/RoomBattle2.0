@@ -8,6 +8,8 @@ TagManager:
   - Body
   - Balloon
   - Wall
+  - KillArea
+  - Damaging
   layers:
   - Default
   - TransparentFX

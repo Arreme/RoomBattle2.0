@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class NewRoombaController : MonoBehaviour
@@ -7,10 +8,12 @@ public class NewRoombaController : MonoBehaviour
     public bool _boost;
     public int balloons = 3;
 
+    public Collider _knife;
+
     public CustomPhysics _phy;
     public PlayerVariables _pVar;
     //States
-    public RoombaState _currentState;
+    private RoombaState _currentState;
 
     public NormalState _normalState;
     public BoostState _boostState;
@@ -21,7 +24,6 @@ public class NewRoombaController : MonoBehaviour
         _phy = GetComponent<CustomPhysics>();
         _normalState = new NormalState(_pVar);
         _boostState = new BoostState(_pVar);
-
         _currentState = _normalState;
     }
 
@@ -31,19 +33,29 @@ public class NewRoombaController : MonoBehaviour
         _currentState.Stay(this);
         if (balloons == 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(die());
         }
 
         if (!_pVar.insideRing) {
             _pVar.currentTimeForDead -= Time.deltaTime;
             if (_pVar.currentTimeForDead <= 0)
             {
-                Destroy(gameObject);
+                StartCoroutine(die());
             }
         } else
         {
             _pVar.currentTimeForDead = _pVar.timeForDead;
         }
+    }
+
+    private IEnumerator die()
+    {
+        _phy.dead = true;
+        _knife.enabled = false;
+        BattleManager.removePlayers(gameObject);
+        GetStunned(5,Random.value-0.5f);
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
     }
 
     public void GetHit()
@@ -52,9 +64,24 @@ public class NewRoombaController : MonoBehaviour
         GetStunned(0.5f, Random.value-1);
         _pVar.MaxSpeed = 100;
         _phy.addForce(new Vector2(transform.forward.x,transform.forward.z), 700);
+        StressReceiver.InduceStress(30f);
+        StartCoroutine(changeKnife());
     }
 
-    internal void GetStunned(float v, float value)
+    public IEnumerator changeKnife()
+    {
+        _knife.enabled = false;
+        yield return new WaitForSecondsRealtime(0.5f);
+        _knife.enabled = true;
+    }
+
+    public void onChangeState(RoombaState state)
+    {
+        _currentState = state;
+        _currentState.EnterState(this);
+    }
+
+    public void GetStunned(float v, float value)
     {
         _currentState = new StunnedState(v,value);
         _currentState.EnterState(this);

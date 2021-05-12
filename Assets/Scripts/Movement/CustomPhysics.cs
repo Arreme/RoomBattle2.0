@@ -8,6 +8,8 @@ public class CustomPhysics : MonoBehaviour
 {
     private Rigidbody _rb;
 
+    public bool dead;
+
     private Vector2 _force = Vector2.zero;
     private Vector2 _angularForce = Vector2.zero;
 
@@ -20,6 +22,7 @@ public class CustomPhysics : MonoBehaviour
         _rb.position = transform.position;
         _rb.rotation = transform.rotation;
         _rb.centerOfMass = Vector3.zero;
+        dead = false;
     }
 
     public void FixedUpdate()
@@ -74,8 +77,17 @@ public class CustomPhysics : MonoBehaviour
 
     public void LateUpdate()
     {
-        _rb.angularVelocity = new Vector3(0, _rb.angularVelocity.y, 0);
-        transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
+        if (!dead)
+        {
+            _rb.angularVelocity = new Vector3(0, _rb.angularVelocity.y, 0);
+            transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
+        } else
+        {
+            _rb.constraints = 0;
+            _rb.AddForce((transform.forward*3 + new Vector3(0, 3, 0)) * 100,ForceMode.Acceleration);
+            _rb.AddTorque(transform.forward*10);
+        }
+        
     }
 
     void OnCollisionEnter(Collision collisionInfo)

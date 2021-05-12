@@ -7,6 +7,7 @@ public class StunnedState : RoombaState
 
     private float _seconds;
     private float _rotation;
+ 
 
     public StunnedState(float seconds, float rotation)
     {
@@ -27,8 +28,7 @@ public class StunnedState : RoombaState
         _seconds -= Time.deltaTime;
         if (_seconds <= 0)
         {
-            controller._currentState = controller._normalState;
-            controller._currentState.EnterState(controller);
+            controller.onChangeState(controller._normalState);
         }
     }
 }
