@@ -60,7 +60,7 @@ public class NewRoombaController : MonoBehaviour
         _currentState.EnterState(this);
     }
 
-    internal void GetStunned(float v, float value)
+    public void GetStunned(float v, float value)
     {
         _currentState = new StunnedState(v,value);
         _currentState.EnterState(this);
