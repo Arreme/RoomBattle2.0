@@ -5,12 +5,14 @@ public class DetectCollision : MonoBehaviour
     private NewRoombaController _controller;
     private float _invTime;
     private float _currTime;
+    private PlayerVariables _pVar;
 
     public delegate void HitAction(GameObject obj);
     public static event HitAction OnHit;
     private void Awake()
     {
         _controller = GetComponent<NewRoombaController>();
+        _pVar = gameObject.GetComponent<PlayerVariables>();
         _invTime = 2f;
         _currTime = 0;
     }
@@ -51,14 +53,19 @@ public class DetectCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        PlayerVariables _pVar = gameObject.GetComponent<PlayerVariables>();
-        _pVar.insideRing = true;
-        _pVar.timeForDead = 3;
+        if (collision.CompareTag("KillArea"))
+        {
+            _pVar.insideRing = true;
+            _pVar.timeForDead = 3;
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        PlayerVariables _pVar = gameObject.GetComponent<PlayerVariables>();
-        _pVar.insideRing = false;
+        if (other.CompareTag("KillArea"))
+        {
+            _pVar.insideRing = false;
+        }
     }
 }

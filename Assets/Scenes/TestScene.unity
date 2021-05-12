@@ -926,9 +926,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ee1c62c905bb24ea7c9cf3d9d40b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TraumaExponent: 1
-  MaximumAngularShake: {x: 2, y: 2, z: 2}
-  MaximumTranslationShake: {x: 0.1, y: 0.1, z: 0.1}
+  TraumaExponent: 10
+  MaximumAngularShake: {x: 5, y: 5, z: 5}
+  MaximumTranslationShake: {x: 4, y: 4, z: 4}
 --- !u!1 &599903663
 GameObject:
   m_ObjectHideFlags: 0
