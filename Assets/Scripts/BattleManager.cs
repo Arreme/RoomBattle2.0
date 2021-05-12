@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    private List<GameObject> _players;
+    private static List<GameObject> _players = new List<GameObject>();
     [SerializeField] GameObject shrink;
     [SerializeField] private float distance = 20f;
     [SerializeField] private float timeForShrink = 5f;
     private float _currTime = 0f;
     private bool _instantiated = false;
-    public void Awake()
-    {
-        _players = new List<GameObject>();
-    }
 
     public void AddPlayer(GameObject obj)
     {
         _players.Add(obj);
+    }
+
+    public static List<GameObject> getPlayers()
+    {
+        return _players;
     }
 
     public void Explosion(GameObject obj)

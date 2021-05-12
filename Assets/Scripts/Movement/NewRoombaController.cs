@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class NewRoombaController : MonoBehaviour
@@ -30,19 +31,27 @@ public class NewRoombaController : MonoBehaviour
         _currentState.Stay(this);
         if (balloons == 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(die());
         }
 
         if (!_pVar.insideRing) {
             _pVar.currentTimeForDead -= Time.deltaTime;
             if (_pVar.currentTimeForDead <= 0)
             {
-                Destroy(gameObject);
+                StartCoroutine(die());
             }
         } else
         {
             _pVar.currentTimeForDead = _pVar.timeForDead;
         }
+    }
+
+    private IEnumerator die()
+    {
+        _phy.dead = true;
+        GetStunned(5,Random.value-0.5f);
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
     }
 
     public void GetHit()
