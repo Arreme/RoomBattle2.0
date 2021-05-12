@@ -30,8 +30,6 @@ public class DetectCollision : MonoBehaviour
     {
         Collider myCollider = collision.contacts[0].thisCollider;
         Collider hisCollider = collision.contacts[0].otherCollider;
-        Debug.Log(hisCollider.gameObject.name);
-        Debug.Log(myCollider.gameObject.name);
         if (hisCollider.CompareTag("Wall"))
         {
             InteractionManager wallInteraction = collision.gameObject.GetComponent<InteractionManager>();
