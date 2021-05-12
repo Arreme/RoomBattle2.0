@@ -30,11 +30,12 @@ public class DetectCollision : MonoBehaviour
     {
         Collider myCollider = collision.contacts[0].thisCollider;
         Collider hisCollider = collision.contacts[0].otherCollider;
-        if (hisCollider.CompareTag("Wall"))
+        if (hisCollider.CompareTag("Wall") && transform.CompareTag("Player"))
         {
             InteractionManager wallInteraction = collision.gameObject.GetComponent<InteractionManager>();
             if (wallInteraction != null)
             {
+                Debug.Log("Hola");
                 wallInteraction.getInteraction().runInteraction(gameObject);
             }
         } else if (myCollider.CompareTag("Balloon") && (hisCollider.CompareTag("Knife") || hisCollider.CompareTag("Damaging")))
@@ -46,7 +47,7 @@ public class DetectCollision : MonoBehaviour
                 OnHit(gameObject);
                 _currTime = _invTime;
             }
-        } else if (myCollider.transform.parent.CompareTag("Player") && hisCollider.CompareTag("Damaging"))
+        } else if (transform.CompareTag("Player") && hisCollider.CompareTag("Damaging"))
         {
             _controller.GetStunned(2, (Random.value - 0.5f) * 10);
         }
