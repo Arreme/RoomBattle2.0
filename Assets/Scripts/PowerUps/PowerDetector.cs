@@ -11,7 +11,7 @@ public class PowerDetector : MonoBehaviour
         {
             if (other.gameObject.GetComponentInParent<PowerUpManager>()._currentPower is NoPowerUp)
             {
-                other.gameObject.GetComponentInParent<PowerUpManager>().getPower(new InflatePowerUp());
+                other.gameObject.GetComponentInParent<PowerUpManager>().getPower(new CatBolaPowerUp(_catBolaPrefab));
                 Debug.Log("collide with player");
                 destroyPowerUp();
             }
