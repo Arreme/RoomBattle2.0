@@ -20,10 +20,13 @@ public class CatBolaController : MonoBehaviour
     {
         Collider myCollider = collision.contacts[0].thisCollider;
         Collider hisCollider = collision.contacts[0].otherCollider;
-        if (hisCollider.CompareTag("Wall"))
+        if (hisCollider.transform.parent.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        } else
         {
             Vector3 normal = collision.contacts[0].normal;
-            float dotProduct = Vector2.Dot(new Vector2(transform.forward.x,transform.forward.z),new Vector2(normal.x,normal.z));
+            float dotProduct = Vector2.Dot(new Vector2(transform.forward.x, transform.forward.z), new Vector2(normal.x, normal.z));
             transform.forward = transform.forward - 2 * dotProduct * normal;
         }
     }

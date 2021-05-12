@@ -36,7 +36,7 @@ public class DetectCollision : MonoBehaviour
             {
                 wallInteraction.getInteraction().runInteraction(gameObject);
             }
-        } else if (myCollider.CompareTag("Balloon") && hisCollider.CompareTag("Knife"))
+        } else if (myCollider.CompareTag("Balloon") && (hisCollider.CompareTag("Knife") || hisCollider.CompareTag("Damaging")))
         {
             if (_currTime <= 0)
             {
@@ -45,9 +45,9 @@ public class DetectCollision : MonoBehaviour
                 OnHit(gameObject);
                 _currTime = _invTime;
             }
-        } else if (myCollider.CompareTag("Body") && hisCollider.CompareTag("Knife"))
+        } else if (myCollider.transform.parent.CompareTag("Player") && hisCollider.CompareTag("Damaging"))
         {
-            Debug.Log("I go away");
+            _controller.GetStunned(2, (Random.value - 0.5f) * 10);
         }
     }
 

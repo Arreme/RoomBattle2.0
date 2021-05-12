@@ -17,6 +17,6 @@ public class CatBolaPowerUp : PowerUp
 
     public void runPowerUp(GameObject player)
     {
-        
+        GameObject.Instantiate(_bolaDeGato, player.transform.position + player.transform.forward*4, player.transform.rotation);
     }
 }
