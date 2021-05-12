@@ -9,6 +9,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private float distance = 20f;
     [SerializeField] private float timeForShrink = 5f;
     private float _currTime = 0f;
+    private float _spawnerTime = 0f;
     private bool _instantiated = false;
 
     public void AddPlayer(GameObject obj)
@@ -47,12 +48,24 @@ public class BattleManager : MonoBehaviour
 
     private void Update()
     {
+        _spawnerTime += Time.deltaTime;
         _currTime += Time.deltaTime;
         if (!_instantiated && _currTime >= timeForShrink)
         {
             int player = Random.Range(0,_players.Count);
             Instantiate(shrink,_players[player].transform.position + new Vector3(0,-0.5f,0),Quaternion.identity,gameObject.transform);
             _instantiated = true;
+        }
+
+        if(_spawnerTime >= 5)
+        {
+            bool checkSpawn;
+            do
+            {
+                checkSpawn = gameObject.GetComponent<PowerUpSpawner>().InstantiateRandomObjects();
+                _spawnerTime = 0f;
+            }
+            while(!checkSpawn);
         }
     }
 }
