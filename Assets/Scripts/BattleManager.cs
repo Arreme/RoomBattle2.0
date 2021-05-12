@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    private static List<GameObject> _players = new List<GameObject>();
+    private static List<GameObject> _players;
     [SerializeField] GameObject shrink;
     [SerializeField] private float distance = 20f;
     [SerializeField] private float timeForShrink = 5f;
+    [SerializeField] private GameObject _restartMenu;
     private float _currTime = 0f;
     private float _spawnerTime = 0f;
     private bool _instantiated = false;
@@ -25,6 +26,11 @@ public class BattleManager : MonoBehaviour
     public static void removePlayers(GameObject player)
     {
         _players.Remove(player);
+    }
+
+    private void Awake()
+    {
+        _players = new List<GameObject>();
     }
 
     public void Explosion(GameObject obj)
@@ -55,6 +61,10 @@ public class BattleManager : MonoBehaviour
             int player = Random.Range(0,_players.Count);
             Instantiate(shrink,_players[player].transform.position + new Vector3(0,-0.5f,0),Quaternion.identity,gameObject.transform);
             _instantiated = true;
+        }
+        if (_players.Count == 1)
+        {
+            _restartMenu.SetActive(true);
         }
 
         if(_spawnerTime >= 5)
