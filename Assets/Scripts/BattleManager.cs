@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private float timeForShrink = 5f;
     [SerializeField] private GameObject _restartMenu;
     private float _currTime = 0f;
+    private float _spawnerTime = 0f;
     private bool _instantiated = false;
 
     public void AddPlayer(GameObject obj)
@@ -53,6 +54,7 @@ public class BattleManager : MonoBehaviour
 
     private void Update()
     {
+        _spawnerTime += Time.deltaTime;
         _currTime += Time.deltaTime;
         if (!_instantiated && _currTime >= timeForShrink)
         {
@@ -63,6 +65,17 @@ public class BattleManager : MonoBehaviour
         if (_players.Count == 1)
         {
             _restartMenu.SetActive(true);
+        }
+
+        if(_spawnerTime >= 5)
+        {
+            bool checkSpawn;
+            do
+            {
+                checkSpawn = gameObject.GetComponent<PowerUpSpawner>().InstantiateRandomObjects();
+                _spawnerTime = 0f;
+            }
+            while(!checkSpawn);
         }
     }
 }
