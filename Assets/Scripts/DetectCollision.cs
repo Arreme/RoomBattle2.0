@@ -30,6 +30,8 @@ public class DetectCollision : MonoBehaviour
     {
         Collider myCollider = collision.contacts[0].thisCollider;
         Collider hisCollider = collision.contacts[0].otherCollider;
+        Debug.Log(hisCollider.gameObject.name);
+        Debug.Log(myCollider.gameObject.name);
         if (hisCollider.CompareTag("Wall"))
         {
             InteractionManager wallInteraction = collision.gameObject.GetComponent<InteractionManager>();
@@ -61,9 +63,8 @@ public class DetectCollision : MonoBehaviour
         }
         else if(collision.name.Equals("Oil"))
         {
-            Debug.Log("OIL");
             Destroy(collision.gameObject);
-            GetComponent<NewRoombaController>().GetStunned(2f, (Random.value - 0.5f) * 10f);
+            GetComponent<NewRoombaController>().GetStunned(2f, (Random.value - 0.5f));
         }
         
     }

@@ -7,6 +7,7 @@ public class StunnedState : RoombaState
 
     private float _seconds;
     private float _rotation;
+ 
 
     public StunnedState(float seconds, float rotation)
     {

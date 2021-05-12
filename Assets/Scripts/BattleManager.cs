@@ -21,6 +21,11 @@ public class BattleManager : MonoBehaviour
         return _players;
     }
 
+    public static void removePlayers(GameObject player)
+    {
+        _players.Remove(player);
+    }
+
     public void Explosion(GameObject obj)
     {
         foreach (GameObject _target in _players)
@@ -30,10 +35,11 @@ public class BattleManager : MonoBehaviour
             if (Vector3.Distance(_target.transform.position, obj.transform.position) < distance)
             {
                 Vector3 direction = Vector3.Normalize(_target.transform.position - obj.transform.position);
-                _target.GetComponent<NewRoombaController>().GetStunned(0.5f,Random.value -1);
+                NewRoombaController _controller = _target.GetComponent<NewRoombaController>();
+                _controller.GetStunned(0.5f,Random.value -1);
+                _controller.changeKnife();
                 _target.GetComponent<PlayerVariables>().MaxSpeed = 100;
                 CustomPhysics _phy = _target.GetComponent<CustomPhysics>();
-                _phy.ResetVelocity();
                 _phy.addForce(new Vector2(direction.x, direction.z), 700);
             }
         }

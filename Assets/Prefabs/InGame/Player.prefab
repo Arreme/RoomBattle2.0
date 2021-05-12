@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43376f0f329974c428b1c4279540cc67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dead: 0
 --- !u!114 &-4280948622824827023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,8 +428,9 @@ MonoBehaviour:
   _action: 0
   _boost: 0
   balloons: 3
-  _phy: {fileID: 0}
-  _pVar: {fileID: 0}
+  _knife: {fileID: 5975971299831827355}
+  _phy: {fileID: 5597032743291893671}
+  _pVar: {fileID: -956343395107288629}
 --- !u!114 &4402105208636116597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,8 +455,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05eb93407780ee645b1a170d02d07fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeForDead: 3
+  currentTimeForDead: 3
+  insideRing: 1
   _normalSpeed: 11
   _rotateSpeed: 50
+  _boostCD: 0.4
   _boostTime: 0.05
   _boostMaxSpeed: 300
   _boostForce: 600

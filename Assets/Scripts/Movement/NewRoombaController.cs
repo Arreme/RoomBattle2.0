@@ -8,6 +8,8 @@ public class NewRoombaController : MonoBehaviour
     public bool _boost;
     public int balloons = 3;
 
+    public Collider _knife;
+
     public CustomPhysics _phy;
     public PlayerVariables _pVar;
     //States
@@ -49,6 +51,8 @@ public class NewRoombaController : MonoBehaviour
     private IEnumerator die()
     {
         _phy.dead = true;
+        _knife.enabled = false;
+        BattleManager.removePlayers(gameObject);
         GetStunned(5,Random.value-0.5f);
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);
@@ -61,6 +65,14 @@ public class NewRoombaController : MonoBehaviour
         _pVar.MaxSpeed = 100;
         _phy.addForce(new Vector2(transform.forward.x,transform.forward.z), 700);
         StressReceiver.InduceStress(30f);
+        StartCoroutine(changeKnife());
+    }
+
+    public IEnumerator changeKnife()
+    {
+        _knife.enabled = false;
+        yield return new WaitForSecondsRealtime(0.5f);
+        _knife.enabled = true;
     }
 
     public void onChangeState(RoombaState state)
