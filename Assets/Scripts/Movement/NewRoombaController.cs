@@ -10,7 +10,7 @@ public class NewRoombaController : MonoBehaviour
     public CustomPhysics _phy;
     public PlayerVariables _pVar;
     //States
-    public RoombaState _currentState;
+    private RoombaState _currentState;
 
     public NormalState _normalState;
     public BoostState _boostState;
@@ -52,6 +52,12 @@ public class NewRoombaController : MonoBehaviour
         _pVar.MaxSpeed = 100;
         _phy.addForce(new Vector2(transform.forward.x,transform.forward.z), 700);
         StressReceiver.InduceStress(30f);
+    }
+
+    public void onChangeState(RoombaState state)
+    {
+        _currentState = state;
+        _currentState.EnterState(this);
     }
 
     internal void GetStunned(float v, float value)
