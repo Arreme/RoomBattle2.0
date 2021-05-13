@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LampInteraction : Interactable
@@ -7,8 +5,7 @@ public class LampInteraction : Interactable
     Animator _animator;
     private float _throw = 0;
     public void runInteraction(GameObject gameObject)
-    {
-        
+    { 
         if (gameObject.GetComponentInParent<Rigidbody>().velocity.magnitude >= 7)
         {
             _throw += 0.5f;

@@ -12,6 +12,7 @@ public class CatBolaPowerUp : PowerUp
     public IEnumerator restorePowerUp(GameObject player)
     {
         yield return new WaitForSecondsRealtime(0);
+        player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
     }
 
     public void runPowerUp(GameObject player)

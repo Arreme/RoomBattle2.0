@@ -15,8 +15,7 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private Interactions _typeOfInteraction;
     [SerializeField] private float _CDTime;
     [SerializeField] private Interactable _emptyInteraction;
-    private float _currentCDTime;
-
+    private bool ready;
     private void Start()
     {
         switch (_typeOfInteraction)
@@ -31,14 +30,14 @@ public class InteractionManager : MonoBehaviour
                 break;
         }
         _emptyInteraction = new EmptyInteraction();
-        _currentCDTime = _CDTime;
+        ready = true;
     }
 
     public Interactable getInteraction()
     {
-        if (_currentCDTime <= 0)
+        if (ready)
         {
-            _currentCDTime = _CDTime;
+            StartCoroutine(coolDown());
             return _interaction;
         } else
         {
@@ -46,8 +45,10 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    private IEnumerator coolDown()
     {
-        _currentCDTime -= Time.deltaTime;
+        ready = false;
+        yield return new WaitForSeconds(_CDTime);
+        ready = true;
     }
 }
