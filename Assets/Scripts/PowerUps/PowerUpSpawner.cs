@@ -58,9 +58,7 @@ public class PowerUpSpawner : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not Spawn");
         }
-        Debug.Log(_canInstantiate);
 
         return _canInstantiate;
     }

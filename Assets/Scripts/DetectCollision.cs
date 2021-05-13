@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DetectCollision : MonoBehaviour
@@ -7,7 +8,7 @@ public class DetectCollision : MonoBehaviour
     private float _invTime;
     private bool _isInvincible = false;
     private PlayerVariables _pVar;
-
+    [SerializeField] private List<GameObject> models;
     private void Awake()
     {
         _controller = GetComponent<NewRoombaController>();
@@ -45,8 +46,39 @@ public class DetectCollision : MonoBehaviour
 
     private IEnumerator invincible()
     {
+        Debug.Log("Player turned invincible!");
         _isInvincible = true;
-        yield return new WaitForSecondsRealtime(_invTime);
+        bool _zero = true;
+        for (float i = 0; i < _invTime; i += 0.2f)
+        {
+            // Alternate between 0 and 1 scale to simulate flashing
+            if (_zero)
+            {
+                foreach(GameObject model in models)
+                {
+                    model.SetActive(false);
+                }
+                _zero = false;
+            }
+            else
+            {
+                foreach (GameObject model in models)
+                {
+                    model.SetActive(true);
+                }
+                _zero = true;
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        Debug.Log("Player is no longer invincible!");
+        if (!_zero)
+        {
+            foreach (GameObject model in models)
+            {
+                model.SetActive(true);
+            }
+        }
         _isInvincible = false;
     }
 

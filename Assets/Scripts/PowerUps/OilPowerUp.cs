@@ -14,7 +14,7 @@ public class OilPowerUp : PowerUp
 
     public IEnumerator restorePowerUp(GameObject player)
     {
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(1.5f);
         _oil.GetComponent<Collider>().enabled = true;
         player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
     }
