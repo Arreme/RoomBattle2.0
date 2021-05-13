@@ -18,7 +18,6 @@ public class CatBolaController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Collider myCollider = collision.contacts[0].thisCollider;
         Collider hisCollider = collision.contacts[0].otherCollider;
         if (hisCollider.transform.parent.CompareTag("Player"))
         {

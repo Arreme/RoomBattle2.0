@@ -17,7 +17,6 @@ public class LevelInitializer : MonoBehaviour
         var result = playerSpawn;
         result.Shuffle();
         var playerConfig = PlayerConfigManager.Instance.GetPlayerConfigs().ToArray();
-        DetectCollision.OnHit += _manager.Explosion;
         for (int i = 0; i < playerConfig.Length; i++)
         {
             var player = Instantiate(playerPrefab, result[i]);

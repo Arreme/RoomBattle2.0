@@ -7,7 +7,7 @@ public class StunnedState : RoombaState
 
     private float _seconds;
     private float _rotation;
- 
+    private Rigidbody _rb;
 
     public StunnedState(float seconds, float rotation)
     {
@@ -18,14 +18,13 @@ public class StunnedState : RoombaState
 
     public void EnterState(NewRoombaController controller)
     {
-        Vector2 _movement = new Vector2(controller.transform.forward.x,controller.transform.forward.z);
-        _movement = Vector2.Perpendicular(_movement);
-        controller._phy.addTorque(_movement * _rotation * 200);
+        _rb = controller.gameObject.GetComponent<Rigidbody>();
     }
 
     public void Stay(NewRoombaController controller)
     {
         _seconds -= Time.deltaTime;
+        _rb.angularVelocity = new Vector3(0,10*_rotation,0);
         if (_seconds <= 0)
         {
             controller.onChangeState(controller._normalState);

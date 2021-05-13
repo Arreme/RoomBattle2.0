@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class RestartGame : MonoBehaviour
 {
     
-    void Start()
+    public void Exit()
     {
-        
+        SceneManager.LoadScene("UI_MENU");
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("TestScene");
     }
 }

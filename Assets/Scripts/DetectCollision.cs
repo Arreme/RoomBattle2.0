@@ -5,26 +5,15 @@ public class DetectCollision : MonoBehaviour
 {
     private NewRoombaController _controller;
     private float _invTime;
-    private float _currTime;
+    private bool _isInvincible = false;
     private PlayerVariables _pVar;
 
-    public delegate void HitAction(GameObject obj);
-    public static event HitAction OnHit;
     private void Awake()
     {
         _controller = GetComponent<NewRoombaController>();
         _pVar = gameObject.GetComponent<PlayerVariables>();
         _invTime = 2f;
-        _currTime = 0;
     }
-
-    private void FixedUpdate()
-    {
-        _currTime -= Time.deltaTime;
-        _currTime = _currTime <= 0 ? 0 : _currTime;
-    }
-
-
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -39,17 +28,24 @@ public class DetectCollision : MonoBehaviour
             }
         } else if (myCollider.CompareTag("Balloon") && (hisCollider.CompareTag("Knife") || hisCollider.CompareTag("Damaging")))
         {
-            if (_currTime <= 0)
+            if (!_isInvincible)
             {
                 Destroy(myCollider.gameObject);
                 _controller.GetHit();
-                OnHit(gameObject);
-                _currTime = _invTime;
+                BattleManager.Instance.Explosion(gameObject);
+                StartCoroutine(invincible());
             }
         } else if (myCollider.transform.parent.CompareTag("Player") && hisCollider.CompareTag("Damaging"))
         {
-            _controller.GetStunned(2, (Random.value - 0.5f) * 10);
+            _controller.GetStunned(2, Random.Range(0, 2) * 2 - 1);
         }
+    }
+
+    private IEnumerator invincible()
+    {
+        _isInvincible = true;
+        yield return new WaitForSecondsRealtime(_invTime);
+        _isInvincible = false;
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -62,7 +58,7 @@ public class DetectCollision : MonoBehaviour
         else if(collision.name.Equals("Oil"))
         {
             Destroy(collision.gameObject);
-            GetComponent<NewRoombaController>().GetStunned(2f, (Random.value - 0.5f));
+            GetComponent<NewRoombaController>().GetStunned(2f, Random.Range(0, 2) * 2 - 1);
         }
         
     }
