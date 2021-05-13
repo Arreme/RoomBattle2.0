@@ -37,7 +37,7 @@ public class DetectCollision : MonoBehaviour
             }
         } else if (myCollider.transform.parent.CompareTag("Player") && hisCollider.CompareTag("Damaging"))
         {
-            _controller.GetStunned(2, Random.Range(0, 2) * 2 - 1);
+            _controller.GetStunned(1.5f, Random.Range(0, 2) * 2 - 1);
         }
     }
 
