@@ -7,7 +7,7 @@ public class PowerDetector : MonoBehaviour
 {
     [SerializeField] private GameObject _catBolaPrefab;
     [SerializeField] private GameObject _oilPrefab;
-    private const int nPowerUps = 6;
+    private const int nPowerUps = 7;
 
     private void OnTriggerEnter(Collider other)
     {

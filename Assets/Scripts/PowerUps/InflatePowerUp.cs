@@ -31,7 +31,7 @@ public class InflatePowerUp : PowerUp
     {
         do
         {
-            int number = (int)Random.Range(0f, _players.Count - 1f);
+            int number = (int)Random.Range(0f, _players.Count);
             _selectedPlayer = _players[number];
         }
         while (_selectedPlayer.Equals(player) && _players.Count > 1);
