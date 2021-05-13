@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class OilPowerUp : PowerUp
 {
-    PlayerVariables _pVar;
     private GameObject oilPrefab;
     private GameObject _oil;
 
