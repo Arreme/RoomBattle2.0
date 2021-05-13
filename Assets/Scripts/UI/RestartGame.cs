@@ -9,10 +9,11 @@ public class RestartGame : MonoBehaviour
     public void Exit()
     {
         SceneManager.LoadScene("UI_MENU");
+        Destroy(PlayerConfigManager.Instance.gameObject);
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene("TestScene");
+        SceneManager.LoadScene("Final");
     }
 }
