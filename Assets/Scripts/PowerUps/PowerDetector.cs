@@ -7,7 +7,7 @@ public class PowerDetector : MonoBehaviour
 {
     [SerializeField] private GameObject _catBolaPrefab;
     [SerializeField] private GameObject _oilPrefab;
-    private const int nPowerUps = 5;
+    private const int nPowerUps = 6;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,6 +40,9 @@ public class PowerDetector : MonoBehaviour
                 break;
             case 5:
                 other.gameObject.GetComponentInParent<PowerUpManager>().getPower(new CatBolaPowerUp(_catBolaPrefab));
+                break;
+            case 6:
+                other.gameObject.GetComponentInParent<PowerUpManager>().getPower(new InflatePowerUp());
                 break;
         }
     }
