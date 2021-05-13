@@ -7,7 +7,7 @@ public class PowerDetector : MonoBehaviour
 {
     [SerializeField] private GameObject _catBolaPrefab;
     [SerializeField] private GameObject _oilPrefab;
-    public const float nPowerUps = 5f;
+    private const int nPowerUps = 5;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,7 +23,8 @@ public class PowerDetector : MonoBehaviour
 
     private void chooseRandomPU(Collider other)
     {
-        var random = UnityEngine.Random.Range(1f, nPowerUps);
+        int random = UnityEngine.Random.Range(1, nPowerUps);
+        Debug.Log(random);
         switch (random)
         {
             case 1:
