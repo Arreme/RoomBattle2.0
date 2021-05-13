@@ -53,7 +53,7 @@ public class NewRoombaController : MonoBehaviour
         _phy.dead = true;
         _knife.enabled = false;
         BattleManager.removePlayers(gameObject);
-        GetStunned(5,Random.value-0.5f);
+        GetStunned(5, Random.Range(0, 2) * 2 - 1);
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }

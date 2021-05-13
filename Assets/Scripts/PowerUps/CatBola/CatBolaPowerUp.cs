@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CatBolaPowerUp : PowerUp
@@ -17,6 +16,6 @@ public class CatBolaPowerUp : PowerUp
 
     public void runPowerUp(GameObject player)
     {
-        GameObject.Instantiate(_bolaDeGato, player.transform.position + player.transform.forward*4, player.transform.rotation);
+        GameObject.Instantiate(_bolaDeGato, player.transform.position + player.transform.forward*3, player.transform.rotation);
     }
 }
