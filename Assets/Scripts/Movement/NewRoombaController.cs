@@ -53,7 +53,7 @@ public class NewRoombaController : MonoBehaviour
         _phy.dead = true;
         _knife.enabled = false;
         BattleManager.removePlayers(gameObject);
-        GetStunned(5, Random.Range(0, 2) * 2 - 1);
+        GetStunned(10, Random.Range(0, 2) * 2 - 1);
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }
@@ -61,7 +61,7 @@ public class NewRoombaController : MonoBehaviour
     public void GetHit()
     {
         balloons -= 1;
-        GetStunned(0.5f, Random.value-1);
+        GetStunned(1f, Random.value-1);
         _pVar.MaxSpeed = 100;
         _phy.addForce(new Vector2(transform.forward.x,transform.forward.z), 700);
         StressReceiver.InduceStress(30f);

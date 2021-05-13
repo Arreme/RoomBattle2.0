@@ -32,7 +32,7 @@ public class PlayerConfigManager : MonoBehaviour
         _configs[index].IsReady = true;
         if (_configs.All(p => p.IsReady == true))
         {
-            SceneManager.LoadScene("TestScene");
+            SceneManager.LoadScene("Final");
         }
     }
 
