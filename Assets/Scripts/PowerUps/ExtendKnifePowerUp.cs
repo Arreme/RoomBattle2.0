@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExtendKnifePowerUp : PowerUp
@@ -11,6 +10,7 @@ public class ExtendKnifePowerUp : PowerUp
     {
         yield return new WaitForSecondsRealtime(5f);
         _knife.transform.localScale = _oldScale;
+        Debug.Log("Hey");
         player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
     }
 

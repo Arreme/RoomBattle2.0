@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 3632292}
   - component: {fileID: 3632294}
   - component: {fileID: 3632293}
+  - component: {fileID: 3632295}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -200,6 +201,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3632291}
   m_CullTransparentMesh: 1
+--- !u!114 &3632295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3632291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7889cacb06dac4d8af0fbc74a62360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &35570862
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +552,7 @@ MonoBehaviour:
   m_text: BACK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d2f9a3f067dd95f499b125ce608770dc, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 4814875792421441070, guid: d2f9a3f067dd95f499b125ce608770dc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -696,7 +709,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1087698288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -1038,7 +1051,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1087698288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
@@ -1148,7 +1161,7 @@ MonoBehaviour:
   m_text: Roombattle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d2f9a3f067dd95f499b125ce608770dc, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 4814875792421441070, guid: d2f9a3f067dd95f499b125ce608770dc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1421,7 +1434,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1087698287}
-  - component: {fileID: 1087698288}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1452,18 +1464,6 @@ RectTransform:
   m_AnchoredPosition: {x: 26.2118, y: -22.883}
   m_SizeDelta: {x: 1325.8865, y: 1014.6}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1087698288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087698286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d7889cacb06dac4d8af0fbc74a62360, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1175087273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,7 +1548,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1388294922}
-  - component: {fileID: 1388294923}
   m_Layer: 5
   m_Name: ControlMenu
   m_TagString: Untagged
@@ -1579,18 +1578,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0099487, y: 0.005265}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1388294923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1388294921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d7889cacb06dac4d8af0fbc74a62360, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1440455548
 GameObject:
   m_ObjectHideFlags: 0
