@@ -20,7 +20,7 @@ public class DetectCollision : MonoBehaviour
         Collider myCollider = collision.contacts[0].thisCollider;
         Collider hisCollider = collision.contacts[0].otherCollider;
         if (hisCollider.CompareTag("Wall"))
-        {
+        {   
             InteractionManager wallInteraction = collision.gameObject.GetComponent<InteractionManager>();
             if (wallInteraction != null)
             {

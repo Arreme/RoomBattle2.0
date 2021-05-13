@@ -30,6 +30,7 @@ public class InteractionManager : MonoBehaviour
                 break;
         }
         _emptyInteraction = new EmptyInteraction();
+        ready = true;
     }
 
     public Interactable getInteraction()
