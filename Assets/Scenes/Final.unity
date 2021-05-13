@@ -4878,6 +4878,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659247215}
   m_Mesh: {fileID: 4607281675321082926, guid: 512cc92c5e2959642a690917689f2b76, type: 3}
+--- !u!1 &660802179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f688cb693b30fab49bebbe9da148b371, type: 3}
+  m_PrefabInstance: {fileID: 1454574308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &660802180
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660802179}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.5000005, y: 0.5300013, z: 5.0000024}
+  m_Center: {x: 0.00000022172931, y: -0.015000302, z: 2.5000002}
 --- !u!1 &671964883
 GameObject:
   m_ObjectHideFlags: 0
@@ -9134,6 +9152,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f688cb693b30fab49bebbe9da148b371, type: 3}
       propertyPath: m_Name
       value: pared
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f688cb693b30fab49bebbe9da148b371, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f688cb693b30fab49bebbe9da148b371, type: 3}

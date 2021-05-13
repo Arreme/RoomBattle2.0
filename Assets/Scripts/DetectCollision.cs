@@ -49,7 +49,7 @@ public class DetectCollision : MonoBehaviour
         Debug.Log("Player turned invincible!");
         _isInvincible = true;
         bool _zero = true;
-        for (float i = 0; i < _invTime; i += 0.2f)
+        for (float i = 0; i < _invTime; i += 0.1f)
         {
             // Alternate between 0 and 1 scale to simulate flashing
             if (_zero)
@@ -68,7 +68,7 @@ public class DetectCollision : MonoBehaviour
                 }
                 _zero = true;
             }
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
 
         Debug.Log("Player is no longer invincible!");
