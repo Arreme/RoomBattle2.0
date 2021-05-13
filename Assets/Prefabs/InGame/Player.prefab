@@ -631,6 +631,7 @@ GameObject:
   - component: {fileID: 4402105208636116597}
   - component: {fileID: -956343395107288629}
   - component: {fileID: 4891760737443335737}
+  - component: {fileID: 6366566722658192304}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -769,6 +770,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd133a40718e7c438e6cd5f1a3fd4ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &6366566722658192304
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975971300749553939}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 6b9110e18844ca840babe3df59f0ae6d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 6b9110e18844ca840babe3df59f0ae6d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6927297565703558887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1109,10 @@ PrefabInstance:
     - target: {fileID: 6327386839977655883, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6327386839977655883, guid: de987a58884c21045850f99116912f60, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 6327386839977655883, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_LocalPosition.x

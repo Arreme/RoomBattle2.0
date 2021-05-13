@@ -23,6 +23,7 @@ public class BoostState : RoombaState
         controller._phy.ResetVelocity();
         _currentTime = _pVar._boostTime;
         _direction = new Vector2(controller.transform.forward.x, controller.transform.forward.z);
+        controller.gameObject.GetComponent<Animation>().Play();
     }
 
     public void Stay(NewRoombaController controller)
