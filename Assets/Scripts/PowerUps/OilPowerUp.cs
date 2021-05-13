@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class OilPowerUp : PowerUp
 {
-    private GameObject oilPrefab;
+    private GameObject _oilPrefab;
     private GameObject _oil;
 
     public OilPowerUp(GameObject prefab)
     {
-        oilPrefab = prefab;
+        _oilPrefab = prefab;
     }
 
     public IEnumerator restorePowerUp(GameObject player)
@@ -21,7 +21,7 @@ public class OilPowerUp : PowerUp
 
     public void runPowerUp(GameObject player)
     {
-        _oil = GameObject.Instantiate(oilPrefab, player.transform.position, Quaternion.identity);
+        _oil = GameObject.Instantiate(_oilPrefab, player.transform.position, Quaternion.identity);
         _oil.GetComponent<Collider>().enabled = false;
     }
 }
