@@ -28,7 +28,6 @@ public class PowerUpManager : MonoBehaviour
 
     public void setIsPowerUpRunning(bool b)
     {
-        Debug.Log("Not running");
         isPowerRunning = b;
     }
 }
