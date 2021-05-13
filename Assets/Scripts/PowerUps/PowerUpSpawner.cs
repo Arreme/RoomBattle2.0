@@ -18,10 +18,6 @@ public class PowerUpSpawner : MonoBehaviour
     {
         SetRanges();
     }
-    private void Update()
-    {
-        GenerateRandomPosition();
-    }
 
     private void GenerateRandomPosition()
     {
@@ -40,10 +36,12 @@ public class PowerUpSpawner : MonoBehaviour
     }
     public bool InstantiateRandomObjects()
     {
+        GenerateRandomPosition();
         _canInstantiate = true;
         //* He eliminado la layermask, url: https://docs.unity3d.com/ScriptReference/Physics.OverlapBox.html
-        Collider[] hitColliders = Physics.OverlapBox(_puPrefab.transform.position, _puPrefab.transform.localScale * 2, Quaternion.identity);
+        Collider[] hitColliders = Physics.OverlapBox(_randomPosition, _puPrefab.transform.localScale * 5, Quaternion.identity);
         int i = 0;
+
         //Check when there is a new collider coming into contact with the box
         while (i < hitColliders.Length)
         {
@@ -58,6 +56,11 @@ public class PowerUpSpawner : MonoBehaviour
         {
             Instantiate(_puPrefab, _randomPosition, Quaternion.identity);
         }
+        else
+        {
+            Debug.Log("Not Spawn");
+        }
+        Debug.Log(_canInstantiate);
 
         return _canInstantiate;
     }

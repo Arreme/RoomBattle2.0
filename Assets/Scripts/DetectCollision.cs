@@ -26,7 +26,8 @@ public class DetectCollision : MonoBehaviour
             {
                 wallInteraction.getInteraction().runInteraction(gameObject);
             }
-        } else if (myCollider.CompareTag("Balloon") && (hisCollider.CompareTag("Knife") || hisCollider.CompareTag("Damaging")))
+        }
+        else if (myCollider.CompareTag("Balloon") && (hisCollider.CompareTag("Knife") || hisCollider.CompareTag("Damaging")))
         {
             if (!_isInvincible)
             {
@@ -35,9 +36,10 @@ public class DetectCollision : MonoBehaviour
                 BattleManager.Instance.Explosion(gameObject);
                 StartCoroutine(invincible());
             }
-        } else if (myCollider.transform.parent.CompareTag("Player") && hisCollider.CompareTag("Damaging"))
+        }
+        else if (myCollider.transform.parent.CompareTag("Player") && hisCollider.CompareTag("Damaging"))
         {
-            _controller.GetStunned(1.5f, Random.Range(0, 2) * 2 - 1,700);
+            _controller.GetStunned(1.5f, Random.Range(0, 2) * 2 - 1, 700);
         }
     }
 
@@ -55,12 +57,12 @@ public class DetectCollision : MonoBehaviour
             _pVar.insideRing = true;
             _pVar.timeForDead = 3;
         }
-        else if(collision.name.Equals("Oil"))
+        else if (collision.CompareTag("Oil"))
         {
             Destroy(collision.gameObject);
-            GetComponent<NewRoombaController>().GetStunned(2f, Random.Range(0, 2) * 2 - 1,0);
+            GetComponent<NewRoombaController>().GetStunned(2f, Random.Range(0, 2) * 2 - 1, 0);
         }
-        
+
     }
 
     private void OnTriggerExit(Collider other)
