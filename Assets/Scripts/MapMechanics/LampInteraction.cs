@@ -17,7 +17,6 @@ public class LampInteraction : Interactable
             _throw += 0.3f;
         }
         _animator.SetFloat("Throw", _throw);
-        Debug.Log(_throw);
         if (_throw >= 1f)
         {
             _animator.Play("LampThrowUp", 0);
