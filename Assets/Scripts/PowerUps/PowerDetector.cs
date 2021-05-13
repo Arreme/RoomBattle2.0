@@ -15,8 +15,7 @@ public class PowerDetector : MonoBehaviour
         {
             if (other.gameObject.GetComponentInParent<PowerUpManager>()._currentPower is NoPowerUp)
             {
-                other.gameObject.GetComponentInParent<PowerUpManager>().getPower(new ExtendKnifePowerUp());
-                //chooseRandomPU(other);
+                chooseRandomPU(other);
                 destroyPowerUp();
             }
         }
