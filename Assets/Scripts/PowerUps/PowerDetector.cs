@@ -15,7 +15,8 @@ public class PowerDetector : MonoBehaviour
         {
             if (other.gameObject.GetComponentInParent<PowerUpManager>()._currentPower is NoPowerUp)
             {
-                chooseRandomPU(other);
+                other.gameObject.GetComponentInParent<PowerUpManager>().getPower(new ExtendKnifePowerUp());
+                //chooseRandomPU(other);
                 destroyPowerUp();
             }
         }
@@ -24,7 +25,6 @@ public class PowerDetector : MonoBehaviour
     private void chooseRandomPU(Collider other)
     {
         int random = UnityEngine.Random.Range(1, nPowerUps);
-        Debug.Log(random);
         switch (random)
         {
             case 1:
