@@ -24,7 +24,7 @@ public class PowerDetector : MonoBehaviour
     private void chooseRandomPU(Collider other)
     {
         int random = UnityEngine.Random.Range(1, nPowerUps);
-        switch (random)
+        switch (5)
         {
             case 1:
                 other.gameObject.GetComponentInParent<PowerUpManager>().getPower(new ExtendKnifePowerUp());

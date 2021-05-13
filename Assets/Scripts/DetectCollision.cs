@@ -46,7 +46,6 @@ public class DetectCollision : MonoBehaviour
 
     private IEnumerator invincible()
     {
-        Debug.Log("Player turned invincible!");
         _isInvincible = true;
         bool _zero = true;
         for (float i = 0; i < _invTime; i += 0.1f)
@@ -71,7 +70,6 @@ public class DetectCollision : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        Debug.Log("Player is no longer invincible!");
         if (!_zero)
         {
             foreach (GameObject model in models)
