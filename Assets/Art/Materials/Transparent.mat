@@ -153,8 +153,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Stencil: 0
-    - _StencilComp: 3
-    - _StencilOp: 3
+    - _StencilComp: 8
+    - _StencilOp: 8
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
     - _Surface: 0
@@ -165,7 +165,7 @@ Material:
     m_Colors:
     - _BASE_COLOR: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0, g: 0, b: 0, a: 0.49803922}
+    - _Color: {r: 0.8679245, g: 0.26948726, b: 0.118725546, a: 0.5019608}
     - _EMISSION_COLOR: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _REFLECTIONS_COLOR: {r: 1, g: 1, b: 1, a: 1}
