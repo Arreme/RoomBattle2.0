@@ -10,6 +10,7 @@ public class RunPowerUp : PowerUp
         yield return new WaitForSecondsRealtime(5f);
         _pVar._baseMaxSpeed = _pVar._baseMaxSpeed / 1.5f;
         _pVar._normalSpeed = _pVar._normalSpeed / 2f;
+        _pVar.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
     }
 
     public void runPowerUp(GameObject player)

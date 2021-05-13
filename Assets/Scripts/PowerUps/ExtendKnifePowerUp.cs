@@ -9,8 +9,9 @@ public class ExtendKnifePowerUp : PowerUp
 
     public IEnumerator restorePowerUp(GameObject player)
     {
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(5f);
         _knife.transform.localScale = _oldScale;
+        player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
     }
 
     public void runPowerUp(GameObject player)

@@ -34,7 +34,7 @@ public class BattleManager : MonoBehaviour
         }
         _players = new List<GameObject>();
         StartCoroutine(spawnShrinker());
-        InvokeRepeating("createPickUp",10,10);
+        InvokeRepeating("createPickUp", 10, 10);
         StartCoroutine(checkForWin());
     }
 
@@ -43,12 +43,12 @@ public class BattleManager : MonoBehaviour
         foreach (GameObject _target in _players)
         {
             if (ReferenceEquals(obj, _target)) continue;
-            
+
             if (Vector3.Distance(_target.transform.position, obj.transform.position) < distance)
             {
                 Vector3 direction = Vector3.Normalize(_target.transform.position - obj.transform.position);
                 NewRoombaController _controller = _target.GetComponent<NewRoombaController>();
-                _controller.GetStunned(0.5f, Random.Range(0, 2) * 2 - 1,0);
+                _controller.GetStunned(0.5f, Random.Range(0, 2) * 2 - 1, 0);
                 StartCoroutine(_controller.changeKnife());
                 _target.GetComponent<PlayerVariables>().MaxSpeed = 100;
                 CustomPhysics _phy = _target.GetComponent<CustomPhysics>();
@@ -66,7 +66,7 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator checkForWin()
     {
-        for (; ;) 
+        for (; ; )
         {
             if (_players.Count == 1)
             {
@@ -74,7 +74,7 @@ public class BattleManager : MonoBehaviour
             }
             yield return new WaitForSeconds(.1f);
         }
-        
+
     }
 
     private void createPickUp()

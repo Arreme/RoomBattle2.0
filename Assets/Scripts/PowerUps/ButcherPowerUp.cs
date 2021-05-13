@@ -5,10 +5,12 @@ using UnityEngine;
 public class ButcherPowerUp : PowerUp
 {
     private GameObject _butcher;
+
     public IEnumerator restorePowerUp(GameObject player)
     {
         yield return new WaitForSecondsRealtime(10f);
         _butcher.SetActive(false);
+        player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
     }
 
     public void runPowerUp(GameObject player)
