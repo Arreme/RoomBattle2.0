@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class NoPowerUp : PowerUp
 {
-    public void runPowerUp(GameObject player)
+    public bool runPowerUp(GameObject player)
     {
         player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
+        return true;
     }
 
     public IEnumerator restorePowerUp(GameObject player)

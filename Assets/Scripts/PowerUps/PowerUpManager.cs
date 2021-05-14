@@ -15,9 +15,12 @@ public class PowerUpManager : MonoBehaviour
         if (!isPowerRunning)
         {
             isPowerRunning = true;
-            _currentPower.runPowerUp(gameObject);
-            StartCoroutine(_currentPower.restorePowerUp(gameObject));
-            _currentPower = new NoPowerUp();
+            bool check = _currentPower.runPowerUp(gameObject);
+            if (check)
+            {
+                StartCoroutine(_currentPower.restorePowerUp(gameObject));
+                _currentPower = new NoPowerUp();
+            }
         }
     }
 

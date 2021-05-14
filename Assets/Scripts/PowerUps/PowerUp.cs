@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface PowerUp
 {
-    void runPowerUp(GameObject player);
+    bool runPowerUp(GameObject player);
 
     IEnumerator restorePowerUp(GameObject player);
 }

@@ -19,9 +19,11 @@ public class OilPowerUp : PowerUp
         player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
     }
 
-    public void runPowerUp(GameObject player)
+    public bool runPowerUp(GameObject player)
     {
         _oil = GameObject.Instantiate(_oilPrefab, player.transform.position, Quaternion.identity);
         _oil.GetComponent<Collider>().enabled = false;
+
+        return true;
     }
 }

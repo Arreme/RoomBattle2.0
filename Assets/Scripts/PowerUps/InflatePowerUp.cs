@@ -27,7 +27,7 @@ public class InflatePowerUp : PowerUp
         }
     }
 
-    public void runPowerUp(GameObject player)
+    public bool runPowerUp(GameObject player)
     {
         do
         {
@@ -45,6 +45,13 @@ public class InflatePowerUp : PowerUp
             {
                 ballons.transform.GetChild(i).localScale = ballons.transform.GetChild(i).localScale * 2;
             }
+
+            return true;
+        }
+        else
+        {
+            player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
+            return false;
         }
     }
 }

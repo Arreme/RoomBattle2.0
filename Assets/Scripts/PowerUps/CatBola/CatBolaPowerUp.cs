@@ -15,8 +15,35 @@ public class CatBolaPowerUp : PowerUp
         player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
     }
 
-    public void runPowerUp(GameObject player)
+    public bool runPowerUp(GameObject player)
     {
-        GameObject.Instantiate(_bolaDeGato, player.transform.position + player.transform.forward*3, player.transform.rotation);
+        bool canInstantiate = true;
+        //* He eliminado la layermask, url: https://docs.unity3d.com/ScriptReference/Physics.OverlapBox.html
+        Collider[] hitColliders = Physics.OverlapBox(
+            player.transform.position + player.transform.forward * 4,
+             _bolaDeGato.transform.localScale,
+              Quaternion.identity);
+        int i = 0;
+
+        //Check when there is a new collider coming into contact with the box
+        while (i < hitColliders.Length)
+        {
+            if (hitColliders[i].CompareTag("Wall"))
+            {
+                canInstantiate = false;
+            }
+            i++;
+        }
+
+        if (canInstantiate)
+        {
+            GameObject.Instantiate(_bolaDeGato, player.transform.position + player.transform.forward * 4, player.transform.rotation);
+            return true;
+        }
+        else
+        {
+            player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
+            return false;
+        }
     }
 }
