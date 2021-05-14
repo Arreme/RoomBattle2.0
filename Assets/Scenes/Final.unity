@@ -1091,7 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shrink: {fileID: 7223413572932567216, guid: afc4abb0f8322784ea50f44491e17711, type: 3}
-  distance: 20
+  distance: 10
   timeForShrink: 60
   _restartMenu: {fileID: 2008290119}
 --- !u!114 &157283101
@@ -3991,9 +3991,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ee1c62c905bb24ea7c9cf3d9d40b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TraumaExponent: 17
+  TraumaExponent: 23
   MaximumAngularShake: {x: 4, y: 4, z: 4}
-  MaximumTranslationShake: {x: 7, y: 7, z: 7}
+  MaximumTranslationShake: {x: 8, y: 8, z: 8}
 --- !u!1 &535299321
 GameObject:
   m_ObjectHideFlags: 0
