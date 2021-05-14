@@ -8,7 +8,7 @@ public class StunRoomba : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<NewRoombaController>().GetStunned(2,new Vector2(-collision.gameObject.transform.forward.x, -collision.gameObject.transform.forward.z),1200);
+            collision.gameObject.GetComponent<NewRoombaController>().GetStunned(2,new Vector2(-transform.up.x, -transform.up.z),4000);
         }
     }
 }
