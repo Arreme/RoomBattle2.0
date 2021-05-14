@@ -9,19 +9,21 @@ public class StunnedState : RoombaState
     private float _rotation;
     private Rigidbody _rb;
     private float _force;
+    private Vector2 _direction;
 
-    public StunnedState(float seconds, float rotation,float force)
+    public StunnedState(float seconds, Vector2 direction ,float force)
     {
         _seconds = seconds;
-        _rotation = rotation;
+        _rotation = Random.Range(0, 2) * 2 - 1;
         _force = force;
+        _direction = direction;
 
     }
 
     public void EnterState(NewRoombaController controller)
     {
         _rb = controller.gameObject.GetComponent<Rigidbody>();
-        controller._phy.addForce(new Vector2(controller.transform.forward.x, controller.transform.forward.z), _force);
+        controller._phy.addForce(new Vector2(_direction.x, _direction.y), _force);
     }
 
     public void Stay(NewRoombaController controller)

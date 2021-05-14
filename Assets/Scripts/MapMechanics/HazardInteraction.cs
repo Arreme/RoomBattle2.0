@@ -9,7 +9,6 @@ public class HazardInteraction : Interactable
     public void runInteraction(GameObject gameObject)
     {
         _hazardHP -= gameObject.GetComponentInParent<Rigidbody>().velocity.magnitude;
-        Debug.Log(_hazardHP);
         if (_hazardHP <= 0)
         {
             GameObject.Destroy(_hazard);

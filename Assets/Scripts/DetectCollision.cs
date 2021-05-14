@@ -40,7 +40,8 @@ public class DetectCollision : MonoBehaviour
         }
         else if (myCollider.transform.parent.CompareTag("Player") && hisCollider.CompareTag("Damaging"))
         {
-            _controller.GetStunned(1.5f, 700);
+            Vector3 direction = Vector3.Normalize(hisCollider.transform.position - myCollider.transform.position);
+            _controller.GetStunned(1.5f, new Vector2(direction.x,direction.z) ,700);
         }
     }
 
@@ -90,7 +91,7 @@ public class DetectCollision : MonoBehaviour
         else if (collision.CompareTag("Oil"))
         {
             Destroy(collision.gameObject);
-            GetComponent<NewRoombaController>().GetStunned(2f, 0);
+            GetComponent<NewRoombaController>().GetStunned(2f, new Vector2(transform.forward.x,transform.forward.z), 0);
         }
 
     }

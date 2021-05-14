@@ -10,7 +10,6 @@ public class ExtendKnifePowerUp : PowerUp
     {
         yield return new WaitForSecondsRealtime(5f);
         _knife.transform.localScale = _oldScale;
-        Debug.Log("Hey");
         player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
     }
 
