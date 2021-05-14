@@ -132,7 +132,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 124f9a003d5831b4d8560432ee715e40, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -667,7 +667,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.7578125
+        value: 0.575016
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -675,7 +675,7 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.40851063
+        time: 0.62532276
         value: 0
         inSlope: 0
         outSlope: 0
@@ -827,7 +827,7 @@ MonoBehaviour:
   _boost: 0
   balloons: 3
   _knife: {fileID: 5975971299831827355}
-  _vEffect: {fileID: 0}
+  _vEffect: {fileID: 1696025666264949269}
   _phy: {fileID: 5597032743291893671}
   _pVar: {fileID: -956343395107288629}
 --- !u!114 &4402105208636116597

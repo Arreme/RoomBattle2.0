@@ -9,6 +9,7 @@ public class InteractionManager : MonoBehaviour
     {
         Lamp,
         Hazard,
+        Calaix,
         Other
     }
 
@@ -25,6 +26,9 @@ public class InteractionManager : MonoBehaviour
                 break;
             case Interactions.Hazard:
                 _interaction = new HazardInteraction(gameObject);
+                break;
+            case Interactions.Calaix:
+                _interaction = new CalaixInteraction(gameObject.GetComponent<Animator>());
                 break;
             default:
                 break;
