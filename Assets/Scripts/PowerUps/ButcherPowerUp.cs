@@ -13,9 +13,10 @@ public class ButcherPowerUp : PowerUp
         player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
     }
 
-    public void runPowerUp(GameObject player)
+    public bool runPowerUp(GameObject player)
     {
         _butcher = player.transform.Find("Butcher").gameObject;
         _butcher.SetActive(true);
+        return true;
     }
 }

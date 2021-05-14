@@ -13,7 +13,7 @@ public class ExtendKnifePowerUp : PowerUp
         player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
     }
 
-    public void runPowerUp(GameObject player)
+    public bool runPowerUp(GameObject player)
     {
         _knife = player.transform.Find("Knife").gameObject;
         _oldScale = _knife.transform.localScale;
@@ -24,5 +24,7 @@ public class ExtendKnifePowerUp : PowerUp
             _knife.transform.localScale.z * 2);
 
         _knife.transform.localScale = newScale;
+
+        return true;
     }
 }
