@@ -8,7 +8,8 @@ public class NewRoombaController : MonoBehaviour
     public bool _boost;
     public int balloons = 3;
 
-    public Collider _knife;
+    [SerializeField] private Collider _knife;
+    [SerializeField] private GameObject _vEffect;
 
     public CustomPhysics _phy;
     public PlayerVariables _pVar;
@@ -70,7 +71,9 @@ public class NewRoombaController : MonoBehaviour
     public IEnumerator changeKnife()
     {
         _knife.enabled = false;
-        yield return new WaitForSecondsRealtime(0.5f);
+        Debug.Log("Knife disabled");
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("Knife enabled");
         _knife.enabled = true;
     }
 
@@ -84,6 +87,14 @@ public class NewRoombaController : MonoBehaviour
     {
         _currentState = new StunnedState(v,value,force);
         _currentState.EnterState(this);
+        StartCoroutine(StunnedVFX(v));
+    }
+
+    private IEnumerator StunnedVFX(float seconds)
+    {
+        _vEffect.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        _vEffect.SetActive(false);
     }
 
     #region(InputManagement)
