@@ -17,13 +17,13 @@ public class StunnedState : RoombaState
         _rotation = Random.Range(0, 2) * 2 - 1;
         _force = force;
         _direction = direction;
-
     }
 
     public void EnterState(NewRoombaController controller)
     {
         _rb = controller.gameObject.GetComponent<Rigidbody>();
         controller._phy.addForce(new Vector2(_direction.x, _direction.y), _force);
+        controller._pVar.MaxSpeed = _force / 2;
     }
 
     public void Stay(NewRoombaController controller)

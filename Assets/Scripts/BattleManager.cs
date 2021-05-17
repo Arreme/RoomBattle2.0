@@ -49,7 +49,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 direction = Vector3.Normalize(_target.transform.position - obj.transform.position);
                 NewRoombaController _controller = _target.GetComponent<NewRoombaController>();
                 _target.GetComponent<PlayerVariables>().MaxSpeed = 100;
-                _controller.GetStunned(0.5f, new Vector2(direction.x, direction.z), 1400);
+                _controller.GetStunned(1f, new Vector2(direction.x, direction.z), 2000);
                 StartCoroutine(_controller.changeKnife());
             }
         }

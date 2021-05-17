@@ -10,6 +10,8 @@ public class InputManager : MonoBehaviour
 
     [SerializeField]
     private MeshRenderer playerMesh;
+    [SerializeField]
+    private TrailRenderer _playerTrail;
 
     private RoombaInputSystem controls;
     
@@ -23,6 +25,7 @@ public class InputManager : MonoBehaviour
     {
         playerConfig = conf;
         playerMesh.material = conf.PlayerMaterial;
+        _playerTrail.material = conf.PlayerMaterial;
         conf.Input.onActionTriggered += Input_onActionTriggered;
     }
 

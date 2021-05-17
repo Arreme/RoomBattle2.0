@@ -38,10 +38,24 @@ public class DetectCollision : MonoBehaviour
                 StartCoroutine(invincible());
             }
         }
+        else if (hisCollider.CompareTag("Balloon") && myCollider.CompareTag("Knife"))
+        {
+
+        }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+            if (rb.velocity.magnitude >= 12)
+            {
+                Vector3 direction = transform.position - collision.transform.position;
+                Debug.Log(direction.normalized);
+                _controller.GetStunned(0.5f,new Vector2(direction.x,direction.z),400);
+            }
+        }
         else if (myCollider.transform.parent.CompareTag("Player") && hisCollider.CompareTag("Damaging"))
         {
             Vector3 direction = Vector3.Normalize(hisCollider.transform.position - myCollider.transform.position);
-            _controller.GetStunned(1.5f, new Vector2(direction.x,direction.z) ,700);
+            _controller.GetStunned(1.5f, new Vector2(direction.x,direction.z) ,2000);
         }
     }
 
