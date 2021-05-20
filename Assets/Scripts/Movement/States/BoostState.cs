@@ -24,6 +24,7 @@ public class BoostState : RoombaState
         _currentTime = _pVar._boostTime;
         _direction = new Vector2(controller.transform.forward.x, controller.transform.forward.z);
         controller.gameObject.GetComponent<Animation>().Play();
+        controller._vfx._boost.SendEvent("BoostPlay");
     }
 
     public void Stay(NewRoombaController controller)
@@ -35,7 +36,6 @@ public class BoostState : RoombaState
             controller.onChangeState(controller._normalState);
         } else if (controller._action)
         {
-            Debug.Log("Yo");
             _pMan.runPowerUp();
             controller._action = false;
         }

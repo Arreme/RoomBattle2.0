@@ -11,6 +11,7 @@ public class NewRoombaController : MonoBehaviour
     [SerializeField] private Collider _knife;
     [SerializeField] private GameObject _vEffect;
 
+    public RoombaVFX _vfx;
     public CustomPhysics _phy;
     public PlayerVariables _pVar;
     //States
@@ -47,6 +48,7 @@ public class NewRoombaController : MonoBehaviour
         {
             _pVar.currentTimeForDead = _pVar.timeForDead;
         }
+
     }
 
     private IEnumerator die()
@@ -85,14 +87,7 @@ public class NewRoombaController : MonoBehaviour
     {
         _currentState = new StunnedState(v, direction, force);
         _currentState.EnterState(this);
-        StartCoroutine(StunnedVFX(v));
-    }
-
-    private IEnumerator StunnedVFX(float seconds)
-    {
-        _vEffect.SetActive(true);
-        yield return new WaitForSeconds(seconds);
-        _vEffect.SetActive(false);
+        StartCoroutine(_vfx.activateStunned(v));
     }
 
     #region(InputManagement)

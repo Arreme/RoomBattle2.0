@@ -64,14 +64,25 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator checkForWin()
     {
-        for (; ; )
+        if (PlayerConfigManager.Instance._teamsEnabled)
         {
-            if (_players.Count == 1)
+            for (; ; )
             {
-                _restartMenu.SetActive(true);
+                
+                yield return new WaitForSeconds(.1f);
             }
-            yield return new WaitForSeconds(.1f);
+        } else
+        {
+            for (; ; )
+            {
+                if (_players.Count == 1)
+                {
+                    _restartMenu.SetActive(true);
+                }
+                yield return new WaitForSeconds(.1f);
+            }
         }
+        
 
     }
 

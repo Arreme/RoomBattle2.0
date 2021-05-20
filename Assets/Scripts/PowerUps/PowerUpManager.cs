@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PowerUpManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PowerUpManager : MonoBehaviour
     {
         _currentPower = new NoPowerUp();
         isPowerRunning = false;
+        StartCoroutine(GetComponent<RoombaVFX>().checkForPowerUp(this));
     }
 
     public void runPowerUp()
@@ -33,4 +35,5 @@ public class PowerUpManager : MonoBehaviour
     {
         isPowerRunning = b;
     }
+
 }

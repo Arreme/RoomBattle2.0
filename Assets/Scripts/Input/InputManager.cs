@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,7 +10,9 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private MeshRenderer playerMesh;
     [SerializeField]
-    private TrailRenderer _playerTrail;
+    private List<MeshRenderer> _balloons;
+    [SerializeField]
+    private Light _light;
 
     private RoombaInputSystem controls;
     
@@ -25,7 +26,11 @@ public class InputManager : MonoBehaviour
     {
         playerConfig = conf;
         playerMesh.material = conf.PlayerMaterial;
-        _playerTrail.material = conf.PlayerMaterial;
+        foreach(MeshRenderer mesh in _balloons)
+        {
+            mesh.material = conf.ballonMat;
+        }
+        _light.color = conf.lightColor;
         conf.Input.onActionTriggered += Input_onActionTriggered;
     }
 

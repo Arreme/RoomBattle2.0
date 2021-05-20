@@ -2945,6 +2945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _catBolaPrefab: {fileID: 0}
+  _oilPrefab: {fileID: 0}
 --- !u!1 &1614601930
 GameObject:
   m_ObjectHideFlags: 0

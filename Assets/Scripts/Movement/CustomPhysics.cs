@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 /*
  * Determina la següent posició del Roomba o d'un objecte amb una massa
@@ -23,6 +24,7 @@ public class CustomPhysics : MonoBehaviour
         _rb.rotation = transform.rotation;
         _rb.centerOfMass = Vector3.zero;
         dead = false;
+        StartCoroutine(GetComponent<RoombaVFX>().checkForRunVFX(_rb));
     }
 
     public void FixedUpdate()

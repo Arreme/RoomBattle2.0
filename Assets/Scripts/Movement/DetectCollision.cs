@@ -48,7 +48,6 @@ public class DetectCollision : MonoBehaviour
             if (rb.velocity.magnitude >= 12)
             {
                 Vector3 direction = transform.position - collision.transform.position;
-                Debug.Log(direction.normalized);
                 _controller.GetStunned(0.5f,new Vector2(direction.x,direction.z),400);
             }
         }
