@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    private PlayerConfig playerConfig;
     private NewRoombaController player;
 
     [SerializeField]
@@ -24,12 +23,12 @@ public class InputManager : MonoBehaviour
 
     public void InitializePlayer(PlayerConfig conf)
     {
-        playerConfig = conf;
         playerMesh.material = conf.PlayerMaterial;
         foreach(MeshRenderer mesh in _balloons)
         {
             mesh.material = conf.ballonMat;
         }
+        Debug.Log(conf.lightColor);
         _light.color = conf.lightColor;
         conf.Input.onActionTriggered += Input_onActionTriggered;
     }

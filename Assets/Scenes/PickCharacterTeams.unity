@@ -1471,13 +1471,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5a428a1725f9f47af76f6a8d993f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textures:
-  - {fileID: 2800000, guid: 3fe979ad5de5fcd4c84c907dcf73dc58, type: 3}
-  - {fileID: 2800000, guid: d615ca896aa3c4a4c9b99638d806b2a9, type: 3}
-  - {fileID: 2800000, guid: 8676e97cbefb0c94ebfecf6886864fb1, type: 3}
-  - {fileID: 2800000, guid: 658abddb5b717e34395adcf458b49903, type: 3}
-  - {fileID: 2800000, guid: c4666b45c324f1b49bb2d8b5fdb78175, type: 3}
-  - {fileID: 2800000, guid: 1548ae8f4d78dcf4c928e3960c1179d4, type: 3}
 --- !u!114 &1752533263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1514,7 +1507,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1752533261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24fdcfb4505c5e44184d59d8f24f59f1, type: 3}
+  m_Script: {fileID: 11500000, guid: c06b068dd97edef408e59925ffaff454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playersUI:
@@ -1765,6 +1758,10 @@ PrefabInstance:
       propertyPath: m_PlayerPrefab
       value: 
       objectReference: {fileID: 3698094019892413943, guid: 9a8412e524c1f0f44bb0449728c8b14a, type: 3}
+    - target: {fileID: 2416529860050604540, guid: 509e206951b60344f9199a70825443ab, type: 3}
+      propertyPath: m_MaxPlayerCount
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2416529860050604541, guid: 509e206951b60344f9199a70825443ab, type: 3}
       propertyPath: m_RootOrder
       value: 5

@@ -1507,7 +1507,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1752533261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24fdcfb4505c5e44184d59d8f24f59f1, type: 3}
+  m_Script: {fileID: 11500000, guid: c06b068dd97edef408e59925ffaff454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playersUI:
@@ -1749,6 +1749,14 @@ PrefabInstance:
     - target: {fileID: 2416529860050604539, guid: 509e206951b60344f9199a70825443ab, type: 3}
       propertyPath: m_Name
       value: PlayerConfigurationManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: 509e206951b60344f9199a70825443ab, type: 3}
+      propertyPath: m_JoinBehavior
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: 509e206951b60344f9199a70825443ab, type: 3}
+      propertyPath: m_MaxPlayerCount
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2416529860050604541, guid: 509e206951b60344f9199a70825443ab, type: 3}
       propertyPath: m_RootOrder

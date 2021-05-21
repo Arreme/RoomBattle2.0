@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _normalMenu;
     public void PlayGame()
     {
-        SceneManager.LoadScene("PickCharacter");
+        SceneManager.LoadScene("TeamsSelect");
     }
     public void LoadMenu()
     {

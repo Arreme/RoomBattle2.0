@@ -132,7 +132,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 23b09903843174f4ab3ab8d5e6403650, type: 2}
+  - {fileID: 2100000, guid: a58586edc510dc04e83c3c11f98344d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5975971300749553943}
   - component: {fileID: 6750261249458293484}
-  - component: {fileID: -417774904357542055}
+  - component: {fileID: 2409934246380701191}
   m_Layer: 0
   m_Name: PlayerForUI
   m_TagString: Player
@@ -213,7 +213,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-417774904357542055
+--- !u!114 &2409934246380701191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,7 +268,7 @@ PrefabInstance:
     - target: {fileID: 1914918911005499670, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9f7350bc0e0b4b94691034150f31c6d7, type: 2}
+      objectReference: {fileID: 2100000, guid: 220f387e40738204e9cfc77b2f1fcfed, type: 2}
     - target: {fileID: 6327386839977655880, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_Name
       value: Balloon
@@ -346,7 +346,7 @@ PrefabInstance:
     - target: {fileID: 1914918911005499670, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9f7350bc0e0b4b94691034150f31c6d7, type: 2}
+      objectReference: {fileID: 2100000, guid: 220f387e40738204e9cfc77b2f1fcfed, type: 2}
     - target: {fileID: 6327386839977655880, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_Name
       value: Balloon
@@ -428,7 +428,7 @@ PrefabInstance:
     - target: {fileID: 1914918911005499670, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9f7350bc0e0b4b94691034150f31c6d7, type: 2}
+      objectReference: {fileID: 2100000, guid: 220f387e40738204e9cfc77b2f1fcfed, type: 2}
     - target: {fileID: 6327386839977655880, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_Name
       value: Balloon

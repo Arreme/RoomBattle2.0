@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class TeamEnabler : MonoBehaviour
 {
-    [SerializeField] PlayerConfigManager _manager;
-    public void enableTeams(bool enable)
+    public void loadTeamsScene()
     {
-        _manager._teamsEnabled = enable;
-        SceneManager.LoadScene("Final");
+        SceneManager.LoadScene("PickCharacterTeams");
+    }
+
+    public void loadSoloScene()
+    {
+        SceneManager.LoadScene("PickCharacterSolo");
     }
 }

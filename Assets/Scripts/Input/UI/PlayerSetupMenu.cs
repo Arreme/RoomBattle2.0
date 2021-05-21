@@ -72,7 +72,7 @@ public class PlayerSetupMenu : MonoBehaviour
                 lightColor = new Color(0.01176471f, 0.7450981f, 0.945098f);
                 break;
             case Colors.Red:
-                lightColor = new Color(241 / 255, 33 / 255, 3 / 255);
+                lightColor = new Color(1, 0.1169811f, 0.259741f);
                 break;
             case Colors.Yellow:
                 lightColor = new Color(1, 1, 0);
@@ -81,7 +81,7 @@ public class PlayerSetupMenu : MonoBehaviour
                 lightColor = new Color(0, 1, 0);
                 break;
             case Colors.Purple:
-                lightColor = new Color(165 / 255, 0, 1);
+                lightColor = new Color(0.8186114f, 0.2207547f, 1);
                 break;
             case Colors.Orange:
                 lightColor = new Color(1, 0.5f, 0);
