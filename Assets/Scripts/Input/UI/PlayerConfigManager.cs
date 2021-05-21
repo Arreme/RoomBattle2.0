@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerConfigManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PlayerConfigManager : MonoBehaviour
     public static PlayerConfigManager Instance { get; private set; }
 
     public bool _teamsEnabled = false;
-    
+
 
     private void Awake()
     {
@@ -32,17 +33,14 @@ public class PlayerConfigManager : MonoBehaviour
         _configs[index].IsReady = true;
         if (_configs.All(p => p.IsReady == true))
         {
-            GameObject layout = GameObject.Find("MainLayout");
-            if (layout != null) layout.SetActive(false);
-            GameObject teamCanvas = GameObject.Find("TeamSelection");
-            if (layout != null) teamCanvas.GetComponent<Canvas>().enabled = true;
-            teamCanvas.GetComponentInChildren<InputSystemUIInputModule>().enabled = true;
+            SceneManager.LoadScene("Final");
         }
     }
 
     public void SetPlayerColor(int index, Material[] color, Color lightColor)
     {
         _configs[index].PlayerMaterial = color[0];
+        CustomizationManager.Instance.putColor(index, color);
         _configs[index].ballonMat = color[1];
         _configs[index].lightColor = lightColor;
     }
@@ -76,6 +74,6 @@ public class PlayerConfig
     public int Team { get; set; }
 
     public Color lightColor;
-    public Material ballonMat {get; set;}
+    public Material ballonMat { get; set; }
     public Material PlayerMaterial { get; set; }
 }
