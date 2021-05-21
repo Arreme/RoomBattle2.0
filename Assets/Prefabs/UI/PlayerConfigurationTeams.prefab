@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8106551576364446799}
   - component: {fileID: 9112935938139597239}
   m_Layer: 0
-  m_Name: PlayerConfiguration
+  m_Name: PlayerConfigurationTeams
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d482274eccfa0004eb9175c71f84df64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSetupMenuPrefab: {fileID: 511803412121239019, guid: 136e814ec36c44b449c3a6c8ba964339, type: 3}
+  playerSetupMenuPrefab: {fileID: 511803412121239019, guid: d7b7a60373e42a74b97e39409c64892e, type: 3}
   input: {fileID: 9112935938139597239}
 --- !u!114 &9112935938139597239
 MonoBehaviour:
