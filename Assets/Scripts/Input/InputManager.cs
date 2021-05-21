@@ -28,7 +28,6 @@ public class InputManager : MonoBehaviour
         {
             mesh.material = conf.ballonMat;
         }
-        Debug.Log(conf.lightColor);
         _light.color = conf.lightColor;
         conf.Input.onActionTriggered += Input_onActionTriggered;
     }
