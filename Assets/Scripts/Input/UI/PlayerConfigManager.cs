@@ -63,7 +63,6 @@ public class PlayerConfig
     {
         PlayerIndex = pi.playerIndex;
         Input = pi;
-        Team = pi.playerIndex;
     }
 
     public PlayerInput Input { get; set; }
@@ -71,7 +70,7 @@ public class PlayerConfig
     public int PlayerIndex { get; set; }
     public bool IsReady { get; set; }
 
-    public int Team { get; set; }
+    public bool TeamBlue { get; set; }
 
     public Color lightColor;
     public Material ballonMat { get; set; }

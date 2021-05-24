@@ -23,13 +23,28 @@ public class InputManager : MonoBehaviour
 
     public void InitializePlayer(PlayerConfig conf)
     {
+        InitializeGraphics(conf);
+        if (PlayerConfigManager.Instance._teamsEnabled)
+        {
+            if (conf.TeamBlue == true)
+            {
+
+            } else
+            {
+
+            }
+        }
+        conf.Input.onActionTriggered += Input_onActionTriggered;
+    }
+
+    private void InitializeGraphics(PlayerConfig conf)
+    {
         playerMesh.material = conf.PlayerMaterial;
-        foreach(MeshRenderer mesh in _balloons)
+        foreach (MeshRenderer mesh in _balloons)
         {
             mesh.material = conf.ballonMat;
         }
         _light.color = conf.lightColor;
-        conf.Input.onActionTriggered += Input_onActionTriggered;
     }
 
     private void Input_onActionTriggered(InputAction.CallbackContext obj)
