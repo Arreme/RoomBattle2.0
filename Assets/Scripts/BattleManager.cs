@@ -11,6 +11,9 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private float timeForShrink = 5f;
     [SerializeField] private GameObject _restartMenu;
 
+    public int _redAlive;
+    public int _blueAlive;
+
     public void AddPlayer(GameObject obj)
     {
         _players.Add(obj);
@@ -36,6 +39,8 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(spawnShrinker());
         InvokeRepeating("createPickUp", 10, 10);
         StartCoroutine(checkForWin());
+        _redAlive = 0;
+        _blueAlive = 0;
     }
 
     public void Explosion(GameObject obj)
@@ -68,8 +73,14 @@ public class BattleManager : MonoBehaviour
         {
             for (; ; )
             {
-                
-                yield return new WaitForSeconds(.1f);
+                if (_redAlive == 0)
+                {
+                    _restartMenu.SetActive(true);
+                } else if(_blueAlive == 0)
+                {
+                    _restartMenu.SetActive(true);
+                }
+                yield return new WaitForSeconds(.3f);
             }
         } else
         {
@@ -79,7 +90,7 @@ public class BattleManager : MonoBehaviour
                 {
                     _restartMenu.SetActive(true);
                 }
-                yield return new WaitForSeconds(.1f);
+                yield return new WaitForSeconds(0.3f);
             }
         }
         

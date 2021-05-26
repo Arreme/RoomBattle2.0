@@ -32,10 +32,18 @@ public class DetectCollision : MonoBehaviour
         {
             if (!_isInvincible)
             {
-                Destroy(myCollider.gameObject);
-                _controller.GetHit();
-                BattleManager.Instance.Explosion(gameObject);
-                StartCoroutine(invincible());
+                if (PlayerConfigManager.Instance._teamsEnabled)
+                {
+                    InputManager myInput = GetComponent<InputManager>();
+                    InputManager hisInput = hisCollider.GetComponent<InputManager>();
+                    if (hisInput != null && myInput._teamBlue != hisInput._teamBlue) //Not Same team
+                    {
+                        TakeDamage(myCollider);
+                    }
+                } else
+                {
+                    TakeDamage(myCollider);
+                }
             }
         }
         else if (hisCollider.CompareTag("Balloon") && myCollider.CompareTag("Knife"))
@@ -56,6 +64,14 @@ public class DetectCollision : MonoBehaviour
             Vector3 direction = Vector3.Normalize(hisCollider.transform.position - myCollider.transform.position);
             _controller.GetStunned(1.5f, new Vector2(-direction.x,-direction.z) ,2000);
         }
+    }
+
+    private void TakeDamage(Collider myCollider)
+    {
+        Destroy(myCollider.gameObject);
+        _controller.GetHit();
+        BattleManager.Instance.Explosion(gameObject);
+        StartCoroutine(invincible());
     }
 
     private IEnumerator invincible()

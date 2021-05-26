@@ -14,6 +14,8 @@ public class InputManager : MonoBehaviour
     private Light _light;
 
     private RoombaInputSystem controls;
+
+    public bool _teamBlue;
     
     void Awake()
     {
@@ -28,11 +30,12 @@ public class InputManager : MonoBehaviour
         {
             if (conf.TeamBlue == true)
             {
-
+                BattleManager.Instance._blueAlive += 1;
             } else
             {
-
+                BattleManager.Instance._redAlive += 1;
             }
+            _teamBlue = conf.TeamBlue;
         }
         conf.Input.onActionTriggered += Input_onActionTriggered;
     }
