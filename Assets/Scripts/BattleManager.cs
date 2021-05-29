@@ -11,8 +11,8 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private float timeForShrink = 5f;
     [SerializeField] private GameObject _restartMenu;
 
-    public int _redAlive;
-    public int _blueAlive;
+    public int _redAlive = 0;
+    public int _blueAlive = 0;
 
     public void AddPlayer(GameObject obj)
     {
@@ -24,9 +24,17 @@ public class BattleManager : MonoBehaviour
         return _players;
     }
 
-    public static void removePlayers(GameObject player)
+    public void removePlayers(GameObject player)
     {
         _players.Remove(player);
+        if (player.GetComponent<InputManager>()._teamBlue)
+        {
+            _blueAlive -= 1;
+        } else
+        {
+            _redAlive -= 1;
+        }
+        Debug.Log(_redAlive);
     }
 
     private void Awake()
@@ -39,8 +47,6 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(spawnShrinker());
         InvokeRepeating("createPickUp", 10, 10);
         StartCoroutine(checkForWin());
-        _redAlive = 0;
-        _blueAlive = 0;
     }
 
     public void Explosion(GameObject obj)
@@ -69,12 +75,14 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator checkForWin()
     {
+        yield return new WaitForSeconds(3f);
         if (PlayerConfigManager.Instance._teamsEnabled)
         {
             for (; ; )
             {
                 if (_redAlive == 0)
                 {
+                    Debug.Log("blue wins");
                     _restartMenu.SetActive(true);
                 } else if(_blueAlive == 0)
                 {

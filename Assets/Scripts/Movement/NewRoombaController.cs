@@ -33,14 +33,14 @@ public class NewRoombaController : MonoBehaviour
     void FixedUpdate()
     {
         _currentState.Stay(this);
-        if (balloons == 0)
+        if (balloons == 0 && !_phy.dead)
         {
             StartCoroutine(die());
         }
 
         if (!_pVar.insideRing) {
             _pVar.currentTimeForDead -= Time.deltaTime;
-            if (_pVar.currentTimeForDead <= 0)
+            if (_pVar.currentTimeForDead <= 0 && !_phy.dead)
             {
                 StartCoroutine(die());
             }
@@ -55,7 +55,7 @@ public class NewRoombaController : MonoBehaviour
     {
         _phy.dead = true;
         _knife.enabled = false;
-        BattleManager.removePlayers(gameObject);
+        BattleManager.Instance.removePlayers(gameObject);
         GetStunned(10,new Vector2(transform.forward.x,transform.forward.z),700);
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);

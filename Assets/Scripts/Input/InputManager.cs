@@ -12,6 +12,10 @@ public class InputManager : MonoBehaviour
     private List<MeshRenderer> _balloons;
     [SerializeField]
     private Light _light;
+    [SerializeField]
+    private GameObject parentKnife;
+    [SerializeField]
+    private GameObject parentBody;
 
     private RoombaInputSystem controls;
 
@@ -48,6 +52,18 @@ public class InputManager : MonoBehaviour
             mesh.material = conf.ballonMat;
         }
         _light.color = conf.lightColor;
+        if (conf.hatInstance != null)
+        {
+            Instantiate(conf.hatInstance, parentBody.transform);
+        }
+        Debug.Log(conf.kniveInstance);
+        if (conf.kniveInstance != null)
+        {
+            parentKnife.GetComponent<MeshFilter>().sharedMesh = conf.kniveInstance.GetComponent<MeshFilter>().sharedMesh;
+            parentKnife.transform.localPosition = conf.kniveInstance.transform.localPosition;
+            parentKnife.transform.localRotation = conf.kniveInstance.transform.localRotation;
+            parentKnife.transform.localScale = conf.kniveInstance.transform.localScale;
+        }
     }
 
     private void Input_onActionTriggered(InputAction.CallbackContext obj)

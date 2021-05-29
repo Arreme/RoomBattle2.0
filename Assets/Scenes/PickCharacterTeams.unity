@@ -1487,6 +1487,11 @@ MonoBehaviour:
   - {r: 0.3592651, g: 1, b: 0, a: 0.78431374}
   - {r: 0.5831289, g: 0, b: 1, a: 0.78431374}
   - {r: 1, g: 0.52898574, b: 0, a: 0.78431374}
+  _hatsPrefabs:
+  - {fileID: 1822223730489448399, guid: 2ff245d68c5a4bf4ab1d10a2583b4cb1, type: 3}
+  - {fileID: 3620264694753239810, guid: 47ab5365321f42c4c8c1782ddcd671c6, type: 3}
+  _knifePrefabs:
+  - {fileID: 3957192166872566154, guid: afe7bb043faa5bd48a1ef0b3962d6fdc, type: 3}
 --- !u!114 &1752533263
 MonoBehaviour:
   m_ObjectHideFlags: 0
