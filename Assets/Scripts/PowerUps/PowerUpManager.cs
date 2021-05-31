@@ -5,11 +5,13 @@ public class PowerUpManager : MonoBehaviour
 {
     public PowerUp _currentPower;
     private bool isPowerRunning;
+    int playerIndex;
     void Start()
     {
         _currentPower = new NoPowerUp();
         isPowerRunning = false;
         StartCoroutine(GetComponent<RoombaVFX>().checkForPowerUp(this));
+        playerIndex = GetComponent<PlayerVariables>().PlayerIndex;
     }
 
     public void runPowerUp()
@@ -22,6 +24,9 @@ public class PowerUpManager : MonoBehaviour
             {
                 StartCoroutine(_currentPower.restorePowerUp(gameObject));
                 _currentPower = new NoPowerUp();
+            } else
+            {
+                isPowerRunning = false;
             }
         }
     }
@@ -34,6 +39,7 @@ public class PowerUpManager : MonoBehaviour
     public void setIsPowerUpRunning(bool b)
     {
         isPowerRunning = b;
+        HUDManager.Instance.resetPowerUp(playerIndex);
     }
 
 }

@@ -24,6 +24,8 @@ public class PowerDetector : MonoBehaviour
     private void chooseRandomPU(Collider other)
     {
         int random = UnityEngine.Random.Range(1, nPowerUps);
+        int playerIndex = other.gameObject.GetComponentInParent<PlayerVariables>().PlayerIndex;
+        HUDManager.Instance.SetPowerUp(playerIndex,random);
         switch (random)
         {
             case 1:

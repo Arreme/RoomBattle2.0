@@ -50,7 +50,6 @@ public class InflatePowerUp : PowerUp
         }
         else
         {
-            player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
             return false;
         }
     }

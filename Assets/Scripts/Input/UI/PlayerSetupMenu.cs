@@ -115,7 +115,7 @@ public class PlayerSetupMenu : MonoBehaviour
     private void SetColor(string color)
     {
         Colors colors = (Colors)Enum.Parse(typeof(Colors), color);
-        PlayerConfigManager.Instance.SetPlayerColor(PlayerIndex, AssetsLoader.Instance.colorGetter(colors), getLightColor(colors));
+        PlayerConfigManager.Instance.SetPlayerColor(PlayerIndex, AssetsLoader.Instance.colorGetter(colors), getLightColor(colors),colors);
         switch (colors)
         {
             case Colors.Blue:

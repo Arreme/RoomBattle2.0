@@ -37,8 +37,9 @@ public class PlayerConfigManager : MonoBehaviour
         }
     }
 
-    public void SetPlayerColor(int index, Material[] color, Color lightColor)
+    public void SetPlayerColor(int index, Material[] color, Color lightColor,Colors colorEnum)
     {
+        _configs[index].colorSelected = colorEnum;
         _configs[index].PlayerMaterial = color[0];
         CustomizationManager.Instance.putColor(index, color);
         _configs[index].ballonMat = color[1];
@@ -84,6 +85,7 @@ public class PlayerConfig
         TeamBlue = false;
     }
 
+    public Colors colorSelected { get; set; }
     public PlayerInput Input { get; set; }
 
     public int PlayerIndex { get; set; }

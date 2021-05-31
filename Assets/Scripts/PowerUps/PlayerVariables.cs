@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerVariables : MonoBehaviour
@@ -5,6 +6,8 @@ public class PlayerVariables : MonoBehaviour
     public float timeForDead = 3f;
     public float currentTimeForDead = 3f;
     public bool insideRing = true;
+
+    public int PlayerIndex { get; set; }
 
     [Header("Normal State")]
     public float _normalSpeed = 11f;
@@ -32,4 +35,5 @@ public class PlayerVariables : MonoBehaviour
     public float lerp = 1;
     public float lDrag = 1.14f;
     public float angDrag = 5f;
+
 }
