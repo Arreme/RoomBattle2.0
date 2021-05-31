@@ -23,6 +23,7 @@ public class PowerUpManager : MonoBehaviour
             bool check = _currentPower.runPowerUp(gameObject);
             if (check)
             {
+                //SOUND OF POWER UP ACTIVATION
                 isPowerRunning = true;
                 _vfx.actiavteLights(true);
                 //ACTIVATE HUD RUNNING EFFECT
