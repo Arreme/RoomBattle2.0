@@ -16,6 +16,7 @@ public class SpawnRingManager : MonoBehaviour
     private IEnumerator spawnShrinker()
     {
         yield return new WaitForSeconds(timeForShrink);
+        RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
         RenderSettings.ambientLight = Color.black;
         foreach (Light target in _lights) target.enabled = false;
         int player = Random.Range(0, _spawns.Length);
