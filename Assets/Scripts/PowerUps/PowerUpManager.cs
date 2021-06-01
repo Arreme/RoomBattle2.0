@@ -4,7 +4,8 @@ using System.Collections;
 public class PowerUpManager : MonoBehaviour
 {
     public PowerUp _currentPower;
-    public bool isPowerRunning;
+    private bool isPowerRunning;
+    public bool hasPowerUp;
     int playerIndex;
     private RoombaVFX _vfx;
     void Start()
@@ -18,7 +19,7 @@ public class PowerUpManager : MonoBehaviour
 
     public void runPowerUp()
     {
-        if (!isPowerRunning || _currentPower is NoPowerUp)
+        if (!isPowerRunning)
         {
             bool check = _currentPower.runPowerUp(gameObject);
             if (check)
@@ -37,6 +38,7 @@ public class PowerUpManager : MonoBehaviour
     {
         _currentPower = power;
         _vfx.actiavteLights(true);
+        hasPowerUp = true;
     }
 
     public void setIsPowerUpRunning(bool b)
@@ -44,6 +46,7 @@ public class PowerUpManager : MonoBehaviour
         isPowerRunning = b;
         HUDManager.Instance.resetPowerUp(playerIndex);
         _vfx.actiavteLights(false);
+        hasPowerUp = false;
     }
 
 }

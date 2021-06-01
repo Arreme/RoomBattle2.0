@@ -13,7 +13,7 @@ public class PowerDetector : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Body"))
         {
-            if (!other.gameObject.GetComponentInParent<PowerUpManager>().isPowerRunning)
+            if (!other.gameObject.GetComponentInParent<PowerUpManager>().hasPowerUp)
             {
                 chooseRandomPU(other);
                 destroyPowerUp();

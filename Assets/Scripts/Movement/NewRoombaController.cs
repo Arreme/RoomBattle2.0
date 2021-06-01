@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NewRoombaController : MonoBehaviour
 {
@@ -20,13 +21,20 @@ public class NewRoombaController : MonoBehaviour
     public NormalState _normalState;
     public BoostState _boostState;
 
+    [SerializeField]private GameObject deathCanvas;
+    private Quaternion _lockTransform;
+    private Image _image;
+
+
     void Start()
     {
+        _lockTransform = deathCanvas.transform.rotation;
         _pVar = GetComponent<PlayerVariables>();
         _phy = GetComponent<CustomPhysics>();
         _normalState = new NormalState(_pVar);
         _boostState = new BoostState(_pVar);
         _currentState = _normalState;
+        _image = deathCanvas.GetComponentInChildren<Image>();
     }
 
     
@@ -39,16 +47,23 @@ public class NewRoombaController : MonoBehaviour
         }
 
         if (!_pVar.insideRing) {
+            _image.enabled = true;
             _pVar.currentTimeForDead -= Time.deltaTime;
+            _image.fillAmount = _pVar.currentTimeForDead / _pVar.timeForDead;
             if (_pVar.currentTimeForDead <= 0 && !_phy.dead)
             {
                 StartCoroutine(die());
             }
         } else
         {
+            _image.enabled = false;
             _pVar.currentTimeForDead = _pVar.timeForDead;
         }
 
+    }
+    private void LateUpdate()
+    {
+        deathCanvas.transform.rotation = _lockTransform;
     }
 
     private IEnumerator die()
