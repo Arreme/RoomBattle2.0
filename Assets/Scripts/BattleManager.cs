@@ -6,9 +6,7 @@ public class BattleManager : MonoBehaviour
 {
     private static List<GameObject> _players;
     public static BattleManager Instance;
-    [SerializeField] GameObject shrink;
     [SerializeField] private float distance = 20f;
-    [SerializeField] private float timeForShrink = 5f;
     [SerializeField] private GameObject _restartMenu;
 
     public int _redAlive = 0;
@@ -44,7 +42,6 @@ public class BattleManager : MonoBehaviour
             Instance = this;
         }
         _players = new List<GameObject>();
-        StartCoroutine(spawnShrinker());
         InvokeRepeating("createPickUp", 10, 10);
         StartCoroutine(checkForWin());
     }
@@ -66,12 +63,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    private IEnumerator spawnShrinker()
-    {
-        yield return new WaitForSeconds(timeForShrink);
-        int player = Random.Range(0, _players.Count);
-        Instantiate(shrink, _players[player].transform.position + new Vector3(0, -0.5f, 0), Quaternion.identity, gameObject.transform);
-    }
+    
 
     private IEnumerator checkForWin()
     {

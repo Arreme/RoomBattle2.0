@@ -34,19 +34,8 @@ public class RoombaVFX : MonoBehaviour
         }
     }
 
-    public IEnumerator checkForPowerUp(PowerUpManager powerUp)
+    public void actiavteLights(bool activate)
     {
-        for (; ; )
-        {
-            if (powerUp._currentPower is NoPowerUp)
-            {
-                _powerUpLight.enabled = false;
-            }
-            else
-            {
-                _powerUpLight.enabled = true;
-            }
-            yield return new WaitForSeconds(0.1f);
-        }
+        _powerUpLight.enabled = activate;
     }
 }

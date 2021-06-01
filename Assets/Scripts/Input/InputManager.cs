@@ -41,6 +41,7 @@ public class InputManager : MonoBehaviour
             }
             _teamBlue = conf.TeamBlue;
         }
+        GetComponent<PlayerVariables>().PlayerIndex = conf.PlayerIndex;
         conf.Input.onActionTriggered += Input_onActionTriggered;
     }
 
@@ -64,6 +65,7 @@ public class InputManager : MonoBehaviour
             parentKnife.transform.localRotation = conf.kniveInstance.transform.localRotation;
             parentKnife.transform.localScale = conf.kniveInstance.transform.localScale;
         }
+        HUDManager.Instance.InitializeMenu(conf.PlayerIndex, conf.colorSelected);
     }
 
     private void Input_onActionTriggered(InputAction.CallbackContext obj)

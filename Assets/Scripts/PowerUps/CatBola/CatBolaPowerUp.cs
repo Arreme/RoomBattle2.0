@@ -42,7 +42,6 @@ public class CatBolaPowerUp : PowerUp
         }
         else
         {
-            player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
             return false;
         }
     }

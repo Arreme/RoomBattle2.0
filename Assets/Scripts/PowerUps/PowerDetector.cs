@@ -13,7 +13,7 @@ public class PowerDetector : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Body"))
         {
-            if (other.gameObject.GetComponentInParent<PowerUpManager>()._currentPower is NoPowerUp)
+            if (!other.gameObject.GetComponentInParent<PowerUpManager>().isPowerRunning)
             {
                 chooseRandomPU(other);
                 destroyPowerUp();
@@ -24,6 +24,8 @@ public class PowerDetector : MonoBehaviour
     private void chooseRandomPU(Collider other)
     {
         int random = UnityEngine.Random.Range(1, nPowerUps);
+        int playerIndex = other.gameObject.GetComponentInParent<PlayerVariables>().PlayerIndex;
+        HUDManager.Instance.SetPowerUp(playerIndex,random);
         switch (random)
         {
             case 1:

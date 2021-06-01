@@ -4,22 +4,29 @@ using System.Collections;
 public class PowerUpManager : MonoBehaviour
 {
     public PowerUp _currentPower;
-    private bool isPowerRunning;
+    public bool isPowerRunning;
+    int playerIndex;
+    private RoombaVFX _vfx;
     void Start()
     {
         _currentPower = new NoPowerUp();
         isPowerRunning = false;
-        StartCoroutine(GetComponent<RoombaVFX>().checkForPowerUp(this));
+        _vfx = GetComponent<RoombaVFX>();
+        _vfx.actiavteLights(false);
+        playerIndex = GetComponent<PlayerVariables>().PlayerIndex;
     }
 
     public void runPowerUp()
     {
-        if (!isPowerRunning)
+        if (!isPowerRunning || _currentPower is NoPowerUp)
         {
-            isPowerRunning = true;
             bool check = _currentPower.runPowerUp(gameObject);
             if (check)
             {
+                //SOUND OF POWER UP ACTIVATION
+                isPowerRunning = true;
+                _vfx.actiavteLights(true);
+                //ACTIVATE HUD RUNNING EFFECT
                 StartCoroutine(_currentPower.restorePowerUp(gameObject));
                 _currentPower = new NoPowerUp();
             }
@@ -29,11 +36,14 @@ public class PowerUpManager : MonoBehaviour
     public void getPower(PowerUp power)
     {
         _currentPower = power;
+        _vfx.actiavteLights(true);
     }
 
     public void setIsPowerUpRunning(bool b)
     {
         isPowerRunning = b;
+        HUDManager.Instance.resetPowerUp(playerIndex);
+        _vfx.actiavteLights(false);
     }
 
 }
