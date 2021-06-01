@@ -21,7 +21,7 @@ public class OilPowerUp : PowerUp
 
     public bool runPowerUp(GameObject player)
     {
-        _oil = GameObject.Instantiate(_oilPrefab, player.transform.position, Quaternion.identity);
+        _oil = GameObject.Instantiate(_oilPrefab, player.transform.position, player.transform.rotation);
         _oil.GetComponent<Collider>().enabled = false;
 
         return true;

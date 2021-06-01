@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class InputManager : MonoBehaviour
     private GameObject parentKnife;
     [SerializeField]
     private GameObject parentBody;
+    [SerializeField]
+    private Image _image;
 
     private RoombaInputSystem controls;
 
@@ -53,6 +56,7 @@ public class InputManager : MonoBehaviour
             mesh.material = conf.ballonMat;
         }
         _light.color = conf.lightColor;
+        _image.color = conf.lightColor;
         if (conf.hatInstance != null)
         {
             Instantiate(conf.hatInstance, parentBody.transform);
