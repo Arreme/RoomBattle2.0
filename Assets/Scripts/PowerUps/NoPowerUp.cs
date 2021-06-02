@@ -6,8 +6,7 @@ public class NoPowerUp : PowerUp
 {
     public bool runPowerUp(GameObject player)
     {
-        player.GetComponent<PowerUpManager>().setIsPowerUpRunning(false);
-        return true;
+        return false;
     }
 
     public IEnumerator restorePowerUp(GameObject player)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -15,6 +16,13 @@ public class AssetsLoader : MonoBehaviour
     private Texture[] roombaTextures;
     [SerializeField]
     private Color[] roombaColors;
+
+    [SerializeField]
+    private GameObject[] _hatsPrefabs;
+
+    [SerializeField]
+    private GameObject[] _knifePrefabs;
+
     public Material[] colorGetter(Colors color)
     {
         Material[] mat = new Material[2];
@@ -66,6 +74,24 @@ public class AssetsLoader : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    public GameObject getHatPrefab(string hat)
+    {
+        foreach(GameObject target in _hatsPrefabs)
+        {
+            if (target.name.Equals(hat)) return target;
+        }
+        return null;
+    }
+
+    public GameObject getKnifePrefab(string knife)
+    {
+        foreach (GameObject target in _knifePrefabs)
+        {
+            if (target.name.Equals(knife)) return target;
+        }
+        return null;
     }
 }
 

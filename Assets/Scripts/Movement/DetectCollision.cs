@@ -35,8 +35,10 @@ public class DetectCollision : MonoBehaviour
                 if (PlayerConfigManager.Instance._teamsEnabled)
                 {
                     InputManager myInput = GetComponent<InputManager>();
-                    InputManager hisInput = hisCollider.GetComponent<InputManager>();
-                    if (hisInput != null && myInput._teamBlue != hisInput._teamBlue) //Not Same team
+                    InputManager hisInput = hisCollider.GetComponentInParent<InputManager>();
+                    Debug.Log(hisInput._teamBlue);
+                    Debug.Log(myInput._teamBlue);
+                    if (hisInput != null && myInput._teamBlue != hisInput._teamBlue)
                     {
                         TakeDamage(myCollider);
                     }

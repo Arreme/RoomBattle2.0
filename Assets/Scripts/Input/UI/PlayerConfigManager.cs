@@ -1,8 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerConfigManager : MonoBehaviour
@@ -33,16 +33,18 @@ public class PlayerConfigManager : MonoBehaviour
         _configs[index].IsReady = true;
         if (_configs.All(p => p.IsReady == true))
         {
-            SceneManager.LoadScene("FinalV2");
+            SceneManager.LoadScene("LevelDesign");
         }
     }
 
-    public void SetPlayerColor(int index, Material[] color, Color lightColor)
+    public void SetPlayerColor(int index, Material[] color, Color lightColor,Colors colorEnum)
     {
+        _configs[index].colorSelected = colorEnum;
         _configs[index].PlayerMaterial = color[0];
         CustomizationManager.Instance.putColor(index, color);
         _configs[index].ballonMat = color[1];
         _configs[index].lightColor = lightColor;
+
     }
 
     public void HandlePlayerJoin(PlayerInput pi)
@@ -54,6 +56,23 @@ public class PlayerConfigManager : MonoBehaviour
             _configs.Add(new PlayerConfig(pi));
         }
     }
+
+    public void SetBlueTeams(int playerIndex, bool team)
+    {
+        _configs[playerIndex].TeamBlue = team;
+    }
+
+    public void SetPlayerHat(int playerIndex, string hat)
+    {
+        CustomizationManager.Instance.activateHat(playerIndex,hat);
+        _configs[playerIndex].hatInstance = AssetsLoader.Instance.getHatPrefab(hat);
+    }
+
+    internal void SetPlayerKnive(int playerIndex, string knive)
+    {
+        CustomizationManager.Instance.activateKnive(playerIndex, knive);
+        _configs[playerIndex].kniveInstance = AssetsLoader.Instance.getKnifePrefab(knive);
+    }
 }
 
 public class PlayerConfig
@@ -63,8 +82,10 @@ public class PlayerConfig
     {
         PlayerIndex = pi.playerIndex;
         Input = pi;
+        TeamBlue = false;
     }
 
+    public Colors colorSelected { get; set; }
     public PlayerInput Input { get; set; }
 
     public int PlayerIndex { get; set; }
@@ -75,4 +96,8 @@ public class PlayerConfig
     public Color lightColor;
     public Material ballonMat { get; set; }
     public Material PlayerMaterial { get; set; }
+
+    public GameObject hatInstance { get; set; }
+
+    public GameObject kniveInstance { get; set; }
 }
