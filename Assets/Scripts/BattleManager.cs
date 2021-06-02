@@ -76,13 +76,15 @@ public class BattleManager : MonoBehaviour
                 if (_redAlive == 0)
                 {
                     _restartMenu.SetActive(true);
-                } else if(_blueAlive == 0)
+                }
+                else if (_blueAlive == 0)
                 {
                     _restartMenu.SetActive(true);
                 }
                 yield return new WaitForSeconds(.3f);
             }
-        } else
+        }
+        else
         {
             for (; ; )
             {
@@ -93,7 +95,7 @@ public class BattleManager : MonoBehaviour
                 yield return new WaitForSeconds(0.3f);
             }
         }
-        
+
 
     }
 
