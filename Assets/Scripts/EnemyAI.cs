@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     private enum State
     {
         Chasing,
-        Attacking,
+        UsingPower,
         Boosting,
         PickingPowerUp,
     }
@@ -22,8 +22,8 @@ public class EnemyAI : MonoBehaviour
     private float _currentTime;
 
     //DATA MODIF
-    private float attackDistance = 1;
-    private float boostDistance = 20;
+    private float attackDistance = 10;
+    private float boostDistance = 30;
 
     void Start()
     {
@@ -44,20 +44,24 @@ public class EnemyAI : MonoBehaviour
                 {
                     if (CalculatePathLength(_target.transform.position) <= attackDistance)
                     {
-                        //_state = State.Attacking;
+                        _state = State.Boosting;
                     }
                     if (CalculateCornerToCornerDistance(0, 1) >= boostDistance && CalculatePathLength(_target.transform.position) >= boostDistance)
                     {
                         _state = State.Boosting;
                     }
-                    Debug.Log(gameObject.name + " is " + _state.ToString());
+                    if (!(GetComponent<PowerUpManager>()._currentPower is NoPowerUp))
+                    {
+                        _state = State.UsingPower;
+                    }
+                    //Debug.Log(gameObject.name + " is " + _state.ToString());
                     switch (_state)
                     {
                         case State.Chasing:
                             Chase();
                             break;
-                        case State.Attacking:
-                            Attack();
+                        case State.UsingPower:
+                            UsingPowerUp();
                             break;
                         case State.Boosting:
                             Boost();
@@ -81,9 +85,9 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void Attack()
+    private void UsingPowerUp()
     {
-        throw new NotImplementedException();
+        GetComponent<NewRoombaController>().updateAction(true);
     }
 
     private void PickPower()
@@ -116,7 +120,7 @@ public class EnemyAI : MonoBehaviour
         Vector3 thisV2 = new Vector3(transform.position.x, 0, transform.position.z);
         Vector3 targetV2 = new Vector3(_target.transform.position.x, 0, _target.transform.position.z);
         bool b = NavMesh.CalculatePath(thisV2, targetV2, NavMesh.AllAreas, _path);
-        Debug.Log(gameObject.transform.parent.name + ": " + transform.position + " " + _target.transform.position);
+        //Debug.Log(gameObject.transform.parent.name + ": " + transform.position + " " + _target.transform.position);
         if (b && _path.corners.Length >= 2)
         {
             Vector2 waypoint = new Vector2(_path.corners[1].x, _path.corners[1].z);
@@ -130,8 +134,8 @@ public class EnemyAI : MonoBehaviour
     {
 
         Tuple<GameObject, float> nearRoombas = FindNearestRoomba();
-        Debug.Log(nearRoombas.Item1.ToString() + " " + nearRoombas.Item2);
-        Debug.Log("RoombaDone");
+        //Debug.Log(nearRoombas.Item1.ToString() + " " + nearRoombas.Item2);
+        //Debug.Log("RoombaDone");
         //_target = nearRoombas.Item1;
         //_state = State.Chasing;
         Tuple<GameObject, float> nearPowers = FindNearestPower();
