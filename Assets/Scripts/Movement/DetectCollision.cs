@@ -25,7 +25,7 @@ public class DetectCollision : MonoBehaviour
             InteractionManager wallInteraction = collision.gameObject.GetComponent<InteractionManager>();
             if (wallInteraction != null)
             {
-                wallInteraction.getInteraction().runInteraction(gameObject);
+                wallInteraction.getInteraction()?.RunInteraction(gameObject);
             }
         }
         else if (myCollider.CompareTag("Balloon") && (hisCollider.CompareTag("Knife") || hisCollider.CompareTag("Damaging")))

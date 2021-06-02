@@ -1,39 +1,16 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
     private Interactable _interaction;
-    private enum Interactions
-    {
-        Lamp,
-        Hazard,
-        Calaix,
-        Other
-    }
-
-    [SerializeField] private Interactions _typeOfInteraction;
     [SerializeField] private float _CDTime;
-    [SerializeField] private Interactable _emptyInteraction;
     private bool ready;
     private void Start()
     {
-        switch (_typeOfInteraction)
-        {
-            case Interactions.Lamp:
-                _interaction = new LampInteraction(gameObject.GetComponent<Animator>());
-                break;
-            case Interactions.Hazard:
-                _interaction = new HazardInteraction(gameObject);
-                break;
-            case Interactions.Calaix:
-                _interaction = new CalaixInteraction(gameObject.GetComponent<Animator>());
-                break;
-            default:
-                break;
-        }
-        _emptyInteraction = new EmptyInteraction();
+        _interaction = (Interactable)Activator.CreateInstance(Type.GetType(gameObject.name));
+        _interaction.hasAnimation(GetComponent<Animator>(),GetComponent<Animation>());
         ready = true;
     }
 
@@ -45,13 +22,14 @@ public class InteractionManager : MonoBehaviour
             return _interaction;
         } else
         {
-            return _emptyInteraction;
+            return null;
         }
     }
 
     private IEnumerator coolDown()
     {
         ready = false;
+        StartCoroutine(_interaction.RunCompensation());
         yield return new WaitForSeconds(_CDTime);
         ready = true;
     }
