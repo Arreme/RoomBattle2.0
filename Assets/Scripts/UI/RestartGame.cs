@@ -14,6 +14,6 @@ public class RestartGame : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("Final");
+        SceneManager.LoadScene("FinalV3");
     }
 }
