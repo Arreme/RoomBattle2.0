@@ -3,11 +3,11 @@ using System.Collections;
 
 public abstract class Interactable
 {
-    protected GameObject _parent;
+    protected InteractionManager _parent;
 
     protected Animation _animation;
     protected Animator _animator;
-    public void needParent(GameObject parent)
+    public void needParent(InteractionManager parent)
     {
         _parent = parent;
     }
@@ -20,4 +20,9 @@ public abstract class Interactable
     public abstract void RunInteraction(GameObject gameObject);
 
     public abstract IEnumerator RunCompensation();
+
+    public virtual void RunNowCompensation()
+    {
+
+    }
 }
