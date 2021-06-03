@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using JSAM;
 
 public class PowerUpManager : MonoBehaviour
 {
@@ -38,24 +39,24 @@ public class PowerUpManager : MonoBehaviour
     {
         switch (i)
         {
-     
+
             case 1:
-                JSAM.AudioManager.PlaySound(, transform);
+                JSAM.AudioManager.PlaySound(Sounds.powerup_butcher, transform);
                 break;
             case 2:
-                JSAM.AudioManager.PlaySound(, transform);
+                JSAM.AudioManager.PlaySound(Sounds.powerup_oil, transform);
                 break;
             case 3:
-                JSAM.AudioManager.PlaySound(, transform);
+                JSAM.AudioManager.PlaySound(Sounds.powerup_butcher, transform);
                 break;
             case 4:
-                JSAM.AudioManager.PlaySound(, transform);
+                JSAM.AudioManager.PlaySound(Sounds.powerup_butcher, transform);
                 break;
             case 5:
-                JSAM.AudioManager.PlaySound(, transform);
+                JSAM.AudioManager.PlaySound(Sounds.powerup_viagra, transform);
                 break;
             case 6:
-                JSAM.AudioManager.PlaySound(, transform);
+                JSAM.AudioManager.PlaySound(Sounds.powerup_inflar, transform);
                 break;
         }
     }
