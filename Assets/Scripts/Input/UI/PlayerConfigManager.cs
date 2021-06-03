@@ -37,7 +37,7 @@ public class PlayerConfigManager : MonoBehaviour
         }
     }
 
-    public void SetPlayerColor(int index, Material[] color, Color lightColor,Colors colorEnum)
+    public void SetPlayerColor(int index, Material[] color, Color lightColor, Colors colorEnum)
     {
         _configs[index].colorSelected = colorEnum;
         _configs[index].PlayerMaterial = color[0];
@@ -54,6 +54,10 @@ public class PlayerConfigManager : MonoBehaviour
         if (!_configs.Any(p => p.PlayerIndex == pi.playerIndex))
         {
             _configs.Add(new PlayerConfig(pi));
+            if (pi.currentControlScheme.Equals("IA"))
+            {
+                _configs[pi.playerIndex].IsIA = true;
+            }
         }
     }
 
@@ -64,7 +68,7 @@ public class PlayerConfigManager : MonoBehaviour
 
     public void SetPlayerHat(int playerIndex, string hat)
     {
-        CustomizationManager.Instance.activateHat(playerIndex,hat);
+        CustomizationManager.Instance.activateHat(playerIndex, hat);
         _configs[playerIndex].hatInstance = AssetsLoader.Instance.getHatPrefab(hat);
     }
 
@@ -83,6 +87,7 @@ public class PlayerConfig
         PlayerIndex = pi.playerIndex;
         Input = pi;
         TeamBlue = false;
+        IsIA = false;
     }
 
     public Colors colorSelected { get; set; }
@@ -100,4 +105,6 @@ public class PlayerConfig
     public GameObject hatInstance { get; set; }
 
     public GameObject kniveInstance { get; set; }
+
+    public bool IsIA { get; set; }
 }

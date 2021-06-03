@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Linq;
+using UnityEngine.InputSystem.Controls;
 
 public class MainMenu : MonoBehaviour
 {
@@ -62,7 +65,24 @@ public class MainMenu : MonoBehaviour
         _modeGameMenu.SetActive(true);
         _teamButton.Select();
     }
+    private void Start()
+    {
+        StartCoroutine(checkForPressed());
+    }
 
+    private IEnumerator checkForPressed()
+    {
+        for(; ; )
+        {
+            if (Keyboard.current.anyKey.isPressed || (Gamepad.all.Count >= 1 && Gamepad.current.allControls.Any(x => x is ButtonControl button && x.IsPressed() && !x.synthetic)))
+            {
+                _startMenu.SetActive(false);
+                _normalMenu.SetActive(true);
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+    }
     public void QuitGame()
     {
         Application.Quit();

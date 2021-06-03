@@ -37,7 +37,7 @@ public class HUDManager : MonoBehaviour
         }
     }
 
-    public void InitializeMenu(int playerIndex, Colors colorSelected)
+    public void InitializeMenu(int playerIndex, Colors colorSelected, bool isIA)
     {
         GameObject reference;
         TextMeshProUGUI text;
@@ -52,7 +52,9 @@ public class HUDManager : MonoBehaviour
             reference = Instantiate(menuPrefab,rightPanel.transform);
             text = reference.GetComponentInChildren<TextMeshProUGUI>();
         }
-        text.SetText("Player "+(playerIndex+1));
+        if (isIA) text.SetText("IA " + (playerIndex + 1));
+        else text.SetText("Player " + (playerIndex + 1));
+
         menus[playerIndex] = new MenuConfig(reference,colorSelected);
         SetColor(reference, colorSelected);
     }

@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
-    agentHeight: 2
+    agentRadius: 0.9
+    agentHeight: 4
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.29999998
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 8ff7c10a48aac9547bbcdb37b002ff6c, type: 2}
 --- !u!1 &8456060
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,8 +240,8 @@ GameObject:
   m_Name: Vaso (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &12482368
 Transform:
@@ -1099,7 +1099,7 @@ GameObject:
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &115393866
 Transform:
@@ -1322,7 +1322,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &157283097
 GameObject:
@@ -1362,7 +1362,7 @@ Transform:
   - {fileID: 422168862}
   - {fileID: 1439488859}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &157283099
 MonoBehaviour:
@@ -1603,8 +1603,8 @@ GameObject:
   m_Name: Olla 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &187367898
 Transform:
@@ -1722,7 +1722,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &226305496
 GameObject:
@@ -2038,7 +2038,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &260043772
 GameObject:
@@ -2055,8 +2055,8 @@ GameObject:
   m_Name: Plato (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &260043773
 Transform:
@@ -2217,8 +2217,8 @@ GameObject:
   m_Name: Cylinder037 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &264232809
 Transform:
@@ -2370,11 +2370,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1304365061}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ca1764bb421b31441b4f92148071c480, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca1764bb421b31441b4f92148071c480, type: 3}
       propertyPath: m_LocalScale.x
@@ -2390,15 +2390,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca1764bb421b31441b4f92148071c480, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.939497
+      value: 5.424534
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca1764bb421b31441b4f92148071c480, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -41.30001
+      value: -28.526638
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca1764bb421b31441b4f92148071c480, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.0504768
+      value: -24.496822
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca1764bb421b31441b4f92148071c480, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2442,6 +2442,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca1764bb421b31441b4f92148071c480, type: 3}
+--- !u!4 &275772200 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ca1764bb421b31441b4f92148071c480, type: 3}
+  m_PrefabInstance: {fileID: 275772199}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &276483185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,15 +2632,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322126243}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 82.42813, y: -128.61385, z: 135.521}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 98.79216, y: -115.84047, z: 113.074646}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 749457097}
   - {fileID: 2089621911}
   - {fileID: 1197661931}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 1304365061}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &327518739
 GameObject:
@@ -2985,7 +2990,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 61.676, y: 0, z: 0}
 --- !u!1 &391843642
 GameObject:
@@ -3642,8 +3647,8 @@ GameObject:
   m_Name: Cylinder037 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &453839403
 Transform:
@@ -3841,7 +3846,7 @@ Transform:
   - {fileID: 23855118}
   - {fileID: 1077860184}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &492236829
 GameObject:
@@ -4648,7 +4653,7 @@ RectTransform:
   - {fileID: 166102434}
   - {fileID: 8456061}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5456,8 +5461,8 @@ GameObject:
   m_Name: Estante (2)
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 4294967263
   m_IsActive: 1
 --- !u!4 &693244786
 Transform:
@@ -5664,7 +5669,7 @@ Transform:
   - {fileID: 1193875154}
   - {fileID: 330878613}
   m_Father: {fileID: 1304365061}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &721370611
 GameObject:
@@ -6789,8 +6794,8 @@ GameObject:
   m_Name: Mesa
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &862396941
 Transform:
@@ -7309,8 +7314,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7841034, y: 2.280882, z: 3.0548077}
-  m_Center: {x: 18.125599, y: 14.3799715, z: 5.2280264}
+  m_Size: {x: 4.9338408, y: 2.280882, z: 3.0548077}
+  m_Center: {x: 16.55073, y: 14.3799715, z: 5.2280264}
 --- !u!1 &960310633
 GameObject:
   m_ObjectHideFlags: 0
@@ -9176,13 +9181,16 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1314388100}
+  - {fileID: 1428945674}
+  - {fileID: 1588137493}
+  - {fileID: 275772200}
   - {fileID: 1523644350}
   - {fileID: 2143342137}
   - {fileID: 1392711169}
   - {fileID: 718680633}
-  - {fileID: 1428945674}
+  - {fileID: 322126244}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1308950581
 GameObject:
@@ -9646,8 +9654,8 @@ GameObject:
   m_Name: Plato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1353384131
 Transform:
@@ -9991,7 +9999,7 @@ Transform:
   m_LocalScale: {x: 51.539593, y: 1, z: 36.862305}
   m_Children: []
   m_Father: {fileID: 1304365061}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1392711170
 BoxCollider:
@@ -10083,7 +10091,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1304365061}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1436282567
 GameObject:
@@ -10435,7 +10443,7 @@ Transform:
   - {fileID: 1929838408}
   - {fileID: 1583437363}
   m_Father: {fileID: 1304365061}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1523644351
 BoxCollider:
@@ -10907,7 +10915,7 @@ GameObject:
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1583437363
 Transform:
@@ -10977,11 +10985,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1304365061}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: eb9d5e187db3d4c4dbbe8b9068c76f49, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb9d5e187db3d4c4dbbe8b9068c76f49, type: 3}
       propertyPath: m_LocalScale.x
@@ -10997,15 +11005,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb9d5e187db3d4c4dbbe8b9068c76f49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -47.70001
+      value: -31.335978
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb9d5e187db3d4c4dbbe8b9068c76f49, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.300007
+      value: -4.526634
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb9d5e187db3d4c4dbbe8b9068c76f49, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.949537
+      value: -6.496809
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb9d5e187db3d4c4dbbe8b9068c76f49, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11017,7 +11025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb9d5e187db3d4c4dbbe8b9068c76f49, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb9d5e187db3d4c4dbbe8b9068c76f49, type: 3}
       propertyPath: m_LocalRotation.z
@@ -11049,6 +11057,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb9d5e187db3d4c4dbbe8b9068c76f49, type: 3}
+--- !u!4 &1588137493 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eb9d5e187db3d4c4dbbe8b9068c76f49, type: 3}
+  m_PrefabInstance: {fileID: 1588137492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1616717198
 GameObject:
   m_ObjectHideFlags: 0
@@ -11241,8 +11254,8 @@ GameObject:
   m_Name: Vaso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1668516232
 Transform:
@@ -13294,7 +13307,7 @@ RectTransform:
   - {fileID: 1860520621}
   - {fileID: 1755446454}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13787,7 +13800,7 @@ Transform:
   - {fileID: 1666975907}
   - {fileID: 667499784}
   m_Father: {fileID: 1304365061}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &350530109511960562
 PrefabInstance:

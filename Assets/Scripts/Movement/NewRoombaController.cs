@@ -21,7 +21,7 @@ public class NewRoombaController : MonoBehaviour
     public NormalState _normalState;
     public BoostState _boostState;
 
-    [SerializeField]private GameObject deathCanvas;
+    [SerializeField] private GameObject deathCanvas;
     private Quaternion _lockTransform;
     private Image _image;
 
@@ -37,7 +37,7 @@ public class NewRoombaController : MonoBehaviour
         _image = deathCanvas.GetComponentInChildren<Image>();
     }
 
-    
+
     void FixedUpdate()
     {
         _currentState.Stay(this);
@@ -46,7 +46,8 @@ public class NewRoombaController : MonoBehaviour
             StartCoroutine(die());
         }
 
-        if (!_pVar.insideRing) {
+        if (!_pVar.insideRing)
+        {
             _image.enabled = true;
             _pVar.currentTimeForDead -= Time.deltaTime;
             _image.fillAmount = _pVar.currentTimeForDead / _pVar.timeForDead;
@@ -54,7 +55,8 @@ public class NewRoombaController : MonoBehaviour
             {
                 StartCoroutine(die());
             }
-        } else
+        }
+        else
         {
             _image.enabled = false;
             _pVar.currentTimeForDead = _pVar.timeForDead;
@@ -71,7 +73,7 @@ public class NewRoombaController : MonoBehaviour
         _phy.dead = true;
         _knife.enabled = false;
         BattleManager.Instance.removePlayers(gameObject);
-        GetStunned(10,new Vector2(transform.forward.x,transform.forward.z),700);
+        GetStunned(10, new Vector2(transform.forward.x, transform.forward.z), 700);
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }
@@ -79,7 +81,7 @@ public class NewRoombaController : MonoBehaviour
     public void GetHit()
     {
         balloons -= 1;
-        GetStunned(0.5f,new Vector2(transform.forward.x,transform.forward.z),2000);
+        GetStunned(0.5f, new Vector2(transform.forward.x, transform.forward.z), 2000);
         _pVar.MaxSpeed = 100;
         StressReceiver.InduceStress(30f);
         StartCoroutine(changeKnife());
@@ -98,17 +100,22 @@ public class NewRoombaController : MonoBehaviour
         _currentState.EnterState(this);
     }
 
-    public void GetStunned(float v,Vector2 direction,float force)
+    public void GetStunned(float v, Vector2 direction, float force)
     {
         _currentState = new StunnedState(v, direction, force);
         _currentState.EnterState(this);
         StartCoroutine(_vfx.activateStunned(v));
     }
 
+    public RoombaState getCurrentState()
+    {
+        return _currentState;
+    }
+
     #region(InputManagement)
     public void updateMovement(Vector2 movement)
     {
-        _movement = movement;   
+        _movement = movement;
     }
 
     public void updateBoost(bool boost)
