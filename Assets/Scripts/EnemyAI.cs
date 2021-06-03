@@ -22,6 +22,7 @@ public class EnemyAI : MonoBehaviour
     private float _updateTimer = 0.2f;
     private float _currentTime;
     private Vector2 _direction;
+    //private bool _butcher;
 
     //DATA MODIFICAR
     private float butcherDistance = 10;
@@ -46,6 +47,7 @@ public class EnemyAI : MonoBehaviour
             _players = BattleManager.getPlayers();
         }
         _path = new NavMeshPath();
+        //_butcher = false;
         _state = State.Chasing;
         _currentTime = 0.0f;
     }
@@ -68,10 +70,17 @@ public class EnemyAI : MonoBehaviour
                         _state = State.UsingPower;
                     }
                     /**
-                    bool butcher = checkButcher();
-                    if (butcher && Vector3.Distance(transform.position, _target.transform.position) >= butcherDistance)
+                    bool checkButcher = CheckButcher();
+                    //&& Vector3.Distance(transform.position, _target.transform.position) >= butcherDistance
+                    if (!_butcher && checkButcher )
                     {
                         _state = State.Fleeing;
+                        _butcher = true;
+
+                    }
+                    else
+                    {
+                        _butcher = false;
                     }
                     */
                     switch (_state)
@@ -121,7 +130,7 @@ public class EnemyAI : MonoBehaviour
         return ballons.transform.childCount;
     }
 
-    private bool checkButcher()
+    private bool CheckButcher()
     {
         bool check = false;
         if (_target != null && !_target.gameObject.CompareTag("PowerUp"))
@@ -139,10 +148,9 @@ public class EnemyAI : MonoBehaviour
         bool butcherCheck = false;
         do
         {
-            Vector2 randomPos = UnityEngine.Random.insideUnitCircle * 20;
-            Vector3 randomToV3 = new Vector3(randomPos.x, 0, randomPos.y);
+            Vector3 randomPosition = GetRandomLocation();
             Collider[] hitColliders = Physics.OverlapBox(
-            randomToV3,
+            randomPosition,
             new Vector3(butcherDistance, 0, butcherDistance),
             Quaternion.identity);
             int i = 0;
@@ -155,11 +163,23 @@ public class EnemyAI : MonoBehaviour
                 i++;
             }
 
-            NavMesh.CalculatePath(transform.position, randomToV3, NavMesh.AllAreas, _path);
+            NavMesh.CalculatePath(transform.position, randomPosition, NavMesh.AllAreas, _path);
             //if (Vector3.Distance(randomToV3, _target.transform.position) >= butcherDistance)
             //butcherCheck = true;
         }
         while (butcherCheck);
+    }
+
+    public Vector3 GetRandomLocation()
+    {
+        NavMeshTriangulation navMeshData = NavMesh.CalculateTriangulation();
+
+        int t = UnityEngine.Random.Range(0, navMeshData.indices.Length - 3);
+
+        Vector3 point = Vector3.Lerp(navMeshData.vertices[navMeshData.indices[t]], navMeshData.vertices[navMeshData.indices[t + 1]], UnityEngine.Random.value);
+        point = Vector3.Lerp(point, navMeshData.vertices[navMeshData.indices[t + 2]], UnityEngine.Random.value);
+
+        return point;
     }
 
     private void ClashingSolver()
