@@ -12,6 +12,11 @@ public class OilPowerUp : PowerUp
         _oilPrefab = prefab;
     }
 
+    public int identify()
+    {
+        return 2;
+    }
+
     public IEnumerator restorePowerUp(GameObject player)
     {
         yield return new WaitForSecondsRealtime(1.5f);

@@ -10,6 +10,12 @@ public class InflatePowerUp : PowerUp
     {
         _players = BattleManager.getPlayers();
     }
+
+    public int identify()
+    {
+        return 6;
+    }
+
     public IEnumerator restorePowerUp(GameObject player)
     {
         yield return new WaitForSecondsRealtime(5f);

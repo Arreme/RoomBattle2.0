@@ -5,6 +5,12 @@ using UnityEngine;
 public class RunPowerUp : PowerUp
 {
     PlayerVariables _pVar;
+
+    public int identify()
+    {
+        return 3;
+    }
+
     public IEnumerator restorePowerUp(GameObject player)
     {
         yield return new WaitForSecondsRealtime(5f);

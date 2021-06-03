@@ -13,4 +13,9 @@ public class NoPowerUp : PowerUp
     {
         yield return new WaitForSecondsRealtime(0f);
     }
+
+    public int identify()
+    {
+        return -1;
+    }
 }
