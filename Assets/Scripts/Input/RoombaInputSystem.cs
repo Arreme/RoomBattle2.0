@@ -533,6 +533,11 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""IA"",
+            ""bindingGroup"": ""IA"",
+            ""devices"": []
         }
     ]
 }");
@@ -705,6 +710,15 @@ public class @RoombaInputSystem : IInputActionCollection, IDisposable
         {
             if (m_Keyboard2SchemeIndex == -1) m_Keyboard2SchemeIndex = asset.FindControlSchemeIndex("Keyboard2");
             return asset.controlSchemes[m_Keyboard2SchemeIndex];
+        }
+    }
+    private int m_IASchemeIndex = -1;
+    public InputControlScheme IAScheme
+    {
+        get
+        {
+            if (m_IASchemeIndex == -1) m_IASchemeIndex = asset.FindControlSchemeIndex("IA");
+            return asset.controlSchemes[m_IASchemeIndex];
         }
     }
     public interface IInGameActions

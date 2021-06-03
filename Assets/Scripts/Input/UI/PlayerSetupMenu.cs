@@ -7,6 +7,7 @@ using UnityEngine.InputSystem.UI;
 public class PlayerSetupMenu : MonoBehaviour
 {
     private int PlayerIndex;
+    private bool isAnIA;
     [SerializeField]
     private TextMeshProUGUI tittleText;
     [SerializeField]
@@ -26,7 +27,7 @@ public class PlayerSetupMenu : MonoBehaviour
 
     void Update()
     {
-        if (_evenSystem != null)
+        if (_evenSystem != null && !isAnIA)
         {
             GameObject button = _evenSystem.currentSelectedGameObject;
             if (button != null)
@@ -101,10 +102,27 @@ public class PlayerSetupMenu : MonoBehaviour
     public void SetPlayerIndex(int pi)
     {
         PlayerIndex = pi;
-        tittleText.SetText("Player " + (PlayerIndex + 1));
+        isAnIA = PlayerConfigManager.Instance.GetPlayerConfigs()[PlayerIndex].IsIA;
+        
         _renderTexture.material = CustomizationManager.Instance.InitializeCamera(PlayerIndex);
         CustomizationManager.Instance.getRoomba(PlayerIndex).SetActive(true);
-        SetColor("Blue");
+        if (isAnIA)
+        {
+            tittleText.SetText("IA " + (PlayerIndex + 1));
+            Array values = Enum.GetValues(typeof(Colors));
+            System.Random random = new System.Random();
+            Colors randomColor = (Colors)values.GetValue(random.Next(values.Length));
+            SetColor(randomColor.ToString());
+            _colorCurrent.GetComponentInParent<Image>().gameObject.SetActive(false);
+            _knifeCurrent.GetComponentInParent<Image>().gameObject.SetActive(false);
+            _skinCurrent.GetComponentInParent<Image>().gameObject.SetActive(false);
+            ReadyPlayer();
+        } else
+        {
+            tittleText.SetText("Player " + (PlayerIndex + 1));
+            SetColor("Blue");
+        }
+        
     }
 
     private void SetHat(string hat)

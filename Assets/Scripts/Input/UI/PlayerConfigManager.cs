@@ -54,6 +54,10 @@ public class PlayerConfigManager : MonoBehaviour
         if (!_configs.Any(p => p.PlayerIndex == pi.playerIndex))
         {
             _configs.Add(new PlayerConfig(pi));
+            if (pi.currentControlScheme.Equals("IA"))
+            {
+                _configs[pi.playerIndex].IsIA = true;
+            }
         }
     }
 
@@ -83,6 +87,7 @@ public class PlayerConfig
         PlayerIndex = pi.playerIndex;
         Input = pi;
         TeamBlue = false;
+        IsIA = false;
     }
 
     public Colors colorSelected { get; set; }
@@ -100,4 +105,6 @@ public class PlayerConfig
     public GameObject hatInstance { get; set; }
 
     public GameObject kniveInstance { get; set; }
+
+    public bool IsIA { get; set; }
 }
