@@ -22,7 +22,6 @@ public class EnemyAI : MonoBehaviour
     private float _updateTimer = 0.2f;
     private float _currentTime;
     private Vector2 _direction;
-    private bool _isButcherActive;
 
     //DATA MODIFICAR
     private float butcherDistance = 10;
@@ -48,7 +47,6 @@ public class EnemyAI : MonoBehaviour
         }
         _path = new NavMeshPath();
         _state = State.Chasing;
-        _isButcherActive = false;
         _currentTime = 0.0f;
     }
 
