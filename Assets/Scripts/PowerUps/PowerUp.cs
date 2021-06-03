@@ -7,4 +7,6 @@ public interface PowerUp
     bool runPowerUp(GameObject player);
 
     IEnumerator restorePowerUp(GameObject player);
+
+    int identify();
 }

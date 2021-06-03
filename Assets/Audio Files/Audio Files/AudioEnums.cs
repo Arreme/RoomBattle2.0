@@ -4,7 +4,6 @@ namespace JSAM {
         powerup_oil
     }
     public enum Music {
-        InGameMusic,
         Musicingame
     }
 }

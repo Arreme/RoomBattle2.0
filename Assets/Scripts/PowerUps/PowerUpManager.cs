@@ -24,13 +24,39 @@ public class PowerUpManager : MonoBehaviour
             bool check = _currentPower.runPowerUp(gameObject);
             if (check)
             {
-                //SOUND OF POWER UP ACTIVATION
+                soundOn(_currentPower.identify());
                 isPowerRunning = true;
                 _vfx.actiavteLights(true);
                 //ACTIVATE HUD RUNNING EFFECT
                 StartCoroutine(_currentPower.restorePowerUp(gameObject));
                 _currentPower = new NoPowerUp();
             }
+        }
+    }
+
+    private void soundOn(int i)
+    {
+        switch (i)
+        {
+     
+            case 1:
+                JSAM.AudioManager.PlaySound(, transform);
+                break;
+            case 2:
+                JSAM.AudioManager.PlaySound(, transform);
+                break;
+            case 3:
+                JSAM.AudioManager.PlaySound(, transform);
+                break;
+            case 4:
+                JSAM.AudioManager.PlaySound(, transform);
+                break;
+            case 5:
+                JSAM.AudioManager.PlaySound(, transform);
+                break;
+            case 6:
+                JSAM.AudioManager.PlaySound(, transform);
+                break;
         }
     }
 

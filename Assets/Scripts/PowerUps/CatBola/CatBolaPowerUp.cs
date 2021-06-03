@@ -9,6 +9,11 @@ public class CatBolaPowerUp : PowerUp
         _bolaDeGato = pref;
     }
 
+    public int identify()
+    {
+        return 1;
+    }
+
     public IEnumerator restorePowerUp(GameObject player)
     {
         yield return new WaitForSecondsRealtime(0);
