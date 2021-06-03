@@ -37,7 +37,7 @@ public class PlayerConfigManager : MonoBehaviour
         }
     }
 
-    public void SetPlayerColor(int index, Material[] color, Color lightColor,Colors colorEnum)
+    public void SetPlayerColor(int index, Material[] color, Color lightColor, Colors colorEnum)
     {
         _configs[index].colorSelected = colorEnum;
         _configs[index].PlayerMaterial = color[0];
@@ -64,7 +64,7 @@ public class PlayerConfigManager : MonoBehaviour
 
     public void SetPlayerHat(int playerIndex, string hat)
     {
-        CustomizationManager.Instance.activateHat(playerIndex,hat);
+        CustomizationManager.Instance.activateHat(playerIndex, hat);
         _configs[playerIndex].hatInstance = AssetsLoader.Instance.getHatPrefab(hat);
     }
 

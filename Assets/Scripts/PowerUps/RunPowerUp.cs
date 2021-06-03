@@ -26,6 +26,4 @@ public class RunPowerUp : PowerUp
         _pVar._normalSpeed = _pVar._normalSpeed * 2f;
         return true;
     }
-
-
 }

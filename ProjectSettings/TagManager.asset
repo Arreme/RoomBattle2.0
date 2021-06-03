@@ -11,6 +11,7 @@ TagManager:
   - KillArea
   - Damaging
   - Oil
+  - PowerUp
   layers:
   - Default
   - TransparentFX
