@@ -1072,14 +1072,14 @@ MonoBehaviour:
   timeForDead: 3
   currentTimeForDead: 3
   insideRing: 1
-  _normalSpeed: 11
+  _normalSpeed: 14
   _rotateSpeed: 50
   _boostCD: 0.4
   _boostTime: 0.05
   _boostMaxSpeed: 300
   _boostForce: 600
-  _outMaxSpeed: 11
-  _baseMaxSpeed: 11
+  _outMaxSpeed: 14
+  _baseMaxSpeed: 14
   rate: 0.8
   lerp: 0
   lDrag: 1.14
