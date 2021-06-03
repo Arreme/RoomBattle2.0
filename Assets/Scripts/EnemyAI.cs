@@ -12,24 +12,43 @@ public class EnemyAI : MonoBehaviour
         UsingPower,
         Boosting,
         PickingPowerUp,
+        Fleeing,
     }
 
-    private List<GameObject> _players;
+    private List<GameObject> _players = new List<GameObject>();
     private NavMeshPath _path;
     private GameObject _target;
     private State _state;
-    private float _updateTimer = 0.1f;
+    private float _updateTimer = 0.2f;
     private float _currentTime;
+    private Vector2 _direction;
+    private bool _isButcherActive;
 
-    //DATA MODIF
-    private float attackDistance = 10;
-    private float boostDistance = 30;
-
+    //DATA MODIFICAR
+    private float butcherDistance = 10;
+    private float boostDistance = 20;
+    private float PowerOrChaseMargin = 30;
     void Start()
     {
-        _players = BattleManager.getPlayers();
+        if (PlayerConfigManager.Instance._teamsEnabled)
+        {
+            List<GameObject> tempPlayers = BattleManager.getPlayers();
+
+            foreach (GameObject player in tempPlayers)
+            {
+                if (gameObject.GetComponent<InputManager>()._teamBlue != player.GetComponent<InputManager>()._teamBlue)
+                {
+                    _players.Add(player);
+                }
+            }
+        }
+        else
+        {
+            _players = BattleManager.getPlayers();
+        }
         _path = new NavMeshPath();
         _state = State.Chasing;
+        _isButcherActive = false;
         _currentTime = 0.0f;
     }
 
@@ -42,10 +61,6 @@ public class EnemyAI : MonoBehaviour
                 LookNearest();
                 if (_target != null)
                 {
-                    if (CalculatePathLength(_target.transform.position) <= attackDistance)
-                    {
-                        _state = State.Boosting;
-                    }
                     if (CalculateCornerToCornerDistance(0, 1) >= boostDistance && CalculatePathLength(_target.transform.position) >= boostDistance)
                     {
                         _state = State.Boosting;
@@ -54,7 +69,13 @@ public class EnemyAI : MonoBehaviour
                     {
                         _state = State.UsingPower;
                     }
-                    //Debug.Log(gameObject.name + " is " + _state.ToString());
+                    /**
+                    bool butcher = checkButcher();
+                    if (butcher && Vector3.Distance(transform.position, _target.transform.position) >= butcherDistance)
+                    {
+                        _state = State.Fleeing;
+                    }
+                    */
                     switch (_state)
                     {
                         case State.Chasing:
@@ -68,6 +89,9 @@ public class EnemyAI : MonoBehaviour
                             break;
                         case State.PickingPowerUp:
                             PickPower();
+                            break;
+                        case State.Fleeing:
+                            Flee();
                             break;
                     }
                     _currentTime = 0.0f;
@@ -83,6 +107,78 @@ public class EnemyAI : MonoBehaviour
         {
             Debug.DrawLine(_path.corners[i], _path.corners[i + 1], Color.red);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            ClashingSolver();
+        }
+    }
+
+    private int checkBalloons()
+    {
+        GameObject ballons = transform.Find("Balloons").gameObject;
+        return ballons.transform.childCount;
+    }
+
+    private bool checkButcher()
+    {
+        bool check = false;
+        if (_target != null && !_target.gameObject.CompareTag("PowerUp"))
+        {
+            bool butcherCheck = _target.transform.parent.parent.Find("Butcher").gameObject.activeSelf;
+            check = butcherCheck;
+            Debug.Log(check);
+        }
+        return check;
+    }
+
+    private void Flee()
+    {
+        transform.rotation = Quaternion.LookRotation(transform.position - _target.transform.position);
+        bool butcherCheck = false;
+        do
+        {
+            Vector2 randomPos = UnityEngine.Random.insideUnitCircle * 20;
+            Vector3 randomToV3 = new Vector3(randomPos.x, 0, randomPos.y);
+            Collider[] hitColliders = Physics.OverlapBox(
+            randomToV3,
+            new Vector3(butcherDistance, 0, butcherDistance),
+            Quaternion.identity);
+            int i = 0;
+            while (i < hitColliders.Length)
+            {
+                if (hitColliders[i].gameObject.Equals(_target.transform.parent.parent))
+                {
+                    butcherCheck = true;
+                }
+                i++;
+            }
+
+            NavMesh.CalculatePath(transform.position, randomToV3, NavMesh.AllAreas, _path);
+            //if (Vector3.Distance(randomToV3, _target.transform.position) >= butcherDistance)
+            //butcherCheck = true;
+        }
+        while (butcherCheck);
+    }
+
+    private void ClashingSolver()
+    {
+        Vector2 perpendicular = Vector2.Perpendicular(_direction);
+        int random = UnityEngine.Random.Range(1, 11);
+
+        if (random % 2 == 0)
+        {
+            perpendicular = perpendicular * -1;
+        }
+
+        Vector2 newDirection = _direction + perpendicular;
+        _direction = newDirection.normalized;
+
+        GetComponent<NewRoombaController>().updateMovement(_direction);
+        GetComponent<NewRoombaController>().updateBoost(true);
     }
 
     private void UsingPowerUp()
@@ -110,13 +206,6 @@ public class EnemyAI : MonoBehaviour
 
     private void Chase()
     {
-        /**bool b = false;
-        do
-        {
-            
-            Debug.Log(b);
-        } while (!b || _path.corners.Length < 2);*/
-
         Vector3 thisV2 = new Vector3(transform.position.x, 0, transform.position.z);
         Vector3 targetV2 = new Vector3(_target.transform.position.x, 0, _target.transform.position.z);
         bool b = NavMesh.CalculatePath(thisV2, targetV2, NavMesh.AllAreas, _path);
@@ -125,21 +214,17 @@ public class EnemyAI : MonoBehaviour
         {
             Vector2 waypoint = new Vector2(_path.corners[1].x, _path.corners[1].z);
             Vector2 roombaPos = new Vector2(transform.position.x, transform.position.z);
-            Vector2 direction = waypoint - roombaPos;
-            GetComponent<NewRoombaController>().updateMovement(direction.normalized);
+            _direction = waypoint - roombaPos;
+            GetComponent<NewRoombaController>().updateMovement(_direction.normalized);
         }
     }
 
     private void LookNearest()
     {
-
         Tuple<GameObject, float> nearRoombas = FindNearestRoomba();
         //Debug.Log(nearRoombas.Item1.ToString() + " " + nearRoombas.Item2);
         //Debug.Log("RoombaDone");
-        //_target = nearRoombas.Item1;
-        //_state = State.Chasing;
         Tuple<GameObject, float> nearPowers = FindNearestPower();
-        //Tuple<GameObject, float> nearPowers = new Tuple<GameObject, float>(gameObject, 1000f);
 
         if (nearPowers.Item1.Equals(gameObject) || !(GetComponent<PowerUpManager>()._currentPower is NoPowerUp))
         {
@@ -148,20 +233,27 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            if (nearRoombas.Item2 > nearPowers.Item2)
+            int nBallons = checkBalloons();
+
+            if (nBallons <= 1 && nearRoombas.Item2 - nearPowers.Item2 >= PowerOrChaseMargin)
             {
                 _target = nearPowers.Item1;
                 _state = State.PickingPowerUp;
-                //_target = nearRoombas.Item1;
-                //_state = State.Chasing;
             }
             else
             {
-                _target = nearRoombas.Item1;
-                _state = State.Chasing;
+                if (nearRoombas.Item2 > nearPowers.Item2)
+                {
+                    _target = nearPowers.Item1;
+                    _state = State.PickingPowerUp;
+                }
+                else
+                {
+                    _target = nearRoombas.Item1;
+                    _state = State.Chasing;
+                }
             }
         }
-
     }
     private Tuple<GameObject, float> FindNearestPower()
     {
@@ -173,10 +265,10 @@ public class EnemyAI : MonoBehaviour
         {
             foreach (GameObject powerUp in powerUps)
             {
-                //float dist = CalculatePathLength(powerUp.transform.position);
-                Vector2 thisV2 = new Vector2(transform.position.x, transform.position.z);
-                Vector2 targetV2 = new Vector2(powerUp.transform.position.x, powerUp.transform.position.z);
-                float dist = Vector2.Distance(thisV2, targetV2);
+                float dist = CalculatePathLength(powerUp.transform.position);
+                //Vector2 thisV2 = new Vector2(transform.position.x, transform.position.z);
+                //Vector2 targetV2 = new Vector2(powerUp.transform.position.x, powerUp.transform.position.z);
+                //float dist = Vector2.Distance(thisV2, targetV2);
                 if (shortestDistance == 0 || dist < shortestDistance)
                 {
                     shortestDistance = dist;
@@ -203,10 +295,10 @@ public class EnemyAI : MonoBehaviour
         {
             if (!gameObject.Equals(player))
             {
-                //float dist = CalculatePathLength(player.transform.position);
-                Vector2 thisV2 = new Vector2(transform.position.x, transform.position.z);
-                Vector2 targetV2 = new Vector2(player.transform.position.x, player.transform.position.z);
-                float dist = Vector2.Distance(thisV2, targetV2);
+                float dist = CalculatePathLength(player.transform.position);
+                //Vector2 thisV2 = new Vector2(transform.position.x, transform.position.z);
+                //Vector2 targetV2 = new Vector2(player.transform.position.x, player.transform.position.z);
+                //float dist = Vector2.Distance(thisV2, targetV2);
                 if (shortestDistance == 0 || dist < shortestDistance)
                 {
                     shortestDistance = dist;
