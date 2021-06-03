@@ -109,10 +109,23 @@ public class PlayerSetupMenu : MonoBehaviour
         if (isAnIA)
         {
             tittleText.SetText("IA " + (PlayerIndex + 1));
-            Array values = Enum.GetValues(typeof(Colors));
-            System.Random random = new System.Random();
-            Colors randomColor = (Colors)values.GetValue(random.Next(values.Length));
-            SetColor(randomColor.ToString());
+            if (PlayerConfigManager.Instance._teamsEnabled)
+            {
+                if (UnityEngine.Random.value >= 0.5)
+                {
+                    SetColor("Red");
+                } else
+                {
+                    SetColor("Blue");
+                }
+                
+            } else
+            {
+                Array values = Enum.GetValues(typeof(Colors));
+                System.Random random = new System.Random();
+                Colors randomColor = (Colors)values.GetValue(random.Next(values.Length));
+                SetColor(randomColor.ToString());
+            }
             _colorCurrent.GetComponentInParent<Image>().gameObject.SetActive(false);
             _knifeCurrent.GetComponentInParent<Image>().gameObject.SetActive(false);
             _skinCurrent.GetComponentInParent<Image>().gameObject.SetActive(false);

@@ -37,7 +37,7 @@ public class PlayerJoiner : MonoBehaviour
             devideId.Add(Gamepad.current.deviceId);
             _manager.JoinPlayer(_id, -1, "Gamepad", Gamepad.current);
             _id++;
-        } else if (_id >= 1 && (Keyboard.current.xKey.isPressed || Gamepad.all.Count >= 1 && Gamepad.current.buttonWest.isPressed))
+        } else if (_id >= 1 && (Keyboard.current.xKey.wasPressedThisFrame || Gamepad.all.Count >= 1 && Gamepad.current.buttonWest.wasPressedThisFrame))
         {
             _manager.JoinPlayer(_id, -1, "IA");
             _id++;

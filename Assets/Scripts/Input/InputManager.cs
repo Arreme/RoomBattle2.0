@@ -44,6 +44,10 @@ public class InputManager : MonoBehaviour
             }
             _teamBlue = conf.TeamBlue;
         }
+        if (conf.IsIA)
+        {
+            GetComponent<EnemyAI>().enabled = true;
+        }
         GetComponent<PlayerVariables>().PlayerIndex = conf.PlayerIndex;
         conf.Input.onActionTriggered += Input_onActionTriggered;
     }
@@ -69,7 +73,7 @@ public class InputManager : MonoBehaviour
             parentKnife.transform.localRotation = conf.kniveInstance.transform.localRotation;
             parentKnife.transform.localScale = conf.kniveInstance.transform.localScale;
         }
-        HUDManager.Instance.InitializeMenu(conf.PlayerIndex, conf.colorSelected);
+        HUDManager.Instance.InitializeMenu(conf.PlayerIndex, conf.colorSelected,conf.IsIA);
     }
 
     private void Input_onActionTriggered(InputAction.CallbackContext obj)

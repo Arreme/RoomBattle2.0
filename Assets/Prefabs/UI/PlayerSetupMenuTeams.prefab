@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 593660607018046654}
         m_TargetAssemblyTypeName: PlayerSetupMenu, Assembly-CSharp
         m_MethodName: ReadyPlayer
         m_Mode: 1
