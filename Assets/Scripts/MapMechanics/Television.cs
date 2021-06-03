@@ -6,11 +6,6 @@ public class Television : Interactable
 {
     private float _throw = 0;
 
-    public override IEnumerator RunCompensation()
-    {
-        yield return new WaitForSeconds(0);
-    }
-
     public override void RunInteraction(GameObject gameObject)
     {
         float speed = gameObject.GetComponentInParent<Rigidbody>().velocity.magnitude;

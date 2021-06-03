@@ -8,10 +8,4 @@ public class Mesa : Interactable
     {
         _animation.Play("MesaHit");
     }
-
-    public override IEnumerator RunCompensation()
-    {
-        yield return new WaitForSeconds(0);
-
-    }
 }

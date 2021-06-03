@@ -19,19 +19,11 @@ public class InteractionManager : MonoBehaviour
     {
         if (ready)
         {
-            StartCoroutine(_interaction.RunCompensation());
+            StartCoroutine(_interaction.RunCompensation(_CDTime));
             return _interaction;
         } else
         {
             return null;
         }
-    }
-
-    private IEnumerator coolDown()
-    {
-        ready = false;
-        StartCoroutine(_interaction.RunCompensation());
-        yield return new WaitForSeconds(_CDTime);
-        ready = true;
     }
 }

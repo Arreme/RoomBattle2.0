@@ -16,10 +16,4 @@ public class Calaix : Interactable
             opened = false;
         }
     }
-
-    public override IEnumerator RunCompensation()
-    {
-        yield return new WaitForSeconds(0f);
-
-    }
 }

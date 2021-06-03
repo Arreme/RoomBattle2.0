@@ -7,6 +7,11 @@ public class ExtendKnifePowerUp : PowerUp
     private Vector3 _oldScale;
     private Vector3 _oldPos;
 
+    public int identify()
+    {
+        return 5;
+    }
+
     public IEnumerator restorePowerUp(GameObject player)
     {
         yield return new WaitForSecondsRealtime(5f);

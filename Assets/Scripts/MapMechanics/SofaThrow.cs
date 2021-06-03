@@ -9,8 +9,11 @@ public class SofaThrow : Interactable
         _animation.Play("SofaThrow");
     }
 
-    public override IEnumerator RunCompensation()
+    public override IEnumerator RunCompensation(float _cdTime)
     {
+        _parent.ready = false;
+        yield return new WaitForSeconds(_cdTime);
+        _parent.ready = true;
         yield return new WaitForSeconds(20f);
         _animation.Play("SofaRecovery");
     }

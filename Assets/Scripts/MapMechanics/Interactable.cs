@@ -19,7 +19,12 @@ public abstract class Interactable
     }
     public abstract void RunInteraction(GameObject gameObject);
 
-    public abstract IEnumerator RunCompensation();
+    public virtual IEnumerator RunCompensation(float _cdtime)
+    {
+        _parent.ready = false;
+        yield return new WaitForSeconds(_cdtime);
+        _parent.ready = true;
+    }
 
     public virtual void RunNowCompensation()
     {

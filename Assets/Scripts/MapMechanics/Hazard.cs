@@ -5,10 +5,6 @@ using UnityEngine;
 public class Hazard : Interactable
 {
     public float life = 50;    
-    public override IEnumerator RunCompensation()
-    {
-        yield return new WaitForSeconds(0);
-    }
 
     public override void RunInteraction(GameObject gameObject)
     {
