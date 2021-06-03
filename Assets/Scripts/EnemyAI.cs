@@ -15,14 +15,14 @@ public class EnemyAI : MonoBehaviour
         Fleeing,
     }
 
-    private List<GameObject> _players = new List<GameObject>();
+    //private List<GameObject> _players = new List<GameObject>();
     private NavMeshPath _path;
     private GameObject _target;
     private State _state;
     private float _updateTimer = 0.2f;
     private float _currentTime;
     private Vector2 _direction;
-    //private bool _butcher;
+    private bool _butcher;
 
     //DATA MODIFICAR
     private float butcherDistance = 10;
@@ -30,22 +30,6 @@ public class EnemyAI : MonoBehaviour
     private float PowerOrChaseMargin = 30;
     void Start()
     {
-        if (PlayerConfigManager.Instance._teamsEnabled)
-        {
-            List<GameObject> tempPlayers = BattleManager.getPlayers();
-
-            foreach (GameObject player in tempPlayers)
-            {
-                if (gameObject.GetComponent<InputManager>()._teamBlue != player.GetComponent<InputManager>()._teamBlue)
-                {
-                    _players.Add(player);
-                }
-            }
-        }
-        else
-        {
-            _players = BattleManager.getPlayers();
-        }
         _path = new NavMeshPath();
         //_butcher = false;
         _state = State.Chasing;
@@ -146,28 +130,32 @@ public class EnemyAI : MonoBehaviour
     {
         transform.rotation = Quaternion.LookRotation(transform.position - _target.transform.position);
         bool butcherCheck = false;
-        do
+        if (!_butcher)
         {
-            Vector3 randomPosition = GetRandomLocation();
-            Collider[] hitColliders = Physics.OverlapBox(
-            randomPosition,
-            new Vector3(butcherDistance, 0, butcherDistance),
-            Quaternion.identity);
-            int i = 0;
-            while (i < hitColliders.Length)
+            do
             {
-                if (hitColliders[i].gameObject.Equals(_target.transform.parent.parent))
+                Vector3 randomPosition = GetRandomLocation();
+                Collider[] hitColliders = Physics.OverlapBox(
+                randomPosition,
+                new Vector3(butcherDistance, 0, butcherDistance),
+                Quaternion.identity);
+                int i = 0;
+                while (i < hitColliders.Length)
                 {
-                    butcherCheck = true;
+                    if (hitColliders[i].gameObject.Equals(_target.transform.parent.parent))
+                    {
+                        butcherCheck = true;
+                    }
+                    i++;
                 }
-                i++;
-            }
 
-            NavMesh.CalculatePath(transform.position, randomPosition, NavMesh.AllAreas, _path);
-            //if (Vector3.Distance(randomToV3, _target.transform.position) >= butcherDistance)
-            //butcherCheck = true;
+                NavMesh.CalculatePath(transform.position, randomPosition, NavMesh.AllAreas, _path);
+                //if (Vector3.Distance(randomToV3, _target.transform.position) >= butcherDistance)
+                //butcherCheck = true;
+            }
+            while (butcherCheck);
         }
-        while (butcherCheck);
+
     }
 
     public Vector3 GetRandomLocation()
@@ -309,19 +297,38 @@ public class EnemyAI : MonoBehaviour
     {
         float shortestDistance = 0;
         GameObject nearestPlayer = null;
-        foreach (GameObject player in _players)
+        foreach (GameObject player in BattleManager.getPlayers())
         {
-            if (!gameObject.Equals(player))
+            if (!gameObject.Equals(player) && !player.GetComponent<CustomPhysics>().dead)
             {
-                float dist = CalculatePathLength(player.transform.position);
-                //Vector2 thisV2 = new Vector2(transform.position.x, transform.position.z);
-                //Vector2 targetV2 = new Vector2(player.transform.position.x, player.transform.position.z);
-                //float dist = Vector2.Distance(thisV2, targetV2);
-                if (shortestDistance == 0 || dist < shortestDistance)
+                if (PlayerConfigManager.Instance._teamsEnabled)
                 {
-                    shortestDistance = dist;
-                    //Vector3.Distance(transform.position, player.transform.position);
-                    nearestPlayer = player;
+                    if (gameObject.GetComponent<InputManager>()._teamBlue != player.GetComponent<InputManager>()._teamBlue)
+                    {
+                        float dist = CalculatePathLength(player.transform.position);
+                        //Vector2 thisV2 = new Vector2(transform.position.x, transform.position.z);
+                        //Vector2 targetV2 = new Vector2(player.transform.position.x, player.transform.position.z);
+                        //float dist = Vector2.Distance(thisV2, targetV2);
+                        if (shortestDistance == 0 || dist < shortestDistance)
+                        {
+                            shortestDistance = dist;
+                            //Vector3.Distance(transform.position, player.transform.position);
+                            nearestPlayer = player;
+                        }
+                    }
+                }
+                else
+                {
+                    float dist = CalculatePathLength(player.transform.position);
+                    //Vector2 thisV2 = new Vector2(transform.position.x, transform.position.z);
+                    //Vector2 targetV2 = new Vector2(player.transform.position.x, player.transform.position.z);
+                    //float dist = Vector2.Distance(thisV2, targetV2);
+                    if (shortestDistance == 0 || dist < shortestDistance)
+                    {
+                        shortestDistance = dist;
+                        //Vector3.Distance(transform.position, player.transform.position);
+                        nearestPlayer = player;
+                    }
                 }
             }
         }
@@ -336,7 +343,6 @@ public class EnemyAI : MonoBehaviour
         {
             return new Tuple<GameObject, float>(gameObject, shortestDistance);
         }
-
     }
 
     private float CalculatePathLength(Vector3 targetPosition)

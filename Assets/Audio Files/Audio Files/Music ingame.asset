@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb8002b44af6934a9ae327c8311d458, type: 3}
   m_Name: Music ingame
   m_EditorClassIdentifier: 
-  file: {fileID: 8300000, guid: 2256ec06789048a4db6aedf2ba077dcf, type: 3}
+  file: {fileID: 8300000, guid: 9ada1a96d5b1b5943b84e67530b8c1a3, type: 3}
   files: []
   useLibrary: 0
   neverRepeat: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
     diffusion: 0
     density: 0
   clampToLoopPoints: 0
-  loopMode: 1
+  loopMode: 0
   loopStart: 0
-  loopEnd: 0
+  loopEnd: 172.32402
   bpm: 120

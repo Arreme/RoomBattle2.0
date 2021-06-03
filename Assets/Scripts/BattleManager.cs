@@ -28,7 +28,8 @@ public class BattleManager : MonoBehaviour
         if (player.GetComponent<InputManager>()._teamBlue)
         {
             _blueAlive -= 1;
-        } else
+        }
+        else
         {
             _redAlive -= 1;
         }
@@ -63,7 +64,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    
+
 
     private IEnumerator checkForWin()
     {
