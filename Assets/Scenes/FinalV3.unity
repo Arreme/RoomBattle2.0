@@ -1570,8 +1570,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioFileObjects:
+  - {fileID: 11400000, guid: 53c044a70dbc21a4cb3c6ce4ccfa63c1, type: 2}
   - {fileID: 11400000, guid: b857c8427eb68f147a01f65e279796ad, type: 2}
   - {fileID: 11400000, guid: 5c85168161667ed4f823b3cd98aea252, type: 2}
+  - {fileID: 11400000, guid: b44a876d5bc9eca4091a15bff701ed23, type: 2}
   - {fileID: 11400000, guid: 35ddf599e5c0cd843a169e4cfaec71e3, type: 2}
   - {fileID: 11400000, guid: 25c92d10e8dee0a499d1a517a21a360b, type: 2}
   audioFileMusicObjects:
@@ -2091,7 +2093,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &226305496
 GameObject:
@@ -3161,7 +3163,7 @@ Transform:
   - {fileID: 2089621911}
   - {fileID: 408627153}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &327518739
 GameObject:

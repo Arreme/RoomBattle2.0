@@ -41,13 +41,13 @@ public class PowerUpManager : MonoBehaviour
         {
 
             case 1:
-                JSAM.AudioManager.PlaySound(Sounds.powerup_butcher, transform);
+                JSAM.AudioManager.PlaySound(Sounds.powerup_lana, transform);
                 break;
             case 2:
                 JSAM.AudioManager.PlaySound(Sounds.powerup_oil, transform);
                 break;
             case 3:
-                JSAM.AudioManager.PlaySound(Sounds.powerup_butcher, transform);
+                JSAM.AudioManager.PlaySound(Sounds.powerup_boost, transform);
                 break;
             case 4:
                 JSAM.AudioManager.PlaySound(Sounds.powerup_butcher, transform);

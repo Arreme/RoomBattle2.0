@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d15ae218647a2d4f85e14306846c10c, type: 3}
   m_Name: powerup_butcher
   m_EditorClassIdentifier: 
-  file: {fileID: 8300000, guid: 1a830f58d9db96343855e7b80b37c023, type: 3}
+  file: {fileID: 8300000, guid: 89efd8755097fae41a4370c7570e9158, type: 3}
   files:
   - {fileID: 8300000, guid: 1a830f58d9db96343855e7b80b37c023, type: 3}
   useLibrary: 0
