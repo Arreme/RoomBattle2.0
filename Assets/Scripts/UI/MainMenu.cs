@@ -73,9 +73,8 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         StartCoroutine(checkForPressed());
+        // NO TOCAR (angulo default de la camara)
         camera.transform.eulerAngles = new Vector3(17.999f, -46.732f, -7.79f);
-        //controllerImage.SetActive(false);
-        //keyboardImage.SetActive(false);
     }
 
     private IEnumerator checkForPressed()
