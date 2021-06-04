@@ -17,6 +17,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _normalMenu;
     [SerializeField] private GameObject _startMenu;
     [SerializeField] private GameObject _modeGameMenu;
+    [SerializeField] private GameObject camera;
+    [SerializeField] private GameObject controllerImage;
+    [SerializeField] private GameObject keyboardImage;
     public void PlayTeam()
     {
         SceneManager.LoadScene("PickCharacterTeams");
@@ -33,6 +36,7 @@ public class MainMenu : MonoBehaviour
 
     public void setOptions()
     {
+        camera.transform.eulerAngles = new Vector3(30.217f, 31.06f, 4.82f);
         _normalMenu.SetActive(false);
         _inputMenu.SetActive(true);
         _startMenu.SetActive(false);
@@ -42,6 +46,7 @@ public class MainMenu : MonoBehaviour
 
     public void mainMenuOptions()
     {
+        camera.transform.eulerAngles = new Vector3(19.393f, -15.051f, 2.604f);
         _normalMenu.SetActive(true);
         _inputMenu.SetActive(false);
         _startMenu.SetActive(false);
@@ -49,7 +54,7 @@ public class MainMenu : MonoBehaviour
         _playButton.Select();
     }
     public void backOptions()
-    {   
+    {
         _inputMenu.SetActive(false);
         _normalMenu.SetActive(true);
         _startMenu.SetActive(false);
@@ -59,6 +64,7 @@ public class MainMenu : MonoBehaviour
 
     public void playOptions()
     {
+        camera.transform.eulerAngles = new Vector3(17.765f, -93.826f, -7.904f);
         _inputMenu.SetActive(false);
         _normalMenu.SetActive(false);
         _modeGameMenu.SetActive(true);
@@ -67,6 +73,9 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         StartCoroutine(checkForPressed());
+        camera.transform.eulerAngles = new Vector3(17.999f, -46.732f, -7.79f);
+        //controllerImage.SetActive(false);
+        //keyboardImage.SetActive(false);
     }
 
     private IEnumerator checkForPressed()
@@ -81,6 +90,7 @@ public class MainMenu : MonoBehaviour
                     _startMenu.SetActive(false);
                     _normalMenu.SetActive(true);
                     a = true;
+                    camera.transform.eulerAngles = new Vector3(19.393f, -15.051f, 2.604f);
                 }
               
             }
