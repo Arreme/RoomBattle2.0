@@ -8,6 +8,8 @@ namespace JSAM {
         powerup_viagra
     }
     public enum Music {
-        InGame
+        InGame,
+        UI_Song1,
+        UI_Song2
     }
 }

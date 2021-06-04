@@ -170,31 +170,6 @@ public class PlayerSetupMenu : MonoBehaviour
         Debug.Log(color);
         Colors colors = (Colors)Enum.Parse(typeof(Colors), color);
         PlayerConfigManager.Instance.SetPlayerColor(PlayerIndex, AssetsLoader.Instance.colorGetter(colors), getLightColor(colors), colors);
-        /**
-        if (!isAnIA)
-        {
-            if (PlayerConfigManager.Instance._teamsEnabled)
-            {
-                switch (colors)
-                {
-                    case Colors.Blue:
-                        if (redTeamCount > 0)
-                        {
-                            redTeamCount--;
-                            blueTeamCount++;
-                        }
-                        break;
-                    default:
-                        if (blueTeamCount > 0)
-                        {
-                            redTeamCount++;
-                            blueTeamCount--;
-                        }
-                        break;
-                }
-            }
-        }*/
-
 
         switch (colors)
         {
@@ -250,31 +225,6 @@ public class PlayerSetupMenu : MonoBehaviour
         _colorCurrent.GetComponent<Button>().interactable = false;
         _skinCurrent.GetComponent<Button>().interactable = false;
         _knifeCurrent.GetComponent<Button>().interactable = false;
-    }
-
-    public bool getIsAnIA()
-    {
-        return isAnIA;
-    }
-
-    public int getRedTeam()
-    {
-        return redTeamCount;
-    }
-
-    public int getBlueTeam()
-    {
-        return blueTeamCount;
-    }
-
-    public void setRedTeam(int value)
-    {
-        redTeamCount += value;
-    }
-
-    public void setBlueTeam(int value)
-    {
-        blueTeamCount += value;
     }
 }
 
