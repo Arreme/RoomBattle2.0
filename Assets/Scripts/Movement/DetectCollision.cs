@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JSAM;
 
 public class DetectCollision : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class DetectCollision : MonoBehaviour
         Collider myCollider = collision.contacts[0].thisCollider;
         Collider hisCollider = collision.contacts[0].otherCollider;
         if (hisCollider.CompareTag("Wall"))
-        {   
+        {
             InteractionManager wallInteraction = collision.gameObject.GetComponent<InteractionManager>();
             if (wallInteraction != null)
             {
@@ -42,7 +43,8 @@ public class DetectCollision : MonoBehaviour
                     {
                         TakeDamage(myCollider);
                     }
-                } else
+                }
+                else
                 {
                     TakeDamage(myCollider);
                 }
@@ -58,18 +60,19 @@ public class DetectCollision : MonoBehaviour
             if (rb.velocity.magnitude >= 12)
             {
                 Vector3 direction = transform.position - collision.transform.position;
-                _controller.GetStunned(0.5f,new Vector2(direction.x,direction.z),400);
+                _controller.GetStunned(0.5f, new Vector2(direction.x, direction.z), 400);
             }
         }
         else if (myCollider.transform.parent.CompareTag("Player") && hisCollider.CompareTag("Damaging"))
         {
             Vector3 direction = Vector3.Normalize(hisCollider.transform.position - myCollider.transform.position);
-            _controller.GetStunned(1.5f, new Vector2(-direction.x,-direction.z) ,2000);
+            _controller.GetStunned(1.5f, new Vector2(-direction.x, -direction.z), 2000);
         }
     }
 
     private void TakeDamage(Collider myCollider)
     {
+        JSAM.AudioManager.PlaySound(Sounds.globopetado, transform);
         Destroy(myCollider.gameObject);
         _controller.GetHit();
         BattleManager.Instance.Explosion(gameObject);
@@ -85,7 +88,7 @@ public class DetectCollision : MonoBehaviour
             // Alternate between 0 and 1 scale to simulate flashing
             if (_zero)
             {
-                foreach(GameObject model in models)
+                foreach (GameObject model in models)
                 {
                     model.SetActive(false);
                 }
@@ -122,7 +125,7 @@ public class DetectCollision : MonoBehaviour
         else if (collision.CompareTag("Oil"))
         {
             Destroy(collision.gameObject);
-            GetComponent<NewRoombaController>().GetStunned(2f, new Vector2(transform.forward.x,transform.forward.z), 200);
+            GetComponent<NewRoombaController>().GetStunned(2f, new Vector2(transform.forward.x, transform.forward.z), 200);
         }
 
     }

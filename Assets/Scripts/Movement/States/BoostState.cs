@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JSAM;
 
 public class BoostState : RoombaState
 {
@@ -25,6 +26,7 @@ public class BoostState : RoombaState
         _direction = new Vector2(controller.transform.forward.x, controller.transform.forward.z);
         controller.gameObject.GetComponent<Animation>().Play();
         controller._vfx._boost.SendEvent("BoostPlay");
+        JSAM.AudioManager.PlaySound(Sounds.dash, controller.transform);
     }
 
     public void Stay(NewRoombaController controller)
@@ -34,7 +36,8 @@ public class BoostState : RoombaState
         if (_currentTime <= 0)
         {
             controller.onChangeState(controller._normalState);
-        } else if (controller._action)
+        }
+        else if (controller._action)
         {
             _pMan.runPowerUp();
             controller._action = false;
