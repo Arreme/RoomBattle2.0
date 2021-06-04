@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d7889cacb06dac4d8af0fbc74a62360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teamButton: {fileID: 0}
+  _teamButton: {fileID: 1206027425}
   _playButton: {fileID: 399223604}
   _backButton: {fileID: 1440455550}
   _startButton: {fileID: 1206027425}
