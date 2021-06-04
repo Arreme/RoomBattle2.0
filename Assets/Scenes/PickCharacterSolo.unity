@@ -12406,11 +12406,12 @@ MonoBehaviour:
   - {fileID: 1822223730489448399, guid: 2ff245d68c5a4bf4ab1d10a2583b4cb1, type: 3}
   - {fileID: 3620264694753239810, guid: 47ab5365321f42c4c8c1782ddcd671c6, type: 3}
   _knifePrefabs:
-  - {fileID: 3957192166872566154, guid: afe7bb043faa5bd48a1ef0b3962d6fdc, type: 3}
   - {fileID: 279983149151991277, guid: 4917eb8f9388a6548b8f9fb077c468ce, type: 3}
   - {fileID: 1076926166700658617, guid: 663b1aee12fce684b9d0194f6cd43818, type: 3}
   - {fileID: 4263221666046202516, guid: 28a6c1f6798005944b684a7922372be1, type: 3}
   - {fileID: 3654926294868840926, guid: 47636dbbe8b2171449388a237ae25f19, type: 3}
+  - {fileID: 4202255143828567584, guid: a07830282834c8f41982495a83fc6fcf, type: 3}
+  - {fileID: 208111781730978635, guid: 76eab87739ab01b4abcb455b5055aa48, type: 3}
 --- !u!114 &1752533263
 MonoBehaviour:
   m_ObjectHideFlags: 0
