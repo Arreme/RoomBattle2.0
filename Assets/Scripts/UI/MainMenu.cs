@@ -17,9 +17,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _normalMenu;
     [SerializeField] private GameObject _startMenu;
     [SerializeField] private GameObject _modeGameMenu;
+    [SerializeField] private GameObject _settingsMenu;
     [SerializeField] private new GameObject camera;
-    [SerializeField] private GameObject controllerImage;
-    [SerializeField] private GameObject keyboardImage;
+    //[SerializeField] private GameObject controllerImage;
+    //[SerializeField] private GameObject keyboardImage;
+    public float transitionSpeed = 5;
     public void PlayTeam()
     {
         SceneManager.LoadScene("PickCharacterTeams");
@@ -41,6 +43,7 @@ public class MainMenu : MonoBehaviour
         _inputMenu.SetActive(true);
         _startMenu.SetActive(false);
         _modeGameMenu.SetActive(false);
+        _settingsMenu.SetActive(false);
         _backButton.Select();
     }
 
@@ -51,6 +54,7 @@ public class MainMenu : MonoBehaviour
         _inputMenu.SetActive(false);
         _startMenu.SetActive(false);
         _modeGameMenu.SetActive(false);
+        _settingsMenu.SetActive(false);
         _playButton.Select();
     }
     public void backOptions()
@@ -59,6 +63,7 @@ public class MainMenu : MonoBehaviour
         _normalMenu.SetActive(true);
         _startMenu.SetActive(false);
         _modeGameMenu.SetActive(false);
+        _settingsMenu.SetActive(false);
         _playButton.Select();
     }
 
@@ -68,7 +73,17 @@ public class MainMenu : MonoBehaviour
         _inputMenu.SetActive(false);
         _normalMenu.SetActive(false);
         _modeGameMenu.SetActive(true);
+        _settingsMenu.SetActive(false);
         _teamButton.Select();
+    }
+    public void activateSettings()
+    {
+        camera.transform.eulerAngles = new Vector3(17.765f, -93.826f, -7.904f);
+        _inputMenu.SetActive(false);
+        _normalMenu.SetActive(false);
+        _modeGameMenu.SetActive(false);
+        _settingsMenu.SetActive(true);
+        _backButton.Select();
     }
     private void Start()
     {
