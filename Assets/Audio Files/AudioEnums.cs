@@ -1,5 +1,7 @@
 namespace JSAM {
     public enum Sounds {
+        dash,
+        globopetado,
         powerup_boost,
         powerup_butcher,
         powerup_inflar,

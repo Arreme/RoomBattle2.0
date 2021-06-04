@@ -9675,8 +9675,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7241a3e106230140bd9d59ff2d17ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioFileObjects: []
-  audioFileMusicObjects: []
+  audioFileObjects:
+  - {fileID: 11400000, guid: 9492fd158d4bf794a9255d73b3291d47, type: 2}
+  - {fileID: 11400000, guid: f74140f76b7344d4c869cdb1ccb28f53, type: 2}
+  - {fileID: 11400000, guid: 53c044a70dbc21a4cb3c6ce4ccfa63c1, type: 2}
+  - {fileID: 11400000, guid: b857c8427eb68f147a01f65e279796ad, type: 2}
+  - {fileID: 11400000, guid: 5c85168161667ed4f823b3cd98aea252, type: 2}
+  - {fileID: 11400000, guid: b44a876d5bc9eca4091a15bff701ed23, type: 2}
+  - {fileID: 11400000, guid: 35ddf599e5c0cd843a169e4cfaec71e3, type: 2}
+  - {fileID: 11400000, guid: 25c92d10e8dee0a499d1a517a21a360b, type: 2}
+  audioFileMusicObjects:
+  - {fileID: 11400000, guid: c25817199ca13244289894347b7f459b, type: 2}
+  - {fileID: 11400000, guid: c13d0d36a9365b642be31d84d89e8a1a, type: 2}
+  - {fileID: 11400000, guid: 94b48552233d69c48991d2e5fa59bf24, type: 2}
   sceneSoundEnumName: JSAM.Sounds
   sceneMusicEnumName: JSAM.Music
   masterVolume: 0.39
