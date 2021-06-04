@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button _teamButton;
     [SerializeField] private Button _playButton;
     [SerializeField] private Button _backButton;
+    [SerializeField] private Button _backMenuButton;
     [SerializeField] private Button _startButton;
     [SerializeField] private GameObject _inputMenu;
     [SerializeField] private GameObject _normalMenu;
@@ -83,7 +84,7 @@ public class MainMenu : MonoBehaviour
         _normalMenu.SetActive(false);
         _modeGameMenu.SetActive(false);
         _settingsMenu.SetActive(true);
-        _backButton.Select();
+        _backMenuButton.Select();
     }
     private void Start()
     {
