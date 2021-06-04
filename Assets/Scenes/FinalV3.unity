@@ -9736,7 +9736,7 @@ MonoBehaviour:
   masterMuted: 0
   soundVolume: 0.4
   soundMuted: 0
-  musicVolume: 0.16
+  musicVolume: 0.1
   musicMuted: 0
   spatialSound: 1
   audioSources: 32
