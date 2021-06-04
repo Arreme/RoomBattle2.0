@@ -23,6 +23,15 @@ public class MainMenu : MonoBehaviour
     //[SerializeField] private GameObject controllerImage;
     //[SerializeField] private GameObject keyboardImage;
     public float transitionSpeed = 5;
+
+    //VECTOR3 DATA
+    private Vector3 setOptionsV3 = new Vector3(30.217f, 31.06f, 4.82f);
+    private Vector3 mainMenuV3 = new Vector3(19.393f, -15.051f, 2.604f);
+    private Vector3 playOptionsV3 = new Vector3(17.765f, -93.826f, -7.904f);
+    private Vector3 activateSettingsV3 = new Vector3(17.765f, -93.826f, -7.904f);
+    private Vector3 startV3 = new Vector3(17.999f, -46.732f, -7.79f);
+
+
     public void PlayTeam()
     {
         SceneManager.LoadScene("PickCharacterTeams");
@@ -39,7 +48,7 @@ public class MainMenu : MonoBehaviour
 
     public void setOptions()
     {
-        camera.transform.eulerAngles = new Vector3(30.217f, 31.06f, 4.82f);
+        camera.transform.eulerAngles = setOptionsV3;
         _normalMenu.SetActive(false);
         _inputMenu.SetActive(true);
         _startMenu.SetActive(false);
@@ -50,7 +59,7 @@ public class MainMenu : MonoBehaviour
 
     public void mainMenuOptions()
     {
-        camera.transform.eulerAngles = new Vector3(19.393f, -15.051f, 2.604f);
+        camera.transform.eulerAngles = mainMenuV3;
         _normalMenu.SetActive(true);
         _inputMenu.SetActive(false);
         _startMenu.SetActive(false);
@@ -70,7 +79,7 @@ public class MainMenu : MonoBehaviour
 
     public void playOptions()
     {
-        camera.transform.eulerAngles = new Vector3(17.765f, -93.826f, -7.904f);
+        camera.transform.eulerAngles = playOptionsV3;
         _inputMenu.SetActive(false);
         _normalMenu.SetActive(false);
         _modeGameMenu.SetActive(true);
@@ -79,7 +88,7 @@ public class MainMenu : MonoBehaviour
     }
     public void activateSettings()
     {
-        camera.transform.eulerAngles = new Vector3(17.765f, -93.826f, -7.904f);
+        camera.transform.eulerAngles = activateSettingsV3;
         _inputMenu.SetActive(false);
         _normalMenu.SetActive(false);
         _modeGameMenu.SetActive(false);
@@ -90,13 +99,13 @@ public class MainMenu : MonoBehaviour
     {
         StartCoroutine(checkForPressed());
         // NO TOCAR (angulo default de la camara)
-        camera.transform.eulerAngles = new Vector3(17.999f, -46.732f, -7.79f);
+        camera.transform.eulerAngles = startV3;
     }
 
     private IEnumerator checkForPressed()
     {
-        bool a =false;
-        for(; ; )
+        bool a = false;
+        for (; ; )
         {
             if (Keyboard.current.anyKey.isPressed || (Gamepad.all.Count >= 1 && Gamepad.current.allControls.Any(x => x is ButtonControl button && x.IsPressed() && !x.synthetic)))
             {
@@ -105,13 +114,13 @@ public class MainMenu : MonoBehaviour
                     _startMenu.SetActive(false);
                     _normalMenu.SetActive(true);
                     a = true;
-                    camera.transform.eulerAngles = new Vector3(19.393f, -15.051f, 2.604f);
+                    camera.transform.eulerAngles = mainMenuV3;
                 }
-              
+
             }
             yield return new WaitForSeconds(0.1f);
         }
-        
+
     }
     public void QuitGame()
     {
