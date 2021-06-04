@@ -37,8 +37,8 @@ public class DetectCollision : MonoBehaviour
                 {
                     InputManager myInput = GetComponent<InputManager>();
                     InputManager hisInput = hisCollider.GetComponentInParent<InputManager>();
-                    Debug.Log(hisInput._teamBlue);
-                    Debug.Log(myInput._teamBlue);
+                    //Debug.Log(hisInput._teamBlue);
+                    //Debug.Log(myInput._teamBlue);
                     if (hisInput != null && myInput._teamBlue != hisInput._teamBlue)
                     {
                         TakeDamage(myCollider);
