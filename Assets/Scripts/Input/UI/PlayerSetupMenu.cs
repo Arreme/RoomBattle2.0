@@ -25,6 +25,9 @@ public class PlayerSetupMenu : MonoBehaviour
     [SerializeField]
     private Image _renderTexture;
 
+    private static int blueTeamCount = 0;
+    private static int redTeamCount = 0;
+
     void Update()
     {
         if (_evenSystem != null && !isAnIA)
@@ -47,7 +50,8 @@ public class PlayerSetupMenu : MonoBehaviour
                     var currentNav = _colorCurrent.navigation;
                     currentNav.selectOnDown = _skinCurrent;
                     _colorCurrent.navigation = currentNav;
-                } else if (button.name == "Skin" && !ReferenceEquals(button, _skinCurrent.gameObject))
+                }
+                else if (button.name == "Skin" && !ReferenceEquals(button, _skinCurrent.gameObject))
                 {
                     _skinCurrent.transform.localScale = new Vector3(0, 0, 0);
                     _skinCurrent = button.GetComponent<Button>();
@@ -68,7 +72,8 @@ public class PlayerSetupMenu : MonoBehaviour
                     currentNav1.selectOnDown = _knifeCurrent;
                     _skinCurrent.navigation = currentNav1;
 
-                } else if (button.name == "Knives" && !ReferenceEquals(button, _knifeCurrent.gameObject)) 
+                }
+                else if (button.name == "Knives" && !ReferenceEquals(button, _knifeCurrent.gameObject))
                 {
                     _knifeCurrent.transform.localScale = new Vector3(0, 0, 0);
                     _knifeCurrent = button.GetComponent<Button>();
@@ -103,7 +108,7 @@ public class PlayerSetupMenu : MonoBehaviour
     {
         PlayerIndex = pi;
         isAnIA = PlayerConfigManager.Instance.GetPlayerConfigs()[PlayerIndex].IsIA;
-        
+
         _renderTexture.material = CustomizationManager.Instance.InitializeCamera(PlayerIndex);
         CustomizationManager.Instance.getRoomba(PlayerIndex).SetActive(true);
         if (isAnIA)
@@ -111,16 +116,32 @@ public class PlayerSetupMenu : MonoBehaviour
             tittleText.SetText("IA " + (PlayerIndex + 1));
             if (PlayerConfigManager.Instance._teamsEnabled)
             {
-                if (UnityEngine.Random.value >= 0.5)
+                if (blueTeamCount == redTeamCount)
                 {
-                    SetColor("Red");
-                } else
-                {
-                    SetColor("Blue");
+                    if (UnityEngine.Random.value >= 0.5)
+                    {
+                        SetColor("Red");
+                    }
+                    else
+                    {
+                        SetColor("Blue");
+                    }
                 }
-                
-            } else
+                else
+                {
+                    if (blueTeamCount > redTeamCount || blueTeamCount >= 3)
+                    {
+                        SetColor("Red");
+                    }
+                    else if (blueTeamCount < redTeamCount || redTeamCount >= 3)
+                    {
+                        SetColor("Blue");
+                    }
+                }
+            }
+            else
             {
+                Debug.Log("HAHA");
                 Array values = Enum.GetValues(typeof(Colors));
                 System.Random random = new System.Random();
                 Colors randomColor = (Colors)values.GetValue(random.Next(values.Length));
@@ -130,32 +151,69 @@ public class PlayerSetupMenu : MonoBehaviour
             _knifeCurrent.GetComponentInParent<Image>().gameObject.SetActive(false);
             _skinCurrent.GetComponentInParent<Image>().gameObject.SetActive(false);
             ReadyPlayer();
-        } else
+        }
+        else
         {
             tittleText.SetText("Player " + (PlayerIndex + 1));
             SetColor("Blue");
         }
-        
+
     }
 
     private void SetHat(string hat)
     {
-        PlayerConfigManager.Instance.SetPlayerHat(PlayerIndex,hat);
+        PlayerConfigManager.Instance.SetPlayerHat(PlayerIndex, hat);
     }
 
     private void SetColor(string color)
     {
+        Debug.Log(color);
         Colors colors = (Colors)Enum.Parse(typeof(Colors), color);
-        PlayerConfigManager.Instance.SetPlayerColor(PlayerIndex, AssetsLoader.Instance.colorGetter(colors), getLightColor(colors),colors);
+        PlayerConfigManager.Instance.SetPlayerColor(PlayerIndex, AssetsLoader.Instance.colorGetter(colors), getLightColor(colors), colors);
+        /**
+        if (!isAnIA)
+        {
+            if (PlayerConfigManager.Instance._teamsEnabled)
+            {
+                switch (colors)
+                {
+                    case Colors.Blue:
+                        if (redTeamCount > 0)
+                        {
+                            redTeamCount--;
+                            blueTeamCount++;
+                        }
+                        break;
+                    default:
+                        if (blueTeamCount > 0)
+                        {
+                            redTeamCount++;
+                            blueTeamCount--;
+                        }
+                        break;
+                }
+            }
+        }*/
+
+
         switch (colors)
         {
             case Colors.Blue:
-                PlayerConfigManager.Instance.SetBlueTeams(PlayerIndex,true);
+                PlayerConfigManager.Instance.SetBlueTeams(PlayerIndex, true);
+                blueTeamCount++;
+                if (!isAnIA && redTeamCount > 0)
+                    redTeamCount--;
                 break;
             default:
-                PlayerConfigManager.Instance.SetBlueTeams(PlayerIndex,false);
+                PlayerConfigManager.Instance.SetBlueTeams(PlayerIndex, false);
+                redTeamCount++;
+                if (!isAnIA && blueTeamCount > 0)
+                    blueTeamCount--;
                 break;
         }
+
+
+        Debug.Log(redTeamCount + " " + blueTeamCount);
     }
 
     private Color getLightColor(Colors colorPick)
@@ -192,6 +250,31 @@ public class PlayerSetupMenu : MonoBehaviour
         _colorCurrent.GetComponent<Button>().interactable = false;
         _skinCurrent.GetComponent<Button>().interactable = false;
         _knifeCurrent.GetComponent<Button>().interactable = false;
+    }
+
+    public bool getIsAnIA()
+    {
+        return isAnIA;
+    }
+
+    public int getRedTeam()
+    {
+        return redTeamCount;
+    }
+
+    public int getBlueTeam()
+    {
+        return blueTeamCount;
+    }
+
+    public void setRedTeam(int value)
+    {
+        redTeamCount += value;
+    }
+
+    public void setBlueTeam(int value)
+    {
+        blueTeamCount += value;
     }
 }
 
