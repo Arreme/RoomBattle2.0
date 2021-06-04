@@ -15,7 +15,6 @@ public class EnemyAI : MonoBehaviour
         Fleeing,
     }
 
-    //private List<GameObject> _players = new List<GameObject>();
     private NavMeshPath _path;
     private GameObject _target;
     private State _state;
