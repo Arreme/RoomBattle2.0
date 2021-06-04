@@ -37,6 +37,7 @@ public class PowerUpManager : MonoBehaviour
 
     private void soundOn(int i)
     {
+       
         switch (i)
         {
 

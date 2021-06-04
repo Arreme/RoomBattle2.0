@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d15ae218647a2d4f85e14306846c10c, type: 3}
   m_Name: globopetado
   m_EditorClassIdentifier: 
-  file: {fileID: 8300000, guid: 5fb25e62f57dedf49a1c1051b37c76eb, type: 3}
+  file: {fileID: 8300000, guid: 0bfb02df5600da84693127b4707a7e6a, type: 3}
   files: []
   useLibrary: 0
   neverRepeat: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
   bypassEffects: 0
   bypassListenerEffects: 0
   bypassReverbZones: 0
-  safeName: 
+  safeName: globopetado
   chorusFilter:
     enabled: 0
     dryMix: 0
