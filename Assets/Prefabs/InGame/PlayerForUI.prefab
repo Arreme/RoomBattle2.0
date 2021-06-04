@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: bcce2a24054249e4ebb77a044c50f2d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -296,7 +296,7 @@ PrefabInstance:
     - target: {fileID: 1914918911005499670, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: ba10d950a0113be4186bbc99d02b5209, type: 2}
     - target: {fileID: 6327386839977655880, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_Name
       value: Balloon
@@ -704,7 +704,7 @@ PrefabInstance:
     - target: {fileID: 1914918911005499670, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: ba10d950a0113be4186bbc99d02b5209, type: 2}
     - target: {fileID: 6327386839977655880, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_Name
       value: Balloon
@@ -984,7 +984,7 @@ PrefabInstance:
     - target: {fileID: 1914918911005499670, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: ba10d950a0113be4186bbc99d02b5209, type: 2}
     - target: {fileID: 6327386839977655880, guid: de987a58884c21045850f99116912f60, type: 3}
       propertyPath: m_Name
       value: Balloon

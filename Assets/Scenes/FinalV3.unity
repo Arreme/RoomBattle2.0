@@ -2084,6 +2084,7 @@ GameObject:
   - component: {fileID: 264232809}
   - component: {fileID: 264232811}
   - component: {fileID: 264232810}
+  - component: {fileID: 264232812}
   m_Layer: 0
   m_Name: Cylinder037 (3)
   m_TagString: Untagged
@@ -2154,6 +2155,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264232808}
   m_Mesh: {fileID: 1388769493144405001, guid: 700789a1f6f3c594b92b21c4cd5eabcf, type: 3}
+--- !u!65 &264232812
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264232808}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.59233415, y: 0.5923343, z: 1.8942999}
+  m_Center: {x: 0.0000009834766, y: 0.00018906598, z: 0.8971505}
 --- !u!1 &269313629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3514,6 +3528,7 @@ GameObject:
   - component: {fileID: 453839403}
   - component: {fileID: 453839405}
   - component: {fileID: 453839404}
+  - component: {fileID: 453839406}
   m_Layer: 0
   m_Name: Cylinder037 (2)
   m_TagString: Untagged
@@ -3584,6 +3599,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453839402}
   m_Mesh: {fileID: 1388769493144405001, guid: 700789a1f6f3c594b92b21c4cd5eabcf, type: 3}
+--- !u!65 &453839406
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453839402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.59233415, y: 0.5923343, z: 1.8942999}
+  m_Center: {x: 0.000000029802322, y: 0.00018882756, z: 0.8971504}
 --- !u!1 &464234851
 GameObject:
   m_ObjectHideFlags: 0
@@ -5877,6 +5905,7 @@ GameObject:
   - component: {fileID: 739605663}
   - component: {fileID: 739605665}
   - component: {fileID: 739605664}
+  - component: {fileID: 739605666}
   m_Layer: 0
   m_Name: Cylinder037 (1)
   m_TagString: Untagged
@@ -5947,6 +5976,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739605662}
   m_Mesh: {fileID: 1388769493144405001, guid: 700789a1f6f3c594b92b21c4cd5eabcf, type: 3}
+--- !u!65 &739605666
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739605662}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.59233415, y: 0.5923343, z: 1.8942999}
+  m_Center: {x: 0.000000029802322, y: 0.00018882756, z: 0.89715016}
 --- !u!1 &747110109
 GameObject:
   m_ObjectHideFlags: 0
@@ -9694,7 +9736,7 @@ MonoBehaviour:
   masterMuted: 0
   soundVolume: 0.4
   soundMuted: 0
-  musicVolume: 0.16
+  musicVolume: 0.1
   musicMuted: 0
   spatialSound: 1
   audioSources: 32
