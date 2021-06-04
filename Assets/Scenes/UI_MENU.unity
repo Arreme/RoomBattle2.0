@@ -1002,11 +1002,11 @@ Transform:
   - {fileID: 790068528}
   - {fileID: 2096232144}
   - {fileID: 1103214455}
-  - {fileID: 1886604751}
   - {fileID: 1925589240}
   - {fileID: 463028125}
   - {fileID: 1320946229}
   - {fileID: 1005586912}
+  - {fileID: 1886604751}
   - {fileID: 1135951668}
   - {fileID: 590651670}
   - {fileID: 1041954170}
@@ -8939,7 +8939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1087698287
 RectTransform:
   m_ObjectHideFlags: 0
