@@ -50,10 +50,6 @@ public class DetectCollision : MonoBehaviour
                 }
             }
         }
-        else if (hisCollider.CompareTag("Balloon") && myCollider.CompareTag("Knife"))
-        {
-
-        }
         else if (collision.gameObject.CompareTag("Player"))
         {
             Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
