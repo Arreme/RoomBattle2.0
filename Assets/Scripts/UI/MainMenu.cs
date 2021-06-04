@@ -34,19 +34,19 @@ public class MainMenu : MonoBehaviour
     public void setOptions()
     {
         _normalMenu.SetActive(false);
-        _inputMenu.SetActive(false);
-        _startMenu.SetActive(true);
-        _modeGameMenu.SetActive(false);
-        _startButton.Select();
-    }
-
-    public void mainMenuOptions()
-    {
-        _normalMenu.SetActive(false);
         _inputMenu.SetActive(true);
         _startMenu.SetActive(false);
         _modeGameMenu.SetActive(false);
         _backButton.Select();
+    }
+
+    public void mainMenuOptions()
+    {
+        _normalMenu.SetActive(true);
+        _inputMenu.SetActive(false);
+        _startMenu.SetActive(false);
+        _modeGameMenu.SetActive(false);
+        _playButton.Select();
     }
     public void backOptions()
     {   
@@ -61,7 +61,6 @@ public class MainMenu : MonoBehaviour
     {
         _inputMenu.SetActive(false);
         _normalMenu.SetActive(false);
-        _startMenu.SetActive(false);
         _modeGameMenu.SetActive(true);
         _teamButton.Select();
     }
@@ -72,12 +71,18 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator checkForPressed()
     {
+        bool a =false;
         for(; ; )
         {
             if (Keyboard.current.anyKey.isPressed || (Gamepad.all.Count >= 1 && Gamepad.current.allControls.Any(x => x is ButtonControl button && x.IsPressed() && !x.synthetic)))
             {
-                _startMenu.SetActive(false);
-                _normalMenu.SetActive(true);
+                if (!a)
+                {
+                    _startMenu.SetActive(false);
+                    _normalMenu.SetActive(true);
+                    a = true;
+                }
+              
             }
             yield return new WaitForSeconds(0.1f);
         }
