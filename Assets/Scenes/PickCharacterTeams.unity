@@ -13358,7 +13358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5a428a1725f9f47af76f6a8d993f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseRoomba: {fileID: 2100000, guid: d2e5bcfaca2c32d479d1d5a3a04be783, type: 2}
+  baseRoomba: {fileID: 2100000, guid: bcce2a24054249e4ebb77a044c50f2d7, type: 2}
   baseBalloon: {fileID: 2100000, guid: ba10d950a0113be4186bbc99d02b5209, type: 2}
   roombaTextures:
   - {fileID: 2800000, guid: 3fe979ad5de5fcd4c84c907dcf73dc58, type: 3}
