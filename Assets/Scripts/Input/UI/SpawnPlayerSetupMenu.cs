@@ -16,8 +16,10 @@ public class SpawnPlayerSetupMenu : MonoBehaviour
         if (rootMenu != null)
         {
             var menu = Instantiate(playerSetupMenuPrefab,rootMenu.transform);
+            menu.transform.SetAsFirstSibling();
             input.uiInputModule = menu.GetComponentInChildren<InputSystemUIInputModule>();
             menu.GetComponent<PlayerSetupMenu>().SetPlayerIndex(input.playerIndex);
+
         }
     }
 }
