@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _normalMenu;
     [SerializeField] private GameObject _startMenu;
     [SerializeField] private GameObject _modeGameMenu;
-    [SerializeField] private GameObject camera;
+    [SerializeField] private new GameObject camera;
     [SerializeField] private GameObject controllerImage;
     [SerializeField] private GameObject keyboardImage;
     public void PlayTeam()

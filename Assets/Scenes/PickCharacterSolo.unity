@@ -765,6 +765,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1673954474}
     m_Modifications:
+    - target: {fileID: 2672021902897747909, guid: 0f4024767b0a8464ba95fbe50cecace1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778394227316958874, guid: 0f4024767b0a8464ba95fbe50cecace1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473219793417614864, guid: 0f4024767b0a8464ba95fbe50cecace1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5975971300749553939, guid: 0f4024767b0a8464ba95fbe50cecace1, type: 3}
       propertyPath: m_Name
       value: PlayerForUI
@@ -816,6 +828,14 @@ PrefabInstance:
     - target: {fileID: 5975971300749553943, guid: 0f4024767b0a8464ba95fbe50cecace1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 22.314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049863000081563138, guid: 0f4024767b0a8464ba95fbe50cecace1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851501243397857239, guid: 0f4024767b0a8464ba95fbe50cecace1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f4024767b0a8464ba95fbe50cecace1, type: 3}
@@ -12596,6 +12616,10 @@ MonoBehaviour:
   - {fileID: 3620264694753239810, guid: 47ab5365321f42c4c8c1782ddcd671c6, type: 3}
   _knifePrefabs:
   - {fileID: 3957192166872566154, guid: afe7bb043faa5bd48a1ef0b3962d6fdc, type: 3}
+  - {fileID: 279983149151991277, guid: 4917eb8f9388a6548b8f9fb077c468ce, type: 3}
+  - {fileID: 1076926166700658617, guid: 663b1aee12fce684b9d0194f6cd43818, type: 3}
+  - {fileID: 4263221666046202516, guid: 28a6c1f6798005944b684a7922372be1, type: 3}
+  - {fileID: 3654926294868840926, guid: 47636dbbe8b2171449388a237ae25f19, type: 3}
 --- !u!114 &1752533263
 MonoBehaviour:
   m_ObjectHideFlags: 0
