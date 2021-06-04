@@ -65,10 +65,10 @@ public class InputManager : MonoBehaviour
         {
             Instantiate(conf.hatInstance, parentBody.transform);
         }
-        Debug.Log(conf.kniveInstance);
         if (conf.kniveInstance != null)
         {
             parentKnife.GetComponent<MeshFilter>().sharedMesh = conf.kniveInstance.GetComponent<MeshFilter>().sharedMesh;
+            parentKnife.GetComponent<MeshRenderer>().sharedMaterial = conf.kniveInstance.GetComponent<MeshRenderer>().sharedMaterial;
             parentKnife.transform.localPosition = conf.kniveInstance.transform.localPosition;
             parentKnife.transform.localRotation = conf.kniveInstance.transform.localRotation;
             parentKnife.transform.localScale = conf.kniveInstance.transform.localScale;
