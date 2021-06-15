@@ -12,7 +12,7 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private List<MeshRenderer> _balloons;
     [SerializeField]
-    private Light _light;
+    private GameObject _powerUp;
     [SerializeField]
     private GameObject parentKnife;
     [SerializeField]
@@ -59,7 +59,7 @@ public class InputManager : MonoBehaviour
         {
             mesh.material = conf.ballonMat;
         }
-        _light.color = conf.lightColor;
+        _powerUp.GetComponent<MeshRenderer>().material.color = conf.lightColor;
         _image.color = conf.lightColor;
         if (conf.hatInstance != null)
         {
