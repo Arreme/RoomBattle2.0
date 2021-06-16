@@ -1172,9 +1172,9 @@
     "m_Guid": {
         "m_GuidSerialized": "5cb51c55-6a0f-4107-8e05-ddbdb8048ea6"
     },
-    "m_Name": "Color",
+    "m_Name": "_Color",
     "m_DefaultReferenceName": "Color_588d7c1091424568908a90e7e4b3ef2a",
-    "m_OverrideReferenceName": "Color_588d7c1091424568908a90e7e4b3ef2a",
+    "m_OverrideReferenceName": "_Color",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
@@ -1298,7 +1298,7 @@
     "m_ShaderOutputName": "In",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 0.4699999988079071,
+        "x": 0.49000000953674319,
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
@@ -1376,7 +1376,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
     "m_ObjectId": "a1ab0417b35d4271aee7bfcaa07e19a2",
     "m_Id": 0,
-    "m_DisplayName": "Color",
+    "m_DisplayName": "_Color",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1561,12 +1561,12 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "r": 0.5943396091461182,
-        "g": 0.5943396091461182,
-        "b": 0.5943396091461182,
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
         "a": 1.0
     },
-    "m_ColorMode": 0
+    "m_ColorMode": 1
 }
 
 {

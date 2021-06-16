@@ -197,22 +197,22 @@ public class PlayerSetupMenu : MonoBehaviour
         switch (colorPick)
         {
             case Colors.Blue:
-                lightColor = new Color(0.01176471f, 0.7450981f, 0.945098f);
+                lightColor = new Color(0, 2.81495047f, 31.6267948f, 1f);
                 break;
             case Colors.Red:
-                lightColor = new Color(1, 0.1169811f, 0.259741f);
+                lightColor = new Color(33.896759f, 0.532409787f, 0.532409787f, 1);
                 break;
             case Colors.Yellow:
-                lightColor = new Color(1, 1, 0);
+                lightColor = new Color(31.6267948f, 31.6267948f, 3.64287686f, 1);
                 break;
             case Colors.Green:
-                lightColor = new Color(0, 1, 0);
+                lightColor = new Color(1.59722948f, 33.896759f, 1.59722948f, 1);
                 break;
             case Colors.Purple:
-                lightColor = new Color(0.8186114f, 0.2207547f, 1);
+                lightColor = new Color(18.074604f, 0.831188262f, 37.7813644f, 10);
                 break;
             case Colors.Orange:
-                lightColor = new Color(1, 0.5f, 0);
+                lightColor = new Color(34.1174774f, 10.0030298f, 1.9648807f, 10);
                 break;
         }
         return lightColor;

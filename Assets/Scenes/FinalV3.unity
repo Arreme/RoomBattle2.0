@@ -1364,13 +1364,6 @@ MonoBehaviour:
   - {r: 0.69803923, g: 0.5568628, b: 0.99215686, a: 1}
   - {r: 0.54901963, g: 0.94509804, b: 0.5294118, a: 1}
   - {r: 0.98039216, g: 0.72156864, b: 0.49411765, a: 1}
-  imageColor:
-  - {r: 1, g: 0.9019608, b: 0.9019608, a: 1}
-  - {r: 0.9764706, g: 0.98039216, b: 0.7176471, a: 1}
-  - {r: 0.827451, g: 0.9098039, b: 0.98039216, a: 1}
-  - {r: 0.8039216, g: 0.7294118, b: 1, a: 1}
-  - {r: 0.7921569, g: 0.9529412, b: 0.75686276, a: 1}
-  - {r: 0.94509804, g: 0.9019608, b: 0.8235294, a: 1}
   powerUpImages:
   - {fileID: 21300000, guid: cf90d11ef722493428d44881c278a28b, type: 3}
   - {fileID: 21300000, guid: 86520c1a1b278c5499be88a7e21390d0, type: 3}
@@ -4797,17 +4790,17 @@ Canvas:
   m_GameObject: {fileID: 567629905}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
+  m_PlaneDistance: 3
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -126372417
+  m_SortingOrder: 200
   m_TargetDisplay: 0
 --- !u!224 &567629909
 RectTransform:
