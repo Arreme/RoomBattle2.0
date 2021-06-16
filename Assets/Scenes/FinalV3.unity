@@ -1354,6 +1354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuPrefab: {fileID: 8491224412870281263, guid: 761381e46c6308649b21ae788c9e34ba, type: 3}
+  _powerUpOn: {fileID: 2100000, guid: 69a590e58d26b4e458f6cfc6cf784027, type: 2}
   leftPanel: {fileID: 8456060}
   rightPanel: {fileID: 166102433}
   baseColor:
@@ -1377,6 +1378,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e41b5c7a88731b14388ec4ac170cb0f1, type: 3}
   - {fileID: 21300000, guid: 0568785d0507ed44a8405279f98ab94b, type: 3}
   - {fileID: 21300000, guid: 9d2b25ba86f50d049a5ca0e0007525fb, type: 3}
+  - {fileID: 21300000, guid: 9e7bf35981618e54cbe0ba70f5ef9e91, type: 3}
 --- !u!1 &166102433
 GameObject:
   m_ObjectHideFlags: 0

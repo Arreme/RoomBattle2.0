@@ -13,16 +13,15 @@ public class HUDManager : MonoBehaviour
     private GameObject menuPrefab;
 
     [SerializeField]
+    private Material _powerUpOn;
+
+    [SerializeField]
     private GameObject leftPanel;
     [SerializeField]
     private GameObject rightPanel;
 
     [SerializeField]
     private Color[] baseColor;
-    [SerializeField]
-    private Color[] imageColor;
-
-    private float transparency = 0.3f;
 
     private MenuConfig[] menus = new MenuConfig[6];
 
@@ -57,15 +56,15 @@ public class HUDManager : MonoBehaviour
 
         menus[playerIndex] = new MenuConfig(reference,colorSelected);
         SetColor(reference, colorSelected);
+        Image menu = menus[playerIndex].menuPanel.GetComponentInChildren<Image>();
+        menu.sprite = powerUpImages[6];
     }
 
     internal void SetPowerUp(int playerIndex, int random)
     {
         Image menu = menus[playerIndex].menuPanel.GetComponentInChildren<Image>();
-        Color transp = menu.color;
-        transp.a = 255;
-        menu.color = transp;
         menu.sprite = powerUpImages[random - 1];
+        menu.material = _powerUpOn;
     }
 
     private void SetColor(GameObject menu, Colors colorSelected)
@@ -74,42 +73,31 @@ public class HUDManager : MonoBehaviour
         switch (colorSelected)
         {
             case Colors.Blue:
-                images[0].color = imageColor[2];
                 images[1].color = baseColor[2];
                 break;
             case Colors.Red:
-                images[0].color = imageColor[0];
                 images[1].color = baseColor[0];
                 break;
             case Colors.Yellow:
-                images[0].color = imageColor[1];
                 images[1].color = baseColor[1];
                 break;
             case Colors.Green:
-                images[0].color = imageColor[4];
                 images[1].color = baseColor[4];
                 break;
             case Colors.Purple:
-                images[0].color = imageColor[3];
                 images[1].color = baseColor[3];
                 break;
             case Colors.Orange:
-                images[0].color = imageColor[5];
                 images[1].color = baseColor[5];
                 break;
         }
-        Color transp = images[0].color;
-        transp.a = transparency;
-        images[0].color = transp;
     }
 
     public void resetPowerUp(int playerIndex)
     {
         Image menu = menus[playerIndex].menuPanel.GetComponentInChildren<Image>();
-        Color transp = menu.color;
-        transp.a = transparency;
-        menu.color = transp;
-        menu.sprite = null;
+        menu.sprite = powerUpImages[6];
+        menu.material = null;
     }
 
 
