@@ -37,8 +37,6 @@ public class DetectCollision : MonoBehaviour
                 {
                     InputManager myInput = GetComponent<InputManager>();
                     InputManager hisInput = hisCollider.GetComponentInParent<InputManager>();
-                    //Debug.Log(hisInput._teamBlue);
-                    //Debug.Log(myInput._teamBlue);
                     if (hisInput != null && myInput._teamBlue != hisInput._teamBlue)
                     {
                         TakeDamage(myCollider);
@@ -62,7 +60,7 @@ public class DetectCollision : MonoBehaviour
         else if (myCollider.transform.parent.CompareTag("Player") && hisCollider.CompareTag("Damaging"))
         {
             Vector3 direction = Vector3.Normalize(hisCollider.transform.position - myCollider.transform.position);
-            _controller.GetStunned(1.5f, new Vector2(-direction.x, -direction.z), 2000);
+            _controller.GetStunned(1.5f, new Vector2(-direction.x, -direction.z), 900);
         }
     }
 

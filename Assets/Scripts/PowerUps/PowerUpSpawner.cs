@@ -31,14 +31,13 @@ public class PowerUpSpawner : MonoBehaviour
     private void SetRanges()
     {
         //* Hay que modificar estos valores
-        Min = new Vector3(-35.2f, 0.798f, -1.7f); //Random value.
-        Max = new Vector3(5.4f, 0.798f, 24.5f); //Another ramdon value, just for the example.
+        Min = new Vector3(-35.2f, 2f, -1.7f); //Random value.
+        Max = new Vector3(5.4f, 2f, 24.5f); //Another ramdon value, just for the example.
     }
     public bool InstantiateRandomObjects()
     {
         GenerateRandomPosition();
         _canInstantiate = true;
-        //* He eliminado la layermask, url: https://docs.unity3d.com/ScriptReference/Physics.OverlapBox.html
         Collider[] hitColliders = Physics.OverlapBox(_randomPosition, _puPrefab.transform.localScale * 5, Quaternion.identity);
         int i = 0;
 

@@ -36,7 +36,7 @@ public class HUDManager : MonoBehaviour
         }
     }
 
-    public void InitializeMenu(int playerIndex, Colors colorSelected, bool isIA)
+    public void InitializeMenu(int playerIndex, Colors colorSelected, bool isIA,Image _image)
     {
         GameObject reference;
         TextMeshProUGUI text;
@@ -60,6 +60,7 @@ public class HUDManager : MonoBehaviour
         Image menu = menus[playerIndex].menuPanel.GetComponentInChildren<Image>();
         menu.sprite = powerUpImages[6];
         menu.transform.GetChild(0).GetComponent<Image>().color = menus[playerIndex].color;
+        _image.color = menus[playerIndex].color;
     }
 
     internal void SetPowerUp(int playerIndex, int random)
