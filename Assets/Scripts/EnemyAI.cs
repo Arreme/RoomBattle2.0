@@ -18,10 +18,13 @@ public class EnemyAI : MonoBehaviour
     private NavMeshPath _path;
     private GameObject _target;
     private State _state;
-    private float _updateTimer = 0.2f;
+    private float _updateTimer = 0.4f;
     private float _currentTime;
     private Vector2 _direction;
     private bool _butcher;
+    private Vector3 fleePosition;
+    private float _boostTimer = 1.0f;
+    private float _boostCurrentTime;
 
     //DATA MODIFICAR
     private float butcherDistance = 10;
@@ -33,6 +36,7 @@ public class EnemyAI : MonoBehaviour
         //_butcher = false;
         _state = State.Chasing;
         _currentTime = 0.0f;
+        fleePosition = Vector3.zero;
     }
 
     void FixedUpdate()
@@ -44,28 +48,31 @@ public class EnemyAI : MonoBehaviour
                 LookNearest();
                 if (_target != null)
                 {
-                    if (CalculateCornerToCornerDistance(0, 1) >= boostDistance && CalculatePathLength(_target.transform.position) >= boostDistance)
+                    if (CalculateCornerToCornerDistance(0, 1) >= boostDistance && CalculatePathLength(_target.transform.position) >= boostDistance && _boostCurrentTime >= _boostTimer)
                     {
                         _state = State.Boosting;
+                    }
+
+                    bool checkButcher = CheckButcher();
+                    //&& Vector3.Distance(transform.position, _target.transform.position) >= butcherDistance
+                    if (checkButcher && Vector3.Distance(transform.position, _target.transform.position) >= butcherDistance)
+                    {
+                        _state = State.Fleeing;
                     }
                     if (!(GetComponent<PowerUpManager>()._currentPower is NoPowerUp))
                     {
                         _state = State.UsingPower;
                     }
-                    /**
-                    bool checkButcher = CheckButcher();
-                    //&& Vector3.Distance(transform.position, _target.transform.position) >= butcherDistance
-                    if (!_butcher && checkButcher )
+
+                    /**else if (_butcher)
                     {
                         _state = State.Fleeing;
-                        _butcher = true;
-
                     }
-                    else
+                    else if (!checkButcher)
                     {
-                        _butcher = false;
-                    }
-                    */
+
+                    }*/
+
                     switch (_state)
                     {
                         case State.Chasing:
@@ -76,6 +83,7 @@ public class EnemyAI : MonoBehaviour
                             break;
                         case State.Boosting:
                             Boost();
+                            _boostCurrentTime = 0.0f;
                             break;
                         case State.PickingPowerUp:
                             PickPower();
@@ -91,12 +99,20 @@ public class EnemyAI : MonoBehaviour
         else
         {
             _currentTime += Time.deltaTime;
+            _boostCurrentTime += Time.deltaTime;
         }
 
+        //DEBUG
         for (int i = 0; i < _path.corners.Length - 1; i++)
         {
             Debug.DrawLine(_path.corners[i], _path.corners[i + 1], Color.red);
+
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, butcherDistance);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -120,7 +136,6 @@ public class EnemyAI : MonoBehaviour
         {
             bool butcherCheck = _target.transform.parent.parent.Find("Butcher").gameObject.activeSelf;
             check = butcherCheck;
-            Debug.Log(check);
         }
         return check;
     }
@@ -129,32 +144,46 @@ public class EnemyAI : MonoBehaviour
     {
         transform.rotation = Quaternion.LookRotation(transform.position - _target.transform.position);
         bool butcherCheck = false;
-        if (!_butcher)
+
+        Debug.Log("fleePosition == Vector3.zero:");
+        Debug.Log(fleePosition == Vector3.zero);
+        Debug.Log("checkFleePosition(fleePosition)");
+        Debug.Log(checkFleePosition(fleePosition));
+        if (fleePosition == Vector3.zero || checkFleePosition(fleePosition))
         {
             do
             {
-                Vector3 randomPosition = GetRandomLocation();
-                Collider[] hitColliders = Physics.OverlapBox(
-                randomPosition,
-                new Vector3(butcherDistance, 0, butcherDistance),
-                Quaternion.identity);
-                int i = 0;
-                while (i < hitColliders.Length)
-                {
-                    if (hitColliders[i].gameObject.Equals(_target.transform.parent.parent))
-                    {
-                        butcherCheck = true;
-                    }
-                    i++;
-                }
+                Debug.Log("new flee position");
+                fleePosition = GetRandomLocation();
 
-                NavMesh.CalculatePath(transform.position, randomPosition, NavMesh.AllAreas, _path);
+                butcherCheck = checkFleePosition(fleePosition);
+
                 //if (Vector3.Distance(randomToV3, _target.transform.position) >= butcherDistance)
                 //butcherCheck = true;
             }
             while (butcherCheck);
         }
 
+        NavMesh.CalculatePath(transform.position, fleePosition, NavMesh.AllAreas, _path);
+
+    }
+
+    private bool checkFleePosition(Vector3 position)
+    {
+        Collider[] hitColliders = Physics.OverlapBox(
+               position,
+               new Vector3(butcherDistance, 0, butcherDistance),
+               Quaternion.identity);
+        int i = 0;
+        while (i < hitColliders.Length)
+        {
+            if (hitColliders[i].gameObject.Equals(_target.transform.parent.parent))
+            {
+                return true;
+            }
+            i++;
+        }
+        return false;
     }
 
     public Vector3 GetRandomLocation()
@@ -259,6 +288,10 @@ public class EnemyAI : MonoBehaviour
                 }
             }
         }
+
+        //TESTING
+        _target = nearRoombas.Item1;
+        _state = State.Chasing;
     }
     private Tuple<GameObject, float> FindNearestPower()
     {
