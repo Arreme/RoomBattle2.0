@@ -11,7 +11,8 @@ public class PlayerConfigManager : MonoBehaviour
     public static PlayerConfigManager Instance { get; private set; }
 
     public bool _teamsEnabled = false;
-
+    public bool _endScreen = false;
+    public List<PlayerConfig> _deadPlayers;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class PlayerConfigManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this);
             _configs = new List<PlayerConfig>();
+            _deadPlayers = new List<PlayerConfig>();
         }
     }
 
