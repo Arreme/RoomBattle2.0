@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _settingsMenu;
     [SerializeField] private new GameObject camera;
     [SerializeField] private EventSystem _eventSystem;
+    private Animation anim;
     //[SerializeField] private GameObject controllerImage;
     //[SerializeField] private GameObject keyboardImage;
     public float transitionSpeed = 5;
@@ -50,7 +51,8 @@ public class MainMenu : MonoBehaviour
 
     public void setOptions()
     {
-        camera.transform.eulerAngles = setOptionsV3;
+        //camera.transform.eulerAngles = setOptionsV3;
+        anim.Play("controls");
         _normalMenu.SetActive(false);
         _inputMenu.SetActive(true);
         _startMenu.SetActive(false);
@@ -61,7 +63,8 @@ public class MainMenu : MonoBehaviour
 
     public void mainMenuOptions()
     {
-        camera.transform.eulerAngles = mainMenuV3;
+        //camera.transform.eulerAngles = mainMenuV3;
+        anim.Play("backFromModes");
         _normalMenu.SetActive(true);
         _inputMenu.SetActive(false);
         _startMenu.SetActive(false);
@@ -71,6 +74,7 @@ public class MainMenu : MonoBehaviour
     }
     public void backOptions()
     {
+        anim.Play("backToMain");
         _inputMenu.SetActive(false);
         _normalMenu.SetActive(true);
         _startMenu.SetActive(false);
@@ -81,7 +85,8 @@ public class MainMenu : MonoBehaviour
 
     public void playOptions()
     {
-        camera.transform.eulerAngles = playOptionsV3;
+        //camera.transform.eulerAngles = playOptionsV3;
+        anim.Play("modeGame");
         _inputMenu.SetActive(false);
         _normalMenu.SetActive(false);
         _modeGameMenu.SetActive(true);
@@ -90,7 +95,7 @@ public class MainMenu : MonoBehaviour
     }
     public void activateSettings()
     {
-        camera.transform.eulerAngles = activateSettingsV3;
+        //camera.transform.eulerAngles = activateSettingsV3;
         _inputMenu.SetActive(false);
         _normalMenu.SetActive(false);
         _modeGameMenu.SetActive(false);
@@ -99,9 +104,10 @@ public class MainMenu : MonoBehaviour
     }
     private void Start()
     {
+        anim = camera.GetComponent<Animation>();
         StartCoroutine(checkForPressed());
         // NO TOCAR (angulo default de la camara)
-        camera.transform.eulerAngles = startV3;
+        //camera.transform.eulerAngles = startV3;
     }
 
     private IEnumerator checkForPressed()
@@ -117,7 +123,8 @@ public class MainMenu : MonoBehaviour
                     _normalMenu.SetActive(true);
                     _playButton.Select();
                     a = true;
-                    camera.transform.eulerAngles = mainMenuV3;
+                    //camera.transform.eulerAngles = mainMenuV3;
+                    anim.Play("mainMenu");
                 }
 
             }

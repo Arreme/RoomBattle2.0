@@ -12,8 +12,28 @@ public class LevelInitializer : MonoBehaviour
     private GameObject playerPrefab;
     [SerializeField]
     private BattleManager _manager;
+    [SerializeField]
+    public new GameObject camera;
+    private Animation anim;
+
     private void Start()
     {
+        anim = camera.GetComponent<Animation>();
+        Debug.Log(PlayerConfigManager.Instance.runAnimation);
+        if (PlayerConfigManager.Instance.runAnimation)
+        {
+            anim.Play("levelStart2");
+            StartCoroutine(gameStart(10f));
+        }
+        else
+        {
+            StartCoroutine(gameStart(0f));
+        }
+    }
+
+    public IEnumerator gameStart(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
         var result = playerSpawn;
         result.Shuffle();
         var playerConfig = PlayerConfigManager.Instance.GetPlayerConfigs().ToArray();
@@ -23,6 +43,7 @@ public class LevelInitializer : MonoBehaviour
             _manager.AddPlayer(player);
             player.GetComponent<InputManager>().InitializePlayer(playerConfig[i]);
         }
+        PlayerConfigManager.Instance.runAnimation = false;
     }
 
 }
@@ -43,5 +64,3 @@ static class Shuffler
         }
     }
 }
-
-

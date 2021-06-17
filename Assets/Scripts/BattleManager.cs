@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class BattleManager : MonoBehaviour
 
     public void removePlayers(GameObject player)
     {
+        PlayerConfigManager.Instance._deadPlayers.Add(PlayerConfigManager.Instance.GetPlayerConfigs()[player.GetComponent<InputManager>()._playerConfig.PlayerIndex]);
         _players.Remove(player);
         if (player.GetComponent<InputManager>()._teamBlue)
         {
@@ -33,7 +35,6 @@ public class BattleManager : MonoBehaviour
         {
             _redAlive -= 1;
         }
-        Debug.Log(_redAlive);
     }
 
     private void Awake()
@@ -64,7 +65,12 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-
+    private IEnumerator loadSceneAsync()
+    {
+        SceneManager.LoadSceneAsync(4);
+        Camera.main.GetComponent<Animation>().Play("Transition");
+        yield return null;
+    }
 
     private IEnumerator checkForWin()
     {
@@ -75,25 +81,28 @@ public class BattleManager : MonoBehaviour
             {
                 if (_redAlive == 0)
                 {
-                    Debug.Log("blue wins");
-                    _restartMenu.SetActive(true);
+                    SceneManager.LoadScene("ENDSCREEN");
+                    //_restartMenu.SetActive(true);
                 }
                 else if (_blueAlive == 0)
                 {
-                    _restartMenu.SetActive(true);
+                    SceneManager.LoadScene("ENDSCREEN");
+                    //_restartMenu.SetActive(true);
                 }
-                yield return new WaitForSeconds(.3f);
+                yield return new WaitForSeconds(.1f);
             }
         }
         else
         {
             for (; ; )
             {
-                if (_players.Count == 1)
+                if (_players.Count <= 1)
                 {
-                    _restartMenu.SetActive(true);
+                    PlayerConfigManager.Instance._deadPlayers.Add(PlayerConfigManager.Instance.GetPlayerConfigs()[_players[0].GetComponent<InputManager>()._playerConfig.PlayerIndex]);
+                    SceneManager.LoadScene("ENDSCREEN");
+                    //_restartMenu.SetActive(true);
                 }
-                yield return new WaitForSeconds(0.3f);
+                yield return new WaitForSeconds(0.1f);
             }
         }
 
