@@ -21,7 +21,6 @@ public class EnemyAI : MonoBehaviour
     private float _updateTimer = 0.4f;
     private float _currentTime;
     private Vector2 _direction;
-    private bool _butcher;
     private Vector3 fleePosition;
     private float _boostTimer = 1.0f;
     private float _boostCurrentTime;
@@ -54,6 +53,7 @@ public class EnemyAI : MonoBehaviour
                     }
 
                     bool checkButcher = CheckButcher();
+
                     //&& Vector3.Distance(transform.position, _target.transform.position) >= butcherDistance
                     if (checkButcher && Vector3.Distance(transform.position, _target.transform.position) >= butcherDistance)
                     {
@@ -134,7 +134,27 @@ public class EnemyAI : MonoBehaviour
         bool check = false;
         if (_target != null && !_target.gameObject.CompareTag("PowerUp"))
         {
-            bool butcherCheck = _target.transform.parent.parent.Find("Butcher").gameObject.activeSelf;
+            Debug.Log(_target.tag);
+            if (_target.CompareTag("Balloon"))
+            {
+                bool butcherCheck = _target.transform.parent.parent.Find("Butcher").gameObject.activeSelf;
+                check = butcherCheck;
+            }
+            else if (_target.CompareTag("Player"))
+            {
+                bool butcherCheck = _target.transform.Find("Butcher").gameObject.activeSelf;
+                check = butcherCheck;
+            }
+        }
+        return check;
+    }
+
+    private bool CheckButcher(GameObject roomba)
+    {
+        bool check = false;
+        if (roomba != null && !roomba.gameObject.CompareTag("PowerUp"))
+        {
+            bool butcherCheck = roomba.transform.Find("Butcher").gameObject.activeSelf;
             check = butcherCheck;
         }
         return check;
@@ -166,6 +186,13 @@ public class EnemyAI : MonoBehaviour
 
         NavMesh.CalculatePath(transform.position, fleePosition, NavMesh.AllAreas, _path);
 
+        if (_path.corners.Length >= 2)
+        {
+            Vector2 waypoint = new Vector2(_path.corners[1].x, _path.corners[1].z);
+            Vector2 roombaPos = new Vector2(transform.position.x, transform.position.z);
+            _direction = waypoint - roombaPos;
+            GetComponent<NewRoombaController>().updateMovement(_direction.normalized);
+        }
     }
 
     private bool checkFleePosition(Vector3 position)
@@ -343,9 +370,12 @@ public class EnemyAI : MonoBehaviour
                         //float dist = Vector2.Distance(thisV2, targetV2);
                         if (shortestDistance == 0 || dist < shortestDistance)
                         {
-                            shortestDistance = dist;
-                            //Vector3.Distance(transform.position, player.transform.position);
-                            nearestPlayer = player;
+                            if (!CheckButcher(player))
+                            {
+                                shortestDistance = dist;
+                                //Vector3.Distance(transform.position, player.transform.position);
+                                nearestPlayer = player;
+                            }
                         }
                     }
                 }
@@ -357,9 +387,12 @@ public class EnemyAI : MonoBehaviour
                     //float dist = Vector2.Distance(thisV2, targetV2);
                     if (shortestDistance == 0 || dist < shortestDistance)
                     {
-                        shortestDistance = dist;
-                        //Vector3.Distance(transform.position, player.transform.position);
-                        nearestPlayer = player;
+                        if (!CheckButcher(player))
+                        {
+                            shortestDistance = dist;
+                            //Vector3.Distance(transform.position, player.transform.position);
+                            nearestPlayer = player;
+                        }
                     }
                 }
             }
