@@ -14,6 +14,24 @@ public class LevelInitializer : MonoBehaviour
     private BattleManager _manager;
     private void Start()
     {
+        Debug.Log("Illo que empieza esto");
+        StartCoroutine(gameStart());
+        /*
+        var result = playerSpawn;
+        result.Shuffle();
+        var playerConfig = PlayerConfigManager.Instance.GetPlayerConfigs().ToArray();
+        for (int i = 0; i < playerConfig.Length; i++)
+        {
+            var player = Instantiate(playerPrefab, result[i]);
+            _manager.AddPlayer(player);
+            player.GetComponent<InputManager>().InitializePlayer(playerConfig[i]);
+        }
+        */
+    }
+
+    public IEnumerator gameStart()
+    {
+        yield return new WaitForSecondsRealtime(10f);
         var result = playerSpawn;
         result.Shuffle();
         var playerConfig = PlayerConfigManager.Instance.GetPlayerConfigs().ToArray();
@@ -43,5 +61,3 @@ static class Shuffler
         }
     }
 }
-
-
