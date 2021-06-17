@@ -17,12 +17,13 @@ public class PlayerConfigManager : MonoBehaviour
     public string _teamThatWon;
 
 
+
     private void Awake()
     {
-        runAnimation = false;
-
+        runAnimation = true;
+        
         if (Instance == null)
-        {
+        {       
             Instance = this;
             DontDestroyOnLoad(this);
             _configs = new List<PlayerConfig>();
@@ -40,6 +41,7 @@ public class PlayerConfigManager : MonoBehaviour
         _configs[index].IsReady = true;
         if (_configs.All(p => p.IsReady == true))
         {
+
             SceneManager.LoadScene("FinalV3");
         }
     }

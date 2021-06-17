@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button _backButton;
     [SerializeField] private Button _backMenuButton;
     [SerializeField] private Button _startButton;
+    [SerializeField] private Button _settingsButton;
     [SerializeField] private GameObject _inputMenu;
     [SerializeField] private GameObject _normalMenu;
     [SerializeField] private GameObject _startMenu;
@@ -93,14 +94,26 @@ public class MainMenu : MonoBehaviour
         _settingsMenu.SetActive(false);
         _teamButton.Select();
     }
+
     public void activateSettings()
     {
         //camera.transform.eulerAngles = activateSettingsV3;
+        anim.Play("settings");
         _inputMenu.SetActive(false);
         _normalMenu.SetActive(false);
         _modeGameMenu.SetActive(false);
         _settingsMenu.SetActive(true);
-        _backMenuButton.Select();
+        _settingsButton.Select();
+    }
+    public void deactivateSettings()
+    {
+        //camera.transform.eulerAngles = activateSettingsV3;
+        anim.Play("backFromSettings");
+        _inputMenu.SetActive(false);
+        _normalMenu.SetActive(true);
+        _modeGameMenu.SetActive(false);
+        _settingsMenu.SetActive(false);
+        _playButton.Select();
     }
     private void Start()
     {
@@ -109,6 +122,7 @@ public class MainMenu : MonoBehaviour
         // NO TOCAR (angulo default de la camara)
         //camera.transform.eulerAngles = startV3;
         AudioManager.Instance._PlayMusic("Menu");
+        _playButton.Select();
     }
 
     private IEnumerator checkForPressed()
