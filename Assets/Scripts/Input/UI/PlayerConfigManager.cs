@@ -13,9 +13,13 @@ public class PlayerConfigManager : MonoBehaviour
     public bool _teamsEnabled = false;
     public bool _endScreen = false;
     public List<PlayerConfig> _deadPlayers;
+    public bool runAnimation;
+
 
     private void Awake()
     {
+        runAnimation = true;
+
         if (Instance == null)
         {
             Instance = this;
