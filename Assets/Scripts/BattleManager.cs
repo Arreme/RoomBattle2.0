@@ -67,27 +67,28 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator loadSceneAsync()
     {
-        SceneManager.LoadSceneAsync(4);
+        yield return new WaitForSecondsRealtime(2f);
         Camera.main.GetComponent<Animation>().Play("Transition");
+        SceneManager.LoadSceneAsync(4);
         yield return null;
     }
 
     private IEnumerator checkForWin()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(10f);
         if (PlayerConfigManager.Instance._teamsEnabled)
         {
             for (; ; )
             {
                 if (_redAlive == 0)
                 {
-                    SceneManager.LoadScene("ENDSCREEN");
-                    //_restartMenu.SetActive(true);
+                    StartCoroutine(loadSceneAsync());
+                    break;
                 }
                 else if (_blueAlive == 0)
                 {
-                    SceneManager.LoadScene("ENDSCREEN");
-                    //_restartMenu.SetActive(true);
+                    StartCoroutine(loadSceneAsync());
+                    break;
                 }
                 yield return new WaitForSeconds(.1f);
             }
@@ -99,8 +100,8 @@ public class BattleManager : MonoBehaviour
                 if (_players.Count <= 1)
                 {
                     PlayerConfigManager.Instance._deadPlayers.Add(PlayerConfigManager.Instance.GetPlayerConfigs()[_players[0].GetComponent<InputManager>()._playerConfig.PlayerIndex]);
-                    SceneManager.LoadScene("ENDSCREEN");
-                    //_restartMenu.SetActive(true);
+                    StartCoroutine(loadSceneAsync());
+                    break;
                 }
                 yield return new WaitForSeconds(0.1f);
             }

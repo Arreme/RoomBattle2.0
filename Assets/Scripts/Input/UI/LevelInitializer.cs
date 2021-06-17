@@ -12,13 +12,11 @@ public class LevelInitializer : MonoBehaviour
     private GameObject playerPrefab;
     [SerializeField]
     private BattleManager _manager;
-    [SerializeField]
-    public new GameObject camera;
     private Animation anim;
 
     private void Start()
     {
-        anim = camera.GetComponent<Animation>();
+        anim = Camera.main.GetComponent<Animation>();
         Debug.Log(PlayerConfigManager.Instance.runAnimation);
         if (PlayerConfigManager.Instance.runAnimation)
         {
