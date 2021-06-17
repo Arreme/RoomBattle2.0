@@ -6725,7 +6725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &804313603
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8888,7 +8888,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087698286}
   m_LocalRotation: {x: 0.1521939, y: -0.11732974, z: 0.044430774, w: 0.9803554}
-  m_LocalPosition: {x: 0, y: 0, z: 22.98}
+  m_LocalPosition: {x: 0, y: 0, z: 22.87}
   m_LocalScale: {x: 0.01138327, y: 0.01138327, z: 0.01138327}
   m_Children:
   - {fileID: 61078767}
@@ -8901,7 +8901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 17.989, y: -13.159, z: 3.098}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1015.38, y: -532.22}
+  m_AnchoredPosition: {x: -1015.7, y: -532.33}
   m_SizeDelta: {x: 1325.8865, y: 1014.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1087698288
@@ -11625,6 +11625,7 @@ GameObject:
   - component: {fileID: 1386683906}
   - component: {fileID: 1386683905}
   - component: {fileID: 1386683904}
+  - component: {fileID: 1386683907}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11639,13 +11640,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386683902}
-  m_LocalRotation: {x: 0.11452378, y: -0.37249213, z: 0.12348873, w: 0.9126251}
-  m_LocalPosition: {x: -52.690002, y: 6.4909554, z: 15.543577}
+  m_LocalRotation: {x: 0.035582926, y: -0.57370883, z: 0.0066343197, w: 0.81825924}
+  m_LocalPosition: {x: -71.61, y: 3.11, z: 23.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 17.52, y: -43.102, z: 8.447}
+  m_LocalEulerAnglesHint: {x: 3.775, y: -70.128, z: -1.721}
 --- !u!114 &1386683904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11729,6 +11730,25 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!95 &1386683907
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386683902}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9545bf8ecffed2f4e8532d54fa3c6c8f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1388294921
 GameObject:
   m_ObjectHideFlags: 0
@@ -15976,7 +15996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1833750991
 RectTransform:
   m_ObjectHideFlags: 0
