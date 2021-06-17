@@ -11626,6 +11626,7 @@ GameObject:
   - component: {fileID: 1386683905}
   - component: {fileID: 1386683904}
   - component: {fileID: 1386683907}
+  - component: {fileID: 1386683908}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11738,7 +11739,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386683902}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9545bf8ecffed2f4e8532d54fa3c6c8f, type: 2}
   m_CullingMode: 0
@@ -11749,6 +11750,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &1386683908
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386683902}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: e572d70dcade1da409c83a1dee3fa050, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: e572d70dcade1da409c83a1dee3fa050, type: 2}
+  - {fileID: 7400000, guid: 3a2160db2d266bc41b3f273389562011, type: 2}
+  - {fileID: 7400000, guid: 84b2778f18cf12c4098afcdcf71840c4, type: 2}
+  - {fileID: 7400000, guid: 14b4845f19c57824f99cf1088b83cb57, type: 2}
+  - {fileID: 7400000, guid: af026212075a3f448a1ded3d95dbc541, type: 2}
+  - {fileID: 7400000, guid: d3e95e64144d48f4ba54fae5a466d22c, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1388294921
 GameObject:
   m_ObjectHideFlags: 0
@@ -11764,7 +11786,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1388294922
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12357,7 +12379,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3632295}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: mainMenuOptions
+        m_MethodName: backOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15996,7 +16018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1833750991
 RectTransform:
   m_ObjectHideFlags: 0
