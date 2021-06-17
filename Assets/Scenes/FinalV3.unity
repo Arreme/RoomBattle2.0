@@ -1386,7 +1386,6 @@ MonoBehaviour:
   - {fileID: 1439488859}
   playerPrefab: {fileID: 5975971300749553939, guid: b9e8f680f68b4f046a02477a31c06fe3, type: 3}
   _manager: {fileID: 157283100}
-  camera: {fileID: 519420028}
 --- !u!114 &157283100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3364,7 +3363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 0
-  seconds: 2
+  seconds: 0.2
 --- !u!1 &418124003
 GameObject:
   m_ObjectHideFlags: 0
@@ -4615,6 +4614,7 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: ba0c27d11bea1814ba183e266f4b287b, type: 2}
   m_Animations:
+  - {fileID: 7400000, guid: 41a6a8f0fea84a64ca076b05ccf4857f, type: 2}
   - {fileID: 7400000, guid: ba0c27d11bea1814ba183e266f4b287b, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0

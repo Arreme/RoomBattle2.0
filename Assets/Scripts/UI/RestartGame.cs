@@ -15,5 +15,6 @@ public class RestartGame : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("FinalV3");
+        PlayerConfigManager.Instance.runAnimation = false;
     }
 }

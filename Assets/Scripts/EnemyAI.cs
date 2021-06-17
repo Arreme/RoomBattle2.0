@@ -321,10 +321,6 @@ public class EnemyAI : MonoBehaviour
                 }
             }
         }
-
-        //TESTING
-        _target = nearRoombas.Item1;
-        _state = State.Chasing;
     }
     private Tuple<GameObject, float> FindNearestPower()
     {
@@ -362,6 +358,22 @@ public class EnemyAI : MonoBehaviour
     {
         float shortestDistance = 0;
         GameObject nearestPlayer = null;
+        int countEnemies = 0;
+
+        if (PlayerConfigManager.Instance._teamsEnabled)
+        {
+            foreach (GameObject player in BattleManager.getPlayers())
+            {
+                if (!player.GetComponent<CustomPhysics>().dead)
+                {
+                    if (gameObject.GetComponent<InputManager>()._teamBlue != player.GetComponent<InputManager>()._teamBlue)
+                    {
+                        countEnemies++;
+                    }
+                }
+            }
+        }
+
         foreach (GameObject player in BattleManager.getPlayers())
         {
             if (!gameObject.Equals(player) && !player.GetComponent<CustomPhysics>().dead)
@@ -376,7 +388,7 @@ public class EnemyAI : MonoBehaviour
                         //float dist = Vector2.Distance(thisV2, targetV2);
                         if (shortestDistance == 0 || dist < shortestDistance)
                         {
-                            if (!CheckButcher(player))
+                            if (!CheckButcher(player) || countEnemies == 1)
                             {
                                 shortestDistance = dist;
                                 //Vector3.Distance(transform.position, player.transform.position);
@@ -393,7 +405,7 @@ public class EnemyAI : MonoBehaviour
                     //float dist = Vector2.Distance(thisV2, targetV2);
                     if (shortestDistance == 0 || dist < shortestDistance)
                     {
-                        if (!CheckButcher(player))
+                        if (!CheckButcher(player) || BattleManager.getPlayers().Count == 2)
                         {
                             shortestDistance = dist;
                             //Vector3.Distance(transform.position, player.transform.position);
