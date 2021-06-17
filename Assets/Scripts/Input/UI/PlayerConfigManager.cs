@@ -14,6 +14,7 @@ public class PlayerConfigManager : MonoBehaviour
     public bool _endScreen = false;
     public List<PlayerConfig> _deadPlayers;
     public bool runAnimation;
+    public string _teamThatWon;
 
 
 
