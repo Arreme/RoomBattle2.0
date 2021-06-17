@@ -29,6 +29,10 @@ public class EnemyAI : MonoBehaviour
     private float butcherDistance = 10;
     private float boostDistance = 20;
     private float PowerOrChaseMargin = 30;
+
+    //TESTING
+    private Vector3 point;
+
     void Start()
     {
         _path = new NavMeshPath();
@@ -47,21 +51,21 @@ public class EnemyAI : MonoBehaviour
                 LookNearest();
                 if (_target != null)
                 {
-                    if (CalculateCornerToCornerDistance(0, 1) >= boostDistance && CalculatePathLength(_target.transform.position) >= boostDistance && _boostCurrentTime >= _boostTimer)
-                    {
-                        _state = State.Boosting;
-                    }
 
                     bool checkButcher = CheckButcher();
 
-                    //&& Vector3.Distance(transform.position, _target.transform.position) >= butcherDistance
+                    /*&& Vector3.Distance(transform.position, _target.transform.position) >= butcherDistance
                     if (checkButcher && Vector3.Distance(transform.position, _target.transform.position) >= butcherDistance)
                     {
                         _state = State.Fleeing;
-                    }
+                    }*/
                     if (!(GetComponent<PowerUpManager>()._currentPower is NoPowerUp))
                     {
                         _state = State.UsingPower;
+                    }
+                    if (CalculateCornerToCornerDistance(0, 1) >= boostDistance && CalculatePathLength(_target.transform.position) >= boostDistance && _boostCurrentTime >= _boostTimer)
+                    {
+                        _state = State.Boosting;
                     }
 
                     /**else if (_butcher)
@@ -106,13 +110,13 @@ public class EnemyAI : MonoBehaviour
         for (int i = 0; i < _path.corners.Length - 1; i++)
         {
             Debug.DrawLine(_path.corners[i], _path.corners[i + 1], Color.red);
-
         }
     }
 
     void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, butcherDistance);
+        //Gizmos.DrawWireSphere(transform.position, butcherDistance);
+        //Gizmos.DrawSphere(point, 1);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -182,6 +186,8 @@ public class EnemyAI : MonoBehaviour
                 //butcherCheck = true;
             }
             while (butcherCheck);
+
+            point = fleePosition;
         }
 
         NavMesh.CalculatePath(transform.position, fleePosition, NavMesh.AllAreas, _path);
