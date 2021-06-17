@@ -12,26 +12,28 @@ public class LevelInitializer : MonoBehaviour
     private GameObject playerPrefab;
     [SerializeField]
     private BattleManager _manager;
+    [SerializeField]
+    public new GameObject camera;
+    private Animation anim;
+
     private void Start()
     {
-        Debug.Log("Illo que empieza esto");
-        StartCoroutine(gameStart());
-        /*
-        var result = playerSpawn;
-        result.Shuffle();
-        var playerConfig = PlayerConfigManager.Instance.GetPlayerConfigs().ToArray();
-        for (int i = 0; i < playerConfig.Length; i++)
+        anim = camera.GetComponent<Animation>();
+        Debug.Log(PlayerConfigManager.Instance.runAnimation);
+        if (PlayerConfigManager.Instance.runAnimation)
         {
-            var player = Instantiate(playerPrefab, result[i]);
-            _manager.AddPlayer(player);
-            player.GetComponent<InputManager>().InitializePlayer(playerConfig[i]);
+            anim.Play("levelStart2");
+            StartCoroutine(gameStart(10f));
         }
-        */
+        else
+        {
+            StartCoroutine(gameStart(0f));
+        }
     }
 
-    public IEnumerator gameStart()
+    public IEnumerator gameStart(float time)
     {
-        yield return new WaitForSecondsRealtime(10f);
+        yield return new WaitForSecondsRealtime(time);
         var result = playerSpawn;
         result.Shuffle();
         var playerConfig = PlayerConfigManager.Instance.GetPlayerConfigs().ToArray();
@@ -41,6 +43,7 @@ public class LevelInitializer : MonoBehaviour
             _manager.AddPlayer(player);
             player.GetComponent<InputManager>().InitializePlayer(playerConfig[i]);
         }
+        PlayerConfigManager.Instance.runAnimation = false;
     }
 
 }

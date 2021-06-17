@@ -23,6 +23,8 @@ public class InputManager : MonoBehaviour
     private RoombaInputSystem controls;
 
     public bool _teamBlue;
+
+    public PlayerConfig _playerConfig;
     
     void Awake()
     {
@@ -32,7 +34,9 @@ public class InputManager : MonoBehaviour
 
     public void InitializePlayer(PlayerConfig conf)
     {
+        _playerConfig = conf;
         InitializeGraphics(conf);
+        if (PlayerConfigManager.Instance._endScreen) return;
         if (PlayerConfigManager.Instance._teamsEnabled)
         {
             if (conf.TeamBlue == true)
@@ -59,8 +63,7 @@ public class InputManager : MonoBehaviour
         {
             mesh.material = conf.ballonMat;
         }
-        _powerUp.GetComponent<MeshRenderer>().material.color = conf.lightColor;
-        //_image.color = hudColor;
+        if (!PlayerConfigManager.Instance._endScreen) _powerUp.GetComponent<MeshRenderer>().material.color = conf.lightColor;
         if (conf.hatInstance != null)
         {
             Instantiate(conf.hatInstance, parentBody.transform);
@@ -73,7 +76,7 @@ public class InputManager : MonoBehaviour
             parentKnife.transform.localRotation = conf.kniveInstance.transform.localRotation;
             parentKnife.transform.localScale = conf.kniveInstance.transform.localScale;
         }
-        HUDManager.Instance.InitializeMenu(conf.PlayerIndex, conf.colorSelected,conf.IsIA,_image);
+        if (!PlayerConfigManager.Instance._endScreen) HUDManager.Instance.InitializeMenu(conf.PlayerIndex, conf.colorSelected,conf.IsIA,_image);
     }
 
     private void Input_onActionTriggered(InputAction.CallbackContext obj)

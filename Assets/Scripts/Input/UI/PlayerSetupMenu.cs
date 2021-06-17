@@ -167,7 +167,6 @@ public class PlayerSetupMenu : MonoBehaviour
 
     private void SetColor(string color)
     {
-        Debug.Log(color);
         Colors colors = (Colors)Enum.Parse(typeof(Colors), color);
         PlayerConfigManager.Instance.SetPlayerColor(PlayerIndex, AssetsLoader.Instance.colorGetter(colors), getLightColor(colors), colors);
 
@@ -186,9 +185,6 @@ public class PlayerSetupMenu : MonoBehaviour
                     blueTeamCount--;
                 break;
         }
-
-
-        Debug.Log(redTeamCount + " " + blueTeamCount);
     }
 
     private Color getLightColor(Colors colorPick)
