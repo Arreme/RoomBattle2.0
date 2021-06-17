@@ -108,6 +108,7 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(checkForPressed());
         // NO TOCAR (angulo default de la camara)
         //camera.transform.eulerAngles = startV3;
+        AudioManager.Instance._PlayMusic("Menu");
     }
 
     private IEnumerator checkForPressed()

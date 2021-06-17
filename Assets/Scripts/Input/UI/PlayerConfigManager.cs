@@ -18,7 +18,7 @@ public class PlayerConfigManager : MonoBehaviour
 
     private void Awake()
     {
-        runAnimation = true;
+        runAnimation = false;
 
         if (Instance == null)
         {
