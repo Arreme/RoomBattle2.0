@@ -1446,7 +1446,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e41b5c7a88731b14388ec4ac170cb0f1, type: 3}
   - {fileID: 21300000, guid: 0568785d0507ed44a8405279f98ab94b, type: 3}
   - {fileID: 21300000, guid: 9d2b25ba86f50d049a5ca0e0007525fb, type: 3}
-  - {fileID: 21300000, guid: 9e7bf35981618e54cbe0ba70f5ef9e91, type: 3}
+  - {fileID: 21300000, guid: eb87a2bcc6e83e04aba78427082f9ed2, type: 3}
 --- !u!1 &166102433
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,6 +2746,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4237409494401481986, guid: 49378f5c94923774ea0b57a1a9db70fa, type: 3}
+      propertyPath: AudioFiles.Array.data[1].Clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 094c75160b1810249a8de7ad98e49535, type: 3}
+    - target: {fileID: 4237409494401481986, guid: 49378f5c94923774ea0b57a1a9db70fa, type: 3}
+      propertyPath: AudioFiles.Array.data[4].Clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 539c7de6414e1c34f844de1fee4739b0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49378f5c94923774ea0b57a1a9db70fa, type: 3}
 --- !u!1 &322126243

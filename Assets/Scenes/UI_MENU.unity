@@ -7191,6 +7191,14 @@ PrefabInstance:
       propertyPath: AudioFiles.Array.data[7].Type
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4237409494401481986, guid: 49378f5c94923774ea0b57a1a9db70fa, type: 3}
+      propertyPath: AudioFiles.Array.data[1].Clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 094c75160b1810249a8de7ad98e49535, type: 3}
+    - target: {fileID: 4237409494401481986, guid: 49378f5c94923774ea0b57a1a9db70fa, type: 3}
+      propertyPath: AudioFiles.Array.data[4].Clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 539c7de6414e1c34f844de1fee4739b0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49378f5c94923774ea0b57a1a9db70fa, type: 3}
 --- !u!1 &811280212
@@ -7488,8 +7496,8 @@ MonoBehaviour:
   m_MoveRepeatRate: 0.1
   m_ActionsAsset: {fileID: -944628639613478452, guid: 9b892f90d645d6f459ce64d7640f14e0, type: 3}
   m_PointAction: {fileID: 0}
-  m_MoveAction: {fileID: 1577788616474371167, guid: 9b892f90d645d6f459ce64d7640f14e0, type: 3}
-  m_SubmitAction: {fileID: -4291239474949953222, guid: 9b892f90d645d6f459ce64d7640f14e0, type: 3}
+  m_MoveAction: {fileID: 3110782406702783565, guid: 9b892f90d645d6f459ce64d7640f14e0, type: 3}
+  m_SubmitAction: {fileID: 378859289894275734, guid: 9b892f90d645d6f459ce64d7640f14e0, type: 3}
   m_CancelAction: {fileID: 0}
   m_LeftClickAction: {fileID: 0}
   m_MiddleClickAction: {fileID: 0}

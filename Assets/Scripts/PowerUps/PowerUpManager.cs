@@ -42,31 +42,33 @@ public class PowerUpManager : MonoBehaviour
         {
 
             case 1:
-                JSAM.AudioManager.PlaySound(Sounds.powerup_lana, transform);
+                AudioManager.Instance._PlaySFX("PowerCat");           
                 break;
             case 2:
-                JSAM.AudioManager.PlaySound(Sounds.powerup_oil, transform);
+                AudioManager.Instance._PlaySFX("PowerAceite");               
                 break;
             case 3:
-                JSAM.AudioManager.PlaySound(Sounds.powerup_boost, transform);
+                AudioManager.Instance._PlaySFX("PowerBoost");               
                 break;
             case 4:
-                JSAM.AudioManager.PlaySound(Sounds.powerup_butcher, transform);
+                AudioManager.Instance._PlaySFX("PowerButcher");              
                 break;
             case 5:
-                JSAM.AudioManager.PlaySound(Sounds.powerup_viagra, transform);
+                AudioManager.Instance._PlaySFX("PowerAfilador");                
                 break;
             case 6:
-                JSAM.AudioManager.PlaySound(Sounds.powerup_inflar, transform);
+                AudioManager.Instance._PlaySFX("PowerInflate");              
                 break;
         }
     }
 
     public void getPower(PowerUp power)
     {
+        
         _currentPower = power;
         _vfx.actiavteLights(true);
         hasPowerUp = true;
+        AudioManager.Instance._PlaySFX("PowerUp");
     }
 
     public void setIsPowerUpRunning(bool b)

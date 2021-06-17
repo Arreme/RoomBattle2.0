@@ -46,6 +46,7 @@ public class BattleManager : MonoBehaviour
         _players = new List<GameObject>();
         InvokeRepeating("createPickUp", 10, 10);
         StartCoroutine(checkForWin());
+        AudioManager.Instance._PlayMusic("InGame");
     }
 
     public void Explosion(GameObject obj)
@@ -82,11 +83,15 @@ public class BattleManager : MonoBehaviour
             {
                 if (_redAlive == 0)
                 {
+                    _players.ForEach(player => PlayerConfigManager.Instance._deadPlayers.Add(PlayerConfigManager.Instance.GetPlayerConfigs()[player.GetComponent<InputManager>()._playerConfig.PlayerIndex]));
+                    PlayerConfigManager.Instance._teamThatWon = "BLUE";
                     StartCoroutine(loadSceneAsync());
                     break;
                 }
                 else if (_blueAlive == 0)
                 {
+                    PlayerConfigManager.Instance._teamThatWon = "RED";
+                    _players.ForEach(player => PlayerConfigManager.Instance._deadPlayers.Add(PlayerConfigManager.Instance.GetPlayerConfigs()[player.GetComponent<InputManager>()._playerConfig.PlayerIndex]));
                     StartCoroutine(loadSceneAsync());
                     break;
                 }
