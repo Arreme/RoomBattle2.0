@@ -12,7 +12,7 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private List<MeshRenderer> _balloons;
     [SerializeField]
-    private Light _light;
+    private GameObject _powerUp;
     [SerializeField]
     private GameObject parentKnife;
     [SerializeField]
@@ -59,8 +59,8 @@ public class InputManager : MonoBehaviour
         {
             mesh.material = conf.ballonMat;
         }
-        _light.color = conf.lightColor;
-        _image.color = conf.lightColor;
+        _powerUp.GetComponent<MeshRenderer>().material.color = conf.lightColor;
+        //_image.color = hudColor;
         if (conf.hatInstance != null)
         {
             Instantiate(conf.hatInstance, parentBody.transform);
@@ -73,7 +73,7 @@ public class InputManager : MonoBehaviour
             parentKnife.transform.localRotation = conf.kniveInstance.transform.localRotation;
             parentKnife.transform.localScale = conf.kniveInstance.transform.localScale;
         }
-        HUDManager.Instance.InitializeMenu(conf.PlayerIndex, conf.colorSelected,conf.IsIA);
+        HUDManager.Instance.InitializeMenu(conf.PlayerIndex, conf.colorSelected,conf.IsIA,_image);
     }
 
     private void Input_onActionTriggered(InputAction.CallbackContext obj)

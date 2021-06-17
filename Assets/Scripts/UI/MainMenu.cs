@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _modeGameMenu;
     [SerializeField] private GameObject _settingsMenu;
     [SerializeField] private new GameObject camera;
+    [SerializeField] private EventSystem _eventSystem;
     //[SerializeField] private GameObject controllerImage;
     //[SerializeField] private GameObject keyboardImage;
     public float transitionSpeed = 5;
@@ -113,6 +115,7 @@ public class MainMenu : MonoBehaviour
                 {
                     _startMenu.SetActive(false);
                     _normalMenu.SetActive(true);
+                    _playButton.Select();
                     a = true;
                     camera.transform.eulerAngles = mainMenuV3;
                 }

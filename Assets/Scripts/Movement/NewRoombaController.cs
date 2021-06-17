@@ -81,7 +81,7 @@ public class NewRoombaController : MonoBehaviour
     public void GetHit()
     {
         balloons -= 1;
-        GetStunned(0.5f, new Vector2(transform.forward.x, transform.forward.z), 2000);
+        GetStunned(0.5f, new Vector2(transform.forward.x, transform.forward.z), 700);
         _pVar.MaxSpeed = 100;
         StressReceiver.InduceStress(30f);
         StartCoroutine(changeKnife());

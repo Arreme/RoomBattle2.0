@@ -6,7 +6,7 @@ public class RoombaVFX : MonoBehaviour
 {
     public VisualEffect _stunned;
     public VisualEffect _run;
-    public Light _powerUpLight;
+    public GameObject _powerUpLight;
     public VisualEffect _boost;
 
     public IEnumerator activateStunned(float time)
@@ -36,6 +36,6 @@ public class RoombaVFX : MonoBehaviour
 
     public void actiavteLights(bool activate)
     {
-        _powerUpLight.enabled = activate;
+        _powerUpLight.SetActive(activate);
     }
 }
