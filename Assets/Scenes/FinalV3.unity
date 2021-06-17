@@ -4483,6 +4483,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4586,7 +4587,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 64.257, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 13.467708, y: 220.67784, z: -7.894503}
 --- !u!114 &519420033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4602,6 +4603,23 @@ MonoBehaviour:
   TraumaExponent: 23
   MaximumAngularShake: {x: 4, y: 4, z: 4}
   MaximumTranslationShake: {x: 8, y: 8, z: 8}
+--- !u!111 &519420034
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c159dfc00fa0c1a40b94c010e30f9b93, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c159dfc00fa0c1a40b94c010e30f9b93, type: 2}
+  - {fileID: 7400000, guid: ba0c27d11bea1814ba183e266f4b287b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &525716556
 GameObject:
   m_ObjectHideFlags: 0
@@ -7007,7 +7025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3b39e3bd81eb1084fb2efc3640b40f93, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3b39e3bd81eb1084fb2efc3640b40f93, type: 3}
       propertyPath: m_TagString
@@ -15256,7 +15274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 947271991295498763, guid: 47ab5365321f42c4c8c1782ddcd671c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.09
+      value: 0.41
       objectReference: {fileID: 0}
     - target: {fileID: 947271991295498763, guid: 47ab5365321f42c4c8c1782ddcd671c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16060,7 +16078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 485779698467758045, guid: 211950bb061dd05488218197781ab3fe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0645
+      value: 1.36
       objectReference: {fileID: 0}
     - target: {fileID: 485779698467758045, guid: 211950bb061dd05488218197781ab3fe, type: 3}
       propertyPath: m_LocalPosition.z
