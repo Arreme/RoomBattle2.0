@@ -1,18 +1,55 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class soundSettings : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static PlayerConfigManager Instance { get; private set; }
+
+    //SLIDERS
+    [SerializeField]
+    private Slider MasterVolumeSlider;
+    [SerializeField]
+    private Slider MusicVolumeSlider;
+    [SerializeField]
+    private Slider VFXVolumeSlider;
+
+    //VALUES
+    public float MasterVolumeSet;
+    public float MusicVolumeSet;
+    public float VFXVolumeSet;
+
     void Start()
     {
-        
+        MasterVolumeSet = 50f;
+        MusicVolumeSet = 50f;
+        VFXVolumeSet = 50f;
+
+        //Adds a listener to the main slider and invokes a method when the value changes.
+        MasterVolumeSlider.onValueChanged.AddListener(delegate { MasterValueChangeCheck(); });
+        MusicVolumeSlider.onValueChanged.AddListener(delegate { MusicValueChangeCheck(); });
+        VFXVolumeSlider.onValueChanged.AddListener(delegate { VFXValueChangeCheck(); });
     }
 
-    // Update is called once per frame
-    void Update()
+    private void MasterValueChangeCheck()
     {
-        
+        MasterVolumeSet = MasterVolumeSlider.value;
+    }
+
+    private void MusicValueChangeCheck()
+    {
+        MusicVolumeSet = MusicVolumeSlider.value;
+    }
+
+    private void VFXValueChangeCheck()
+    {
+        VFXVolumeSet = VFXVolumeSlider.value;
+    }
+
+    public void SubmitSettings()
+    {
+
     }
 }
