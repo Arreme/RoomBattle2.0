@@ -11,10 +11,13 @@ public class PlayerConfigManager : MonoBehaviour
     public static PlayerConfigManager Instance { get; private set; }
 
     public bool _teamsEnabled = false;
+    public bool runAnimation;
 
 
     private void Awake()
     {
+        runAnimation = true;
+
         if (Instance == null)
         {
             Instance = this;
