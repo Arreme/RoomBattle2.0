@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using JSAM;
 
 public class PowerUpManager : MonoBehaviour
 {
@@ -37,34 +36,34 @@ public class PowerUpManager : MonoBehaviour
 
     private void soundOn(int i)
     {
-       
+
         switch (i)
         {
 
             case 1:
-                AudioManager.Instance._PlaySFX("PowerCat");           
+                AudioManager.Instance._PlaySFX("PowerCat");
                 break;
             case 2:
-                AudioManager.Instance._PlaySFX("PowerAceite");               
+                AudioManager.Instance._PlaySFX("PowerAceite");
                 break;
             case 3:
-                AudioManager.Instance._PlaySFX("PowerBoost");               
+                AudioManager.Instance._PlaySFX("PowerBoost");
                 break;
             case 4:
-                AudioManager.Instance._PlaySFX("PowerButcher");              
+                AudioManager.Instance._PlaySFX("PowerButcher");
                 break;
             case 5:
-                AudioManager.Instance._PlaySFX("PowerAfilador");                
+                AudioManager.Instance._PlaySFX("PowerAfilador");
                 break;
             case 6:
-                AudioManager.Instance._PlaySFX("PowerInflate");              
+                AudioManager.Instance._PlaySFX("PowerInflate");
                 break;
         }
     }
 
     public void getPower(PowerUp power)
     {
-        
+
         _currentPower = power;
         _vfx.actiavteLights(true);
         hasPowerUp = true;
