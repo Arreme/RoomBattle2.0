@@ -29,7 +29,7 @@ public class CreditsInitializer : MonoBehaviour
         }
         else
         {
-            if (playerConfig[0].IsIA) _text.SetText("IA " + (playerConfig[playerConfig.Count - 1].PlayerIndex + 1) + " WINS");
+            if (playerConfig[playerConfig.Count-1].IsIA) _text.SetText("IA " + (playerConfig[playerConfig.Count - 1].PlayerIndex + 1) + " WINS");
             else _text.SetText("PLAYER " + (playerConfig[playerConfig.Count - 1].PlayerIndex + 1) + " WINS");
         }
     }
