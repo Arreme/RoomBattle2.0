@@ -4090,7 +4090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4b21cbdade9be4db96cc105d91e170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeForShrink: 40
+  timeForShrink: 90
   _spawns:
   - {fileID: 675010325}
   - {fileID: 23855117}
