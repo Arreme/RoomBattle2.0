@@ -13,9 +13,11 @@ public class LevelInitializer : MonoBehaviour
     [SerializeField]
     private BattleManager _manager;
     private Animation anim;
+    public GameObject door;
 
     private void Start()
     {
+        door.SetActive(false);
         AudioManager.Instance._StopMusic();
         anim = Camera.main.GetComponent<Animation>();
         Debug.Log(PlayerConfigManager.Instance.runAnimation);
@@ -29,6 +31,7 @@ public class LevelInitializer : MonoBehaviour
         {
             AudioManager.Instance._PlayMusic("Restart", true);
             StartCoroutine(gameStart(0f));
+            //door.SetActive(true);
         }
     }
 
@@ -45,7 +48,7 @@ public class LevelInitializer : MonoBehaviour
             player.GetComponent<InputManager>().InitializePlayer(playerConfig[i]);
         }
         PlayerConfigManager.Instance.runAnimation = false;
-
+        door.SetActive(true);
     }
 
 }

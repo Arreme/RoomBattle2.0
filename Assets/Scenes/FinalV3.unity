@@ -1462,6 +1462,7 @@ MonoBehaviour:
   - {fileID: 1439488859}
   playerPrefab: {fileID: 5975971300749553939, guid: b9e8f680f68b4f046a02477a31c06fe3, type: 3}
   _manager: {fileID: 157283100}
+  door: {fileID: 833408089}
 --- !u!114 &157283100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7360,7 +7361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3b39e3bd81eb1084fb2efc3640b40f93, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3b39e3bd81eb1084fb2efc3640b40f93, type: 3}
       propertyPath: m_TagString
@@ -7375,6 +7376,11 @@ PrefabInstance:
 --- !u!4 &833408088 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3b39e3bd81eb1084fb2efc3640b40f93, type: 3}
+  m_PrefabInstance: {fileID: 833408087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &833408089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3b39e3bd81eb1084fb2efc3640b40f93, type: 3}
   m_PrefabInstance: {fileID: 833408087}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &841465019
