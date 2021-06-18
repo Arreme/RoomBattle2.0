@@ -15,9 +15,6 @@ public class AudioManager : MonoBehaviour
     public AudioFile[] MusicFiles => AudioFiles.Where(x => x.Type == AudioType.Music).ToArray();
     public AudioSource AudioSource_Music;
     public AudioSource AudioSource_SFX;
-    public Slider musicSlider;
-    public Slider effectsSlider;
-
     public float OverallVolume_SFX;
     public float OverallVolume_Music;
 
@@ -25,9 +22,16 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance)
-            Destroy(gameObject);
-        Instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            Instance = this;
+        }
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public static void PlayMusic(string name)
@@ -57,14 +61,14 @@ public class AudioManager : MonoBehaviour
                     AudioMixer.FindMatchingGroups("SFX")[0];
             AudioSource_SFX.volume = file.Volume = OverallVolume_SFX;
             AudioSource_SFX.clip = clip;
-            AudioSource_SFX.Play();
+            AudioSource_SFX.PlayOneShot(clip);
         }
         else
         {
             Debug.LogError("Trying to play sound that does no exist, merluzo! " + soundName);
         }
     }
-    public void _PlayMusic(string soundName)
+    public void _PlayMusic(string soundName, bool looping = false)
     {
         var file = GetFileByName(soundName);
 
@@ -79,12 +83,24 @@ public class AudioManager : MonoBehaviour
                     AudioMixer.FindMatchingGroups(name)[0] :
                     AudioMixer.FindMatchingGroups("Music")[0];
                 AudioSource_Music.Play();
+                AudioSource_Music.loop = looping;
             }
         }
         else
         {
             Debug.LogError("Trying to play sound that does no exist, merluzo! " + soundName);
         }
+    }
+
+    public void _StopMusic()
+    {
+        AudioSource_Music.loop = false;
+        AudioSource_Music.Stop();
+    }
+
+    public void _StopSFX()
+    {
+        AudioSource_SFX.Stop();
     }
 
     public void Update()

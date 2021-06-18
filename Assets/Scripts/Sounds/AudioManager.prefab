@@ -173,14 +173,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioFiles:
-  - Name: Cinematic
-    Clips:
-    - {fileID: 8300000, guid: 561143b9c6d0d0a4ab64baebee00defb, type: 3}
-    Volume: 1
-    Type: 0
   - Name: InGame
     Clips:
-    - {fileID: 8300000, guid: ca4b370047c5beb4bbc4bd0ebe262855, type: 3}
+    - {fileID: 8300000, guid: 094c75160b1810249a8de7ad98e49535, type: 3}
     Volume: 1
     Type: 0
   - Name: Menu
@@ -190,12 +185,12 @@ MonoBehaviour:
     Type: 0
   - Name: PetarGlobo
     Clips:
-    - {fileID: 8300000, guid: 86a6eec50bb73324d8fe97ef98f990a9, type: 3}
+    - {fileID: 8300000, guid: 0bfb02df5600da84693127b4707a7e6a, type: 3}
     Volume: 1
     Type: 1
   - Name: PowerUp
     Clips:
-    - {fileID: 8300000, guid: 66f9ea3a350a4d74fa0caecc8a5de3fc, type: 3}
+    - {fileID: 8300000, guid: 539c7de6414e1c34f844de1fee4739b0, type: 3}
     Volume: 1
     Type: 1
   - Name: MenuClick
@@ -238,6 +233,21 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a9058a87be279d241af0553ba037fde5, type: 3}
     Volume: 1
     Type: 1
+  - Name: Dash
+    Clips:
+    - {fileID: 8300000, guid: 31ef2d0335848e945b0123ce4cd12218, type: 3}
+    Volume: 1
+    Type: 1
+  - Name: Ending
+    Clips:
+    - {fileID: 8300000, guid: eebe247459f6f514d887b149e08de13b, type: 3}
+    Volume: 1
+    Type: 0
+  - Name: Restart
+    Clips:
+    - {fileID: 8300000, guid: de40545279a649044ac2ecd2286fd93f, type: 3}
+    Volume: 1
+    Type: 0
   AudioSource_Music: {fileID: 8022750375480016847}
   AudioSource_SFX: {fileID: 3928653367337978851}
   OverallVolume_SFX: 1
