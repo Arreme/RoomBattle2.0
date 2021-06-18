@@ -61,7 +61,7 @@ public class AudioManager : MonoBehaviour
                     AudioMixer.FindMatchingGroups("SFX")[0];
             AudioSource_SFX.volume = file.Volume = OverallVolume_SFX;
             AudioSource_SFX.clip = clip;
-            AudioSource_SFX.Play();
+            AudioSource_SFX.PlayOneShot(clip);
         }
         else
         {
