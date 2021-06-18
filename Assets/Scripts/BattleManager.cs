@@ -76,7 +76,7 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator checkForWin()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(11f);
         if (PlayerConfigManager.Instance._teamsEnabled)
         {
             for (; ; )

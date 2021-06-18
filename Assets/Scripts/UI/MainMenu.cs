@@ -121,7 +121,7 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(checkForPressed());
         // NO TOCAR (angulo default de la camara)
         //camera.transform.eulerAngles = startV3;
-        AudioManager.Instance._PlayMusic("Menu");
+        AudioManager.Instance._PlayMusic("Menu", true);
     }
 
     private IEnumerator checkForPressed()
@@ -149,7 +149,7 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator SelectButton()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         _playButton.Select();
     }
     public void QuitGame()

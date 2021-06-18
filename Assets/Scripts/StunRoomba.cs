@@ -26,8 +26,9 @@ public class StunRoomba : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (other == null) return; 
         GameObject parent = other.transform.parent.gameObject;
-        if (parent.CompareTag("Player"))
+        if (parent != null && parent.CompareTag("Player"))
         {
             if (parent.GetComponent<NewRoombaController>()?.getCurrentState().GetType() != typeof(StunnedState) ) parent.GetComponent<NewRoombaController>()?.GetStunned(seconds, new Vector2(parent.transform.position.x - transform.position.x, parent.transform.position.z - transform.position.z), force);
         }
