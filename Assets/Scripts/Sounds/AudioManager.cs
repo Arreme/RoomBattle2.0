@@ -89,11 +89,13 @@ public class AudioManager : MonoBehaviour
 
     public void Update()
     {
+        /*
         AudioSource_Music.volume = OverallVolume_Music;
         OverallVolume_Music = musicSlider.value;
 
         AudioSource_SFX.volume = OverallVolume_SFX;
         OverallVolume_SFX = effectsSlider.value;
+        */
     }
 }
 
