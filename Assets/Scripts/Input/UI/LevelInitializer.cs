@@ -16,6 +16,7 @@ public class LevelInitializer : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance._StopMusic();
         AudioManager.Instance._PlayMusic("InGame");
         anim = Camera.main.GetComponent<Animation>();
         Debug.Log(PlayerConfigManager.Instance.runAnimation);
@@ -43,7 +44,7 @@ public class LevelInitializer : MonoBehaviour
             player.GetComponent<InputManager>().InitializePlayer(playerConfig[i]);
         }
         PlayerConfigManager.Instance.runAnimation = false;
-        
+
     }
 
 }

@@ -173,14 +173,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioFiles:
-  - Name: Cinematic
-    Clips:
-    - {fileID: 8300000, guid: 561143b9c6d0d0a4ab64baebee00defb, type: 3}
-    Volume: 1
-    Type: 0
   - Name: InGame
     Clips:
-    - {fileID: 8300000, guid: ca4b370047c5beb4bbc4bd0ebe262855, type: 3}
+    - {fileID: 8300000, guid: 094c75160b1810249a8de7ad98e49535, type: 3}
     Volume: 1
     Type: 0
   - Name: Menu
@@ -236,6 +231,16 @@ MonoBehaviour:
   - Name: PowerCat
     Clips:
     - {fileID: 8300000, guid: a9058a87be279d241af0553ba037fde5, type: 3}
+    Volume: 1
+    Type: 1
+  - Name: Dash
+    Clips:
+    - {fileID: 8300000, guid: 31ef2d0335848e945b0123ce4cd12218, type: 3}
+    Volume: 1
+    Type: 1
+  - Name: Ending
+    Clips:
+    - {fileID: 8300000, guid: eebe247459f6f514d887b149e08de13b, type: 3}
     Volume: 1
     Type: 1
   AudioSource_Music: {fileID: 8022750375480016847}

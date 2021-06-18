@@ -10,8 +10,6 @@ public class soundSettings : MonoBehaviour
 
     //SLIDERS
     [SerializeField]
-    private Slider MasterVolumeSlider;
-    [SerializeField]
     private Slider MusicVolumeSlider;
     [SerializeField]
     private Slider VFXVolumeSlider;
@@ -50,6 +48,7 @@ public class soundSettings : MonoBehaviour
 
     public void SubmitSettings()
     {
-
+        AudioManager.Instance.OverallVolume_SFX = VFXVolumeSet;
+        AudioManager.Instance.OverallVolume_Music = MusicVolumeSet;
     }
 }
