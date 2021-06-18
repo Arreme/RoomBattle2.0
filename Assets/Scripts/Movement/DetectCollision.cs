@@ -66,7 +66,7 @@ public class DetectCollision : MonoBehaviour
 
     private void TakeDamage(Collider myCollider)
     {
-        JSAM.AudioManager.PlaySound(Sounds.globopetado, transform);
+        AudioManager.Instance._PlaySFX("Explode");
         Destroy(myCollider.gameObject);
         _controller.GetHit();
         BattleManager.Instance.Explosion(gameObject);

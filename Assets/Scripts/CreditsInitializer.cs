@@ -13,6 +13,7 @@ public class CreditsInitializer : MonoBehaviour
     private TextMeshProUGUI _text;
     private void Start()
     {
+        AudioManager.Instance._PlayMusic("InGame");
         var playerConfig = PlayerConfigManager.Instance._deadPlayers;
         PlayerConfigManager.Instance._endScreen = true;
         int offset = 6 - playerConfig.Count;

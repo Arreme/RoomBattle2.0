@@ -26,7 +26,7 @@ public class BoostState : RoombaState
         _direction = new Vector2(controller.transform.forward.x, controller.transform.forward.z);
         controller.gameObject.GetComponent<Animation>().Play();
         controller._vfx._boost.SendEvent("BoostPlay");
-        JSAM.AudioManager.PlaySound(Sounds.dash, controller.transform);
+        AudioManager.Instance._PlaySFX("Dash");
     }
 
     public void Stay(NewRoombaController controller)
