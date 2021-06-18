@@ -235,7 +235,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6993516968048140789, guid: b2339c1cde3007f4e8ca17f85626212d, type: 3}
       propertyPath: m_Name
-      value: Jeringa
+      value: Syringe
       objectReference: {fileID: 0}
     - target: {fileID: 7657850055975336783, guid: b2339c1cde3007f4e8ca17f85626212d, type: 3}
       propertyPath: m_RootOrder
@@ -647,7 +647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8199920300167465726, guid: de1efee1bd23441438d23a4cfdae5e1e, type: 3}
       propertyPath: m_Name
-      value: Dado
+      value: Dice
       objectReference: {fileID: 0}
     - target: {fileID: 8827100066143490116, guid: de1efee1bd23441438d23a4cfdae5e1e, type: 3}
       propertyPath: m_RootOrder
@@ -885,7 +885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1042803479017342364, guid: 331e386369c08ab4eb3bb54798257b2e, type: 3}
       propertyPath: m_Name
-      value: Coche
+      value: Car
       objectReference: {fileID: 0}
     - target: {fileID: 1547043977586369609, guid: 331e386369c08ab4eb3bb54798257b2e, type: 3}
       propertyPath: m_Enabled
@@ -1231,7 +1231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5336208520664946821, guid: 9dd8a5d9d527c274883d92dcf2cf130c, type: 3}
       propertyPath: m_Name
-      value: Manzana
+      value: Apple
       objectReference: {fileID: 0}
     - target: {fileID: 5840879617066023248, guid: 9dd8a5d9d527c274883d92dcf2cf130c, type: 3}
       propertyPath: m_Enabled
