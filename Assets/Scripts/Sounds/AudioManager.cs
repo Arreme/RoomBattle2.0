@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -14,10 +15,10 @@ public class AudioManager : MonoBehaviour
     public AudioFile[] MusicFiles => AudioFiles.Where(x => x.Type == AudioType.Music).ToArray();
     public AudioSource AudioSource_Music;
     public AudioSource AudioSource_SFX;
+    public Slider musicSlider;
+    public Slider effectsSlider;
 
-    [Range(0, 1)]
     public float OverallVolume_SFX;
-    [Range(0, 1)]
     public float OverallVolume_Music;
 
     public AudioMixer AudioMixer;
@@ -84,6 +85,15 @@ public class AudioManager : MonoBehaviour
         {
             Debug.LogError("Trying to play sound that does no exist, merluzo! " + soundName);
         }
+    }
+
+    public void Update()
+    {
+        AudioSource_Music.volume = OverallVolume_Music;
+        OverallVolume_Music = musicSlider.value;
+
+        AudioSource_SFX.volume = OverallVolume_SFX;
+        OverallVolume_SFX = effectsSlider.value;
     }
 }
 
