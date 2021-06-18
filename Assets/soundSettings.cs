@@ -17,25 +17,25 @@ public class soundSettings : MonoBehaviour
     private Slider VFXVolumeSlider;
 
     //VALUES
-    public float MasterVolumeSet;
+    //public float MasterVolumeSet;
     public float MusicVolumeSet;
     public float VFXVolumeSet;
 
     void Start()
     {
-        MasterVolumeSet = 50f;
+        //MasterVolumeSet = 50f;
         MusicVolumeSet = 50f;
         VFXVolumeSet = 50f;
 
         //Adds a listener to the main slider and invokes a method when the value changes.
-        MasterVolumeSlider.onValueChanged.AddListener(delegate { MasterValueChangeCheck(); });
+        //MasterVolumeSlider.onValueChanged.AddListener(delegate { MasterValueChangeCheck(); });
         MusicVolumeSlider.onValueChanged.AddListener(delegate { MusicValueChangeCheck(); });
         VFXVolumeSlider.onValueChanged.AddListener(delegate { VFXValueChangeCheck(); });
     }
 
     private void MasterValueChangeCheck()
     {
-        MasterVolumeSet = MasterVolumeSlider.value;
+        //MasterVolumeSet = MasterVolumeSlider.value;
     }
 
     private void MusicValueChangeCheck()
