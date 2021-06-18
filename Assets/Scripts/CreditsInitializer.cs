@@ -25,7 +25,7 @@ public class CreditsInitializer : MonoBehaviour
         PlayerConfigManager.Instance._endScreen = false;
         if (PlayerConfigManager.Instance._teamsEnabled)
         {
-            _text.SetText("TEAM " + PlayerConfigManager.Instance._teamThatWon + " WON");
+            _text.SetText("TEAM " + PlayerConfigManager.Instance._teamThatWon + " WIN");
         }
         else
         {

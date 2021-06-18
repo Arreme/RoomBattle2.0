@@ -54,13 +54,13 @@ public class DetectCollision : MonoBehaviour
             if (rb.velocity.magnitude >= 12)
             {
                 Vector3 direction = transform.position - collision.transform.position;
-                _controller.GetStunned(0.5f, new Vector2(direction.x, direction.z), 400);
+                _controller.GetStunned(0.5f, new Vector2(direction.x, direction.z), 200);
             }
         }
         else if (myCollider.transform.parent.CompareTag("Player") && hisCollider.CompareTag("Damaging"))
         {
             Vector3 direction = Vector3.Normalize(hisCollider.transform.position - myCollider.transform.position);
-            _controller.GetStunned(1.5f, new Vector2(-direction.x, -direction.z), 900);
+            _controller.GetStunned(1.5f, new Vector2(-direction.x, -direction.z), 300);
         }
     }
 
