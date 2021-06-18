@@ -14,8 +14,16 @@ public class soundSettings : MonoBehaviour
 
     void Start()
     {
-        MusicVolumeSlider.value = 1f;
-        VFXVolumeSlider.value = 1f;
+        if (AudioManager.Instance.settings)
+        {
+            MusicVolumeSlider.value = AudioManager.Instance.OverallVolume_Music;
+            VFXVolumeSlider.value = AudioManager.Instance.OverallVolume_SFX;
+        }
+        else
+        {
+            MusicVolumeSlider.value = 1f;
+            VFXVolumeSlider.value = 1f;
+        }
 
         //Adds listeners to the sliders and invokes a method when the value changes.
         MusicVolumeSlider.onValueChanged.AddListener(delegate { MusicValueChangeCheck(); });
