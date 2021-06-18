@@ -17,16 +17,17 @@ public class LevelInitializer : MonoBehaviour
     private void Start()
     {
         AudioManager.Instance._StopMusic();
-        AudioManager.Instance._PlayMusic("InGame");
         anim = Camera.main.GetComponent<Animation>();
         Debug.Log(PlayerConfigManager.Instance.runAnimation);
         if (PlayerConfigManager.Instance.runAnimation)
         {
+            AudioManager.Instance._PlayMusic("InGame");
             anim.Play("levelStart2");
             StartCoroutine(gameStart(10f));
         }
         else
         {
+            AudioManager.Instance._PlayMusic("Restart");
             StartCoroutine(gameStart(0f));
         }
     }
