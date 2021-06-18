@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class soundSettings : MonoBehaviour
 {
-    public static PlayerConfigManager Instance { get; private set; }
-
     //SLIDERS
     [SerializeField]
     private Slider MusicVolumeSlider;
@@ -16,14 +14,14 @@ public class soundSettings : MonoBehaviour
 
     //VALUES
     //public float MasterVolumeSet;
-    public float MusicVolumeSet;
-    public float VFXVolumeSet;
+    //public float MusicVolumeSet;
+    //public float VFXVolumeSet;
 
     void Start()
     {
         //MasterVolumeSet = 50f;
-        MusicVolumeSet = 50f;
-        VFXVolumeSet = 50f;
+        //MusicVolumeSet = 100f;
+        //VFXVolumeSet = 100f;
 
         //Adds a listener to the main slider and invokes a method when the value changes.
         //MasterVolumeSlider.onValueChanged.AddListener(delegate { MasterValueChangeCheck(); });
@@ -38,17 +36,15 @@ public class soundSettings : MonoBehaviour
 
     private void MusicValueChangeCheck()
     {
-        MusicVolumeSet = MusicVolumeSlider.value;
+        //MusicVolumeSet = MusicVolumeSlider.value;
+        Debug.Log(MusicVolumeSlider.value);
+        AudioManager.Instance.ChangeMusicVolume(MusicVolumeSlider.value);
     }
 
     private void VFXValueChangeCheck()
     {
-        VFXVolumeSet = VFXVolumeSlider.value;
-    }
-
-    public void SubmitSettings()
-    {
-        AudioManager.Instance.OverallVolume_SFX = VFXVolumeSet;
-        AudioManager.Instance.OverallVolume_Music = MusicVolumeSet;
+        //VFXVolumeSet = VFXVolumeSlider.value;
+        Debug.Log(VFXVolumeSlider.value);
+        AudioManager.Instance.ChangeSFXVolume(VFXVolumeSlider.value);
     }
 }

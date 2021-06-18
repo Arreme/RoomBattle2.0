@@ -103,15 +103,16 @@ public class AudioManager : MonoBehaviour
         AudioSource_SFX.Stop();
     }
 
-    public void Update()
+    public void ChangeSFXVolume(float value)
     {
-        /*
-        AudioSource_Music.volume = OverallVolume_Music;
-        OverallVolume_Music = musicSlider.value;
+        OverallVolume_SFX = value;
+        AudioSource_SFX.volume = value;
+    }
 
-        AudioSource_SFX.volume = OverallVolume_SFX;
-        OverallVolume_SFX = effectsSlider.value;
-        */
+    public void ChangeMusicVolume(float value)
+    {
+        OverallVolume_Music = value;
+        AudioSource_Music.volume = value;
     }
 }
 
