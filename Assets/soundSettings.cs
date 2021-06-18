@@ -14,6 +14,9 @@ public class soundSettings : MonoBehaviour
 
     void Start()
     {
+        MusicVolumeSlider.value = 1f;
+        VFXVolumeSlider.value = 1f;
+
         //Adds listeners to the sliders and invokes a method when the value changes.
         MusicVolumeSlider.onValueChanged.AddListener(delegate { MusicValueChangeCheck(); });
         VFXVolumeSlider.onValueChanged.AddListener(delegate { VFXValueChangeCheck(); });

@@ -32,6 +32,9 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+
+        ChangeMusicVolume(OverallVolume_Music);
+        ChangeSFXVolume(OverallVolume_SFX);
     }
 
     public static void PlayMusic(string name)
@@ -59,7 +62,7 @@ public class AudioManager : MonoBehaviour
             AudioSource_SFX.outputAudioMixerGroup = AudioMixer.FindMatchingGroups(name).Length > 0 ?
                     AudioMixer.FindMatchingGroups(name)[0] :
                     AudioMixer.FindMatchingGroups("SFX")[0];
-            AudioSource_SFX.volume = file.Volume = OverallVolume_SFX;
+            AudioSource_SFX.volume = OverallVolume_SFX;
             AudioSource_SFX.clip = clip;
             AudioSource_SFX.PlayOneShot(clip);
         }
@@ -75,13 +78,13 @@ public class AudioManager : MonoBehaviour
         if (file != null)
         {
             var clip = file.Clip;
-            AudioSource_Music.volume = file.Volume * OverallVolume_Music;
             if (clip != null)
             {
                 AudioSource_Music.clip = clip;
                 AudioSource_Music.outputAudioMixerGroup = AudioMixer.FindMatchingGroups(name).Length > 0 ?
                     AudioMixer.FindMatchingGroups(name)[0] :
                     AudioMixer.FindMatchingGroups("Music")[0];
+                AudioSource_Music.volume = OverallVolume_Music;
                 AudioSource_Music.Play();
                 AudioSource_Music.loop = looping;
             }
@@ -105,14 +108,14 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeSFXVolume(float value)
     {
-        OverallVolume_SFX = value;
-        AudioSource_SFX.volume = value;
+        OverallVolume_SFX = value * 0.1f;
+        AudioSource_SFX.volume = OverallVolume_SFX;
     }
 
     public void ChangeMusicVolume(float value)
     {
-        OverallVolume_Music = value;
-        AudioSource_Music.volume = value;
+        OverallVolume_Music = value * 0.1f;
+        AudioSource_Music.volume = OverallVolume_Music;
     }
 }
 
