@@ -3642,7 +3642,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1571216959491395555, guid: 1bdd8dc170f6fdc4990d23065bdc70fa, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1571216959491395555, guid: 1bdd8dc170f6fdc4990d23065bdc70fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10619,61 +10619,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 350530110883031877, guid: f7e22cf33ec325341af6111a65f93d50, type: 3}
   m_PrefabInstance: {fileID: 1251314875}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1283162326
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1283162328}
-  - component: {fileID: 1283162327}
-  m_Layer: 0
-  m_Name: Audio Player Music
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1283162327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283162326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd13adbb36a3a614fafbec256720d4c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spatializeSound: 0
-  transitionMode: 1
-  keepPlaybackPosition: 1
-  restartOnReplay: 1
-  musicFadeInTime: 0.07
-  musicFadeOutTime: 0
-  loopMode: 1
-  music: {fileID: 11400000, guid: c25817199ca13244289894347b7f459b, type: 2}
-  onStart: 1
-  onEnable: 0
-  onDisable: 2
-  onDestroy: 2
---- !u!4 &1283162328
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283162326}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1288489617
 GameObject:
   m_ObjectHideFlags: 0
@@ -11365,83 +11310,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353384130}
   m_Mesh: {fileID: -9135771018198181765, guid: 673ab7bd54a93554c81e47d19bae2fa6, type: 3}
---- !u!1 &1371008512
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1371008514}
-  - component: {fileID: 1371008513}
-  m_Layer: 0
-  m_Name: Audio Manager-OLD
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1371008513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371008512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7241a3e106230140bd9d59ff2d17ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioFileObjects:
-  - {fileID: 11400000, guid: 9492fd158d4bf794a9255d73b3291d47, type: 2}
-  - {fileID: 11400000, guid: f74140f76b7344d4c869cdb1ccb28f53, type: 2}
-  - {fileID: 11400000, guid: 53c044a70dbc21a4cb3c6ce4ccfa63c1, type: 2}
-  - {fileID: 11400000, guid: b857c8427eb68f147a01f65e279796ad, type: 2}
-  - {fileID: 11400000, guid: 5c85168161667ed4f823b3cd98aea252, type: 2}
-  - {fileID: 11400000, guid: b44a876d5bc9eca4091a15bff701ed23, type: 2}
-  - {fileID: 11400000, guid: 35ddf599e5c0cd843a169e4cfaec71e3, type: 2}
-  - {fileID: 11400000, guid: 25c92d10e8dee0a499d1a517a21a360b, type: 2}
-  audioFileMusicObjects:
-  - {fileID: 11400000, guid: c25817199ca13244289894347b7f459b, type: 2}
-  - {fileID: 11400000, guid: c13d0d36a9365b642be31d84d89e8a1a, type: 2}
-  - {fileID: 11400000, guid: 94b48552233d69c48991d2e5fa59bf24, type: 2}
-  sceneSoundEnumName: JSAM.Sounds
-  sceneMusicEnumName: JSAM.Music
-  masterVolume: 0.39
-  masterMuted: 1
-  soundVolume: 0.4
-  soundMuted: 1
-  musicVolume: 0.1
-  musicMuted: 1
-  spatialSound: 1
-  audioSources: 32
-  disableConsoleLogs: 0
-  dontDestroyOnLoad: 1
-  dynamicSourceAllocation: 1
-  stopOnSceneLoad: 0
-  spatializeLateUpdate: 0
-  timeScaledSounds: 1
-  instancedEnums: 0
-  wasInstancedBefore: 0
-  listener: {fileID: 519420029}
-  sourcePrefab: {fileID: 3048837711066349604, guid: cf11aed7e0e56ae45afe7eaebe30a616, type: 3}
-  audioFolderLocation: Assets/Audio Files
---- !u!4 &1371008514
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371008512}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1374366236
 GameObject:
   m_ObjectHideFlags: 0
@@ -14187,7 +14055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 947271991295498763, guid: 47ab5365321f42c4c8c1782ddcd671c6, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 947271991295498763, guid: 47ab5365321f42c4c8c1782ddcd671c6, type: 3}
       propertyPath: m_LocalScale.x
@@ -15673,7 +15541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 947271991295498763, guid: 47ab5365321f42c4c8c1782ddcd671c6, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 947271991295498763, guid: 47ab5365321f42c4c8c1782ddcd671c6, type: 3}
       propertyPath: m_LocalScale.x
