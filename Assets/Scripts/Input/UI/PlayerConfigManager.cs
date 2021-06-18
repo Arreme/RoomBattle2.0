@@ -21,9 +21,9 @@ public class PlayerConfigManager : MonoBehaviour
     private void Awake()
     {
         runAnimation = true;
-        
+
         if (Instance == null)
-        {       
+        {
             Instance = this;
             DontDestroyOnLoad(this);
             _configs = new List<PlayerConfig>();
@@ -58,7 +58,6 @@ public class PlayerConfigManager : MonoBehaviour
 
     public void HandlePlayerJoin(PlayerInput pi)
     {
-        Debug.Log("Player joined: " + pi.playerIndex);
         pi.transform.SetParent(transform);
         if (!_configs.Any(p => p.PlayerIndex == pi.playerIndex))
         {

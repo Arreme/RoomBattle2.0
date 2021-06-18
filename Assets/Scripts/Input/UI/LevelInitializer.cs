@@ -20,7 +20,6 @@ public class LevelInitializer : MonoBehaviour
         door.SetActive(false);
         AudioManager.Instance._StopMusic();
         anim = Camera.main.GetComponent<Animation>();
-        Debug.Log(PlayerConfigManager.Instance.runAnimation);
         if (PlayerConfigManager.Instance.runAnimation)
         {
             AudioManager.Instance._PlayMusic("InGame", true);
@@ -31,7 +30,6 @@ public class LevelInitializer : MonoBehaviour
         {
             AudioManager.Instance._PlayMusic("Restart", true);
             StartCoroutine(gameStart(0f));
-            //door.SetActive(true);
         }
     }
 

@@ -24,8 +24,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private new GameObject camera;
     [SerializeField] private EventSystem _eventSystem;
     private Animation anim;
-    //[SerializeField] private GameObject controllerImage;
-    //[SerializeField] private GameObject keyboardImage;
     public float transitionSpeed = 5;
 
     //VECTOR3 DATA
@@ -52,7 +50,6 @@ public class MainMenu : MonoBehaviour
 
     public void setOptions()
     {
-        //camera.transform.eulerAngles = setOptionsV3;
         anim.Play("controls");
         _normalMenu.SetActive(false);
         _inputMenu.SetActive(true);
@@ -64,7 +61,6 @@ public class MainMenu : MonoBehaviour
 
     public void mainMenuOptions()
     {
-        //camera.transform.eulerAngles = mainMenuV3;
         anim.Play("backFromModes");
         _normalMenu.SetActive(true);
         _inputMenu.SetActive(false);
@@ -86,7 +82,6 @@ public class MainMenu : MonoBehaviour
 
     public void playOptions()
     {
-        //camera.transform.eulerAngles = playOptionsV3;
         anim.Play("modeGame");
         _inputMenu.SetActive(false);
         _normalMenu.SetActive(false);
@@ -97,7 +92,6 @@ public class MainMenu : MonoBehaviour
 
     public void activateSettings()
     {
-        //camera.transform.eulerAngles = activateSettingsV3;
         anim.Play("settings");
         _inputMenu.SetActive(false);
         _normalMenu.SetActive(false);
@@ -107,7 +101,6 @@ public class MainMenu : MonoBehaviour
     }
     public void deactivateSettings()
     {
-        //camera.transform.eulerAngles = activateSettingsV3;
         anim.Play("backFromSettings");
         _inputMenu.SetActive(false);
         _normalMenu.SetActive(true);
@@ -135,7 +128,6 @@ public class MainMenu : MonoBehaviour
                 {
                     _startMenu.SetActive(false);
                     _normalMenu.SetActive(true);
-                    //camera.transform.eulerAngles = mainMenuV3;
                     anim.Play("mainMenu");
                     StartCoroutine(SelectButton());
                     break;

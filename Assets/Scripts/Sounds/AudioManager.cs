@@ -64,13 +64,12 @@ public class AudioManager : MonoBehaviour
             AudioSource_SFX.outputAudioMixerGroup = AudioMixer.FindMatchingGroups(name).Length > 0 ?
                     AudioMixer.FindMatchingGroups(name)[0] :
                     AudioMixer.FindMatchingGroups("SFX")[0];
-            //AudioSource_SFX.volume = OverallVolume_SFX;
             AudioSource_SFX.clip = clip;
             AudioSource_SFX.PlayOneShot(clip);
         }
         else
         {
-            Debug.LogError("Trying to play sound that does no exist, merluzo! " + soundName);
+            Debug.LogError("Trying to play sound that does no exist! " + soundName);
         }
     }
     public void _PlayMusic(string soundName, bool looping = false)
@@ -86,14 +85,13 @@ public class AudioManager : MonoBehaviour
                 AudioSource_Music.outputAudioMixerGroup = AudioMixer.FindMatchingGroups(name).Length > 0 ?
                     AudioMixer.FindMatchingGroups(name)[0] :
                     AudioMixer.FindMatchingGroups("Music")[0];
-                //AudioSource_Music.volume = OverallVolume_Music;
                 AudioSource_Music.Play();
                 AudioSource_Music.loop = looping;
             }
         }
         else
         {
-            Debug.LogError("Trying to play sound that does no exist, merluzo! " + soundName);
+            Debug.LogError("Trying to play sound that does no exist! " + soundName);
         }
     }
 

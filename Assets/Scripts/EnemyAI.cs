@@ -36,7 +36,6 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         _path = new NavMeshPath();
-        //_butcher = false;
         _state = State.Chasing;
         _currentTime = 0.0f;
         fleePosition = Vector3.zero;
@@ -107,16 +106,12 @@ public class EnemyAI : MonoBehaviour
         }
 
         //DEBUG
+        /**
         for (int i = 0; i < _path.corners.Length - 1; i++)
         {
             Debug.DrawLine(_path.corners[i], _path.corners[i + 1], Color.red);
         }
-    }
-
-    void OnDrawGizmos()
-    {
-        //Gizmos.DrawWireSphere(transform.position, butcherDistance);
-        //Gizmos.DrawSphere(point, 1);
+        */
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -138,7 +133,6 @@ public class EnemyAI : MonoBehaviour
         bool check = false;
         if (_target != null && !_target.gameObject.CompareTag("PowerUp"))
         {
-            Debug.Log(_target.tag);
             if (_target.CompareTag("Balloon"))
             {
                 bool butcherCheck = _target.transform.parent.parent.Find("Butcher").gameObject.activeSelf;
@@ -169,21 +163,13 @@ public class EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(transform.position - _target.transform.position);
         bool butcherCheck = false;
 
-        Debug.Log("fleePosition == Vector3.zero:");
-        Debug.Log(fleePosition == Vector3.zero);
-        Debug.Log("checkFleePosition(fleePosition)");
-        Debug.Log(checkFleePosition(fleePosition));
         if (fleePosition == Vector3.zero || checkFleePosition(fleePosition))
         {
             do
             {
-                Debug.Log("new flee position");
                 fleePosition = GetRandomLocation();
 
                 butcherCheck = checkFleePosition(fleePosition);
-
-                //if (Vector3.Distance(randomToV3, _target.transform.position) >= butcherDistance)
-                //butcherCheck = true;
             }
             while (butcherCheck);
 
@@ -276,7 +262,6 @@ public class EnemyAI : MonoBehaviour
         Vector3 thisV2 = new Vector3(transform.position.x, 0, transform.position.z);
         Vector3 targetV2 = new Vector3(_target.transform.position.x, 0, _target.transform.position.z);
         bool b = NavMesh.CalculatePath(thisV2, targetV2, NavMesh.AllAreas, _path);
-        //Debug.Log(gameObject.transform.parent.name + ": " + transform.position + " " + _target.transform.position);
         if (b && _path.corners.Length >= 2)
         {
             Vector2 waypoint = new Vector2(_path.corners[1].x, _path.corners[1].z);
@@ -289,8 +274,6 @@ public class EnemyAI : MonoBehaviour
     private void LookNearest()
     {
         Tuple<GameObject, float> nearRoombas = FindNearestRoomba();
-        //Debug.Log(nearRoombas.Item1.ToString() + " " + nearRoombas.Item2);
-        //Debug.Log("RoombaDone");
         Tuple<GameObject, float> nearPowers = FindNearestPower();
 
         if (nearPowers.Item1.Equals(gameObject) || !(GetComponent<PowerUpManager>()._currentPower is NoPowerUp))
@@ -333,9 +316,6 @@ public class EnemyAI : MonoBehaviour
             foreach (GameObject powerUp in powerUps)
             {
                 float dist = CalculatePathLength(powerUp.transform.position);
-                //Vector2 thisV2 = new Vector2(transform.position.x, transform.position.z);
-                //Vector2 targetV2 = new Vector2(powerUp.transform.position.x, powerUp.transform.position.z);
-                //float dist = Vector2.Distance(thisV2, targetV2);
                 if (shortestDistance == 0 || dist < shortestDistance)
                 {
                     shortestDistance = dist;
@@ -383,15 +363,11 @@ public class EnemyAI : MonoBehaviour
                     if (gameObject.GetComponent<InputManager>()._teamBlue != player.GetComponent<InputManager>()._teamBlue)
                     {
                         float dist = CalculatePathLength(player.transform.position);
-                        //Vector2 thisV2 = new Vector2(transform.position.x, transform.position.z);
-                        //Vector2 targetV2 = new Vector2(player.transform.position.x, player.transform.position.z);
-                        //float dist = Vector2.Distance(thisV2, targetV2);
                         if (shortestDistance == 0 || dist < shortestDistance)
                         {
                             if (!CheckButcher(player) || countEnemies == 1)
                             {
                                 shortestDistance = dist;
-                                //Vector3.Distance(transform.position, player.transform.position);
                                 nearestPlayer = player;
                             }
                         }
@@ -400,15 +376,11 @@ public class EnemyAI : MonoBehaviour
                 else
                 {
                     float dist = CalculatePathLength(player.transform.position);
-                    //Vector2 thisV2 = new Vector2(transform.position.x, transform.position.z);
-                    //Vector2 targetV2 = new Vector2(player.transform.position.x, player.transform.position.z);
-                    //float dist = Vector2.Distance(thisV2, targetV2);
                     if (shortestDistance == 0 || dist < shortestDistance)
                     {
                         if (!CheckButcher(player) || BattleManager.getPlayers().Count == 2)
                         {
                             shortestDistance = dist;
-                            //Vector3.Distance(transform.position, player.transform.position);
                             nearestPlayer = player;
                         }
                     }

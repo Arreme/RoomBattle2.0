@@ -12,13 +12,6 @@ public class SpawnRingManager : MonoBehaviour
     {
         StartCoroutine(spawnShrinker());
     }
-    //0.4627451
-    //0.3372549
-    //0.3411765
-
-    //0.654902
-    //0.7370836
-    //0.7370836
     private IEnumerator spawnShrinker()
     {
         yield return new WaitForSeconds(timeForShrink);
@@ -34,13 +27,13 @@ public class SpawnRingManager : MonoBehaviour
         float t = 0;
         Color startColor = new Color(0.654902f, 0.7370836f, 0.852f);
         Color targetColor = new Color(0.4627451f, 0.3372549f, 0.3411765f);
-        for(; ; )
+        for (; ; )
         {
-            RenderSettings.ambientLight = Color.Lerp(startColor,targetColor,t);
+            RenderSettings.ambientLight = Color.Lerp(startColor, targetColor, t);
             yield return new WaitForFixedUpdate();
             if (t == 1) break;
             else t += 0.005f;
         }
-        
+
     }
 }

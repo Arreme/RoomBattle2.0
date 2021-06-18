@@ -9,7 +9,6 @@ public class Television : Interactable
     public override void RunInteraction(GameObject gameObject)
     {
         float speed = gameObject.GetComponentInParent<Rigidbody>().velocity.magnitude;
-        Debug.Log(speed);
         if (speed >= 7)
         {
             _throw += 0.5f;
@@ -36,8 +35,8 @@ public class Television : Interactable
         _throw = 0;
         _animator.SetFloat("Destroy", 0);
         _animator.Play("TelevisionRecovery", 0);
-        _animator.Play("TelevisionRecovery", 0,0);
+        _animator.Play("TelevisionRecovery", 0, 0);
         _animator.Play("TelevisionFall", 0, 0);
     }
-    
+
 }

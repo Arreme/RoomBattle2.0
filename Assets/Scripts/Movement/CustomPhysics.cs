@@ -41,9 +41,9 @@ public class CustomPhysics : MonoBehaviour
     {
         if (Vector2.zero != _angularForce)
         {
-            Vector2 forward = new Vector2(transform.forward.x,transform.forward.z);
+            Vector2 forward = new Vector2(transform.forward.x, transform.forward.z);
             Vector3 bisec = bisector(_angularForce.normalized, forward);
-            _rb.angularVelocity = new Vector3(0, _angularForce.magnitude* Mathf.Sin(-Mathf.Deg2Rad * Vector2.SignedAngle(new Vector2(bisec.x,bisec.z), _angularForce.normalized)) / _rb.mass, 0);
+            _rb.angularVelocity = new Vector3(0, _angularForce.magnitude * Mathf.Sin(-Mathf.Deg2Rad * Vector2.SignedAngle(new Vector2(bisec.x, bisec.z), _angularForce.normalized)) / _rb.mass, 0);
             _angularForce = Vector3.zero;
         }
     }
@@ -58,22 +58,21 @@ public class CustomPhysics : MonoBehaviour
 
     private void LinearMovement()
     {
-        Vector3 a = new Vector3(_force.x,0,_force.y) / _rb.mass;
+        Vector3 a = new Vector3(_force.x, 0, _force.y) / _rb.mass;
         _force = Vector2.zero;
         _rb.velocity += finalVelocity(a);
         _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, _pVar._outMaxSpeed);
-        _pVar._outMaxSpeed = Mathf.Lerp(_pVar._outMaxSpeed,_pVar._baseMaxSpeed,_pVar.lerp);
+        _pVar._outMaxSpeed = Mathf.Lerp(_pVar._outMaxSpeed, _pVar._baseMaxSpeed, _pVar.lerp);
     }
 
-    public void addForce(Vector2 direction,float newtons)
+    public void addForce(Vector2 direction, float newtons)
     {
         _force = direction * newtons;
     }
 
     public Vector3 finalVelocity(Vector3 a)
     {
-        //vel = v0 + a*t
-        return a*Time.deltaTime;
+        return a * Time.deltaTime;
     }
     #endregion
 
@@ -83,13 +82,14 @@ public class CustomPhysics : MonoBehaviour
         {
             _rb.angularVelocity = new Vector3(0, _rb.angularVelocity.y, 0);
             transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
-        } else
+        }
+        else
         {
             _rb.constraints = 0;
-            _rb.AddForce((transform.forward*3 + new Vector3(0, 3, 0)) * 100,ForceMode.Acceleration);
-            _rb.AddTorque(transform.forward*10);
+            _rb.AddForce((transform.forward * 3 + new Vector3(0, 3, 0)) * 100, ForceMode.Acceleration);
+            _rb.AddTorque(transform.forward * 10);
         }
-        
+
     }
 
     void OnCollisionEnter(Collision collisionInfo)
@@ -105,12 +105,11 @@ public class CustomPhysics : MonoBehaviour
 
     public static Vector3 bisector(Vector2 a, Vector2 b)
     {
-        //dot( A, A )*dot( B, B ) - dot( A, B ) * dot( A, B ) = 0
-        if (Vector2.Dot(a,b) <= -0.9999f)
+        if (Vector2.Dot(a, b) <= -0.9999f)
         {
-            return new Vector3(a.y,0, - a.x);
+            return new Vector3(a.y, 0, -a.x);
         }
         Vector2 bisector = (b.magnitude * a + a.magnitude * b).normalized;
-        return new Vector3(bisector.x,0,bisector.y);
+        return new Vector3(bisector.x, 0, bisector.y);
     }
 }

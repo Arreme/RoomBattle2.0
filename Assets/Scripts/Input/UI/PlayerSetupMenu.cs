@@ -142,7 +142,6 @@ public class PlayerSetupMenu : MonoBehaviour
             }
             else
             {
-                Debug.Log("HAHA");
                 Array values = Enum.GetValues(typeof(Colors));
                 System.Random random = new System.Random();
                 Colors randomColor = (Colors)values.GetValue(random.Next(values.Length));
