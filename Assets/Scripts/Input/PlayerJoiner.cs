@@ -24,6 +24,17 @@ public class PlayerJoiner : MonoBehaviour
     private int _id;
     private bool _firstKeyboard = false;
     private bool _secondKeyboard = false;
+    private bool inputDelay = true;
+
+    private void Awake()
+    {
+        StartCoroutine(delay());
+    }
+    private IEnumerator delay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        inputDelay = false;
+    }
 
     void Update()
     {
@@ -33,6 +44,11 @@ public class PlayerJoiner : MonoBehaviour
             if (_shiftJoin != null) Destroy(_shiftJoin);
             if (_enterJoin != null) Destroy(_enterJoin);
             if (_xJoin != null) Destroy(_xJoin);
+            return;
+        }
+
+        if (inputDelay)
+        {
             return;
         }
 
