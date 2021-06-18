@@ -46,7 +46,7 @@ public class BattleManager : MonoBehaviour
         _players = new List<GameObject>();
         InvokeRepeating("createPickUp", 10, 10);
         StartCoroutine(checkForWin());
-        AudioManager.Instance._PlayMusic("InGame");
+        AudioManager.Instance._PlayMusic("InGame", true);
     }
 
     public void Explosion(GameObject obj)

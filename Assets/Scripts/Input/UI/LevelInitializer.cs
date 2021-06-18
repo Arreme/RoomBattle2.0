@@ -21,13 +21,13 @@ public class LevelInitializer : MonoBehaviour
         Debug.Log(PlayerConfigManager.Instance.runAnimation);
         if (PlayerConfigManager.Instance.runAnimation)
         {
-            AudioManager.Instance._PlayMusic("InGame");
+            AudioManager.Instance._PlayMusic("InGame", true);
             anim.Play("levelStart2");
             StartCoroutine(gameStart(10f));
         }
         else
         {
-            AudioManager.Instance._PlayMusic("Restart");
+            AudioManager.Instance._PlayMusic("Restart", true);
             StartCoroutine(gameStart(0f));
         }
     }

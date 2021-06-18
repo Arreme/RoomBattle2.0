@@ -13,7 +13,7 @@ public class CreditsInitializer : MonoBehaviour
     private TextMeshProUGUI _text;
     private void Start()
     {
-        AudioManager.Instance._PlayMusic("Ending");
+        AudioManager.Instance._PlayMusic("Ending", true);
         var playerConfig = PlayerConfigManager.Instance._deadPlayers;
         PlayerConfigManager.Instance._endScreen = true;
         int offset = 6 - playerConfig.Count;
@@ -29,7 +29,7 @@ public class CreditsInitializer : MonoBehaviour
         }
         else
         {
-            if (playerConfig[playerConfig.Count-1].IsIA) _text.SetText("IA " + (playerConfig[playerConfig.Count - 1].PlayerIndex + 1) + " WINS");
+            if (playerConfig[playerConfig.Count - 1].IsIA) _text.SetText("IA " + (playerConfig[playerConfig.Count - 1].PlayerIndex + 1) + " WINS");
             else _text.SetText("PLAYER " + (playerConfig[playerConfig.Count - 1].PlayerIndex + 1) + " WINS");
         }
     }
